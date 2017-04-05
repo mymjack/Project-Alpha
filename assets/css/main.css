@@ -2931,7 +2931,7 @@
 	.navPanelToggle {
 		text-decoration: none;
 		text-decoration: none;
-		height: 100%;
+		height: relative;
 		left: 0;
 		position: absolute;
 		top: 0;
@@ -2988,7 +2988,7 @@
 		top: 0;
 		background: #222;
 		color: #fff;
-		height: 100%;
+		height: relative;
 		max-width: 80%;
 		width: 20em;
 		padding: 0.5em 1.25em;
@@ -3715,6 +3715,11 @@ button.list-group-item-danger.active:focus {
   background-color: #fff;
   border: 1px solid #ddd;
   padding-left: 1em;
+
+
+  /* Increase gap for list */
+  padding-bottom: 1em
+
 }
 
 .display-content img {
@@ -3724,6 +3729,8 @@ button.list-group-item-danger.active:focus {
 }
 
 .display-content h4 {
+	margin-right: 1em;
+	margin-top: 1em;
 	float: right;
 }
 
