@@ -34,71 +34,126 @@
 
 					<header class="major special">
 						<h2>Market</h2>
-						<p>This is where flyers choose their items</p>
 					</header>
 
-					<div class="4u$">
-						<div class="select-wrapper">
-							<select name="category" id="category">
-								<option value="">- Category -</option>
-								<option value="1">Cat #1</option>
-								<option value="1">Cat #2</option>
-								<option value="1">Cat #3</option>
-								<option value="1">Cat #4</option>
-							</select>
-						</div>
-					</div>
-
-					<p></p>
-
-					<div class="6u$ 12u$(small)">
-						<input type="checkbox" id="human" name="human" checked>
-						<label for="human">This is a checkbox</label>
-					</div>
-
-					<p></p>
-
-					<div class="box alt">
-						<div class="row 50% uniform">
-							<div class="3u"><a href="#"><span class="image fit"><img src="../images/pic02.jpg" alt="" /></span></a></div>
-							<div class="3u"><span class="image fit"><img src="../images/pic03.jpg" alt="" /></span></div>
-							<!-- <div class="3u"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div> -->
+											<div class="row 150%">
+							<div class="6u 12u$(xsmall)">
 
 
+								<form class="flight-filter" method="post" action="#">
+									<div class="row uniform 50%">
+										<div class="5u 12u$(xsmall)">
+											<input type="text" name="departure" id="departure" value="" placeholder="Departure" />
+										</div>
+										<div class="2u 12u$(xsmall">
+											<p>to</p>
+										</div>
+										<div class="5u$ 12u$(xsmall)">
+											<input type="text" name="arrival" id="arrival" value="" placeholder="Arrival" />
+										</div>
 
-							<!-- Testing Out Hover Effect -->
-							<!-- <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12"> -->
-							<div class="3u">
-							    <div class="hovereffect">
-							        <a href="flyer-item.html"><img class="img-responsive" src="../images/pic08.jpg" alt=""></a>
-							            <div class="overlay">
-							                <h2>Item #3</h2>
-							                <p class="icon-links">
-							                    <a href="#">
-							                        <span class="fa fa-shopping-cart"></span>
-							                    </a>
-							                    <a href="#">
-							                        <span class="fa fa-heart"></span>
-							                    </a>
-							                </p>
-							            </div>
-							    </div>
+										<div class="6u 12u$(xsmall)">
+											<div class="select-wrapper">
+												<select name="category" id="category">
+													<option value="">- Sort By -</option>
+													<option value="1">Date</option>
+													<option value="1">Price</option>
+													<option value="1">Relevance</option>
+													<option value="1">Cat #4</option>
+												</select>
+											</div>
+										</div>
+
+										<div class="3u 12u$(xsmall)">
+											<div class="select-wrapper">
+												<select name="category" id="category">
+													<option value="">- Price Range -</option>
+													<option value="1">Opt #1</option>
+													<option value="1">Opt #2</option>
+													<option value="1">Opt #3</option>
+													<option value="1">Opt #4</option>
+												</select>
+											</div>
+										</div>
+
+										<div class="3u$ 12u$(xsmall)">
+											<div class="select-wrapper">
+												<select name="category" id="category">
+													<option value="">- Date -</option>
+													<option value="1">Opt #1</option>
+													<option value="1">Opt #2</option>
+													<option value="1">Opt #3</option>
+													<option value="1">Opt #4</option>
+												</select>
+											</div>
+										</div>
+										<pr></pr>
+										<!--
+										<div class="4u 12u$(xsmall)">
+											<input type="radio" id="priority-low" name="priority" checked>
+											<label for="priority-low">Button A</label>
+										</div>
+										<div class="4u 12u$(xsmall)">
+											<input type="radio" id="priority-normal" name="priority">
+											<label for="priority-normal">Button B</label>
+										</div>
+										<div class="4u$ 12u$(xsmall)">
+											<input type="radio" id="priority-high" name="priority">
+											<label for="priority-high">Button C</label>
+										</div> -->
+
+									</div>
+								</form>
+
+
+
+
+
+
+								<div class="12u$ 12u$(medium)">
+									<div class="main-group-display-content">
+										<a href="#" class="display-content">Test
+											<h4>Toronto -> Beijing </h4>
+										</a>
+
+										<a href="#" class="display-content"><img src="../images/pic10.png">
+											<h4>Vancouver -> Shanghai </h4>
+										</a>
+
+										<!--<a href="#" class="display-content">
+											<div class="display-image">
+												<img src="images/pic10.png">
+											</div>
+											<h4>Vancouver -> Shanghai</h4>
+									
+										</a>-->
+									</div>
+									
+								</div>
+
 							</div>
+							<div class="6u$ 12u$(xsmall)">
 
+							<!-- Map -->
+							<div id="map" style="width:100%;height:800px;"></div>
 							<script>
-							$(document).ready(function(){
-    							$('[data-toggle="tooltip"]').tooltip();   
-							});
+								function myMap() {
+								  var myCenter = new google.maps.LatLng(43.783727,-79.291974);
+								  var mapCanvas = document.getElementById("map");
+								  var mapOptions = {center: myCenter, zoom: 12};
+								  var map = new google.maps.Map(mapCanvas, mapOptions);
+								  var marker = new google.maps.Marker({position:myCenter});
+								  marker.setMap(map);
+
+								  // New marker
+								  var newPoint = new google.maps.LatLng(43.75,-79.21);
+								  var marker2 = new google.maps.Marker({position:newPoint})
+								  marker2.setMap(map);
+								}
 							</script>
-
-
-
-
-
-							<div class="3u$"><span class="image fit"><img src="../images/pic02.jpg" alt="" /></span></div>
-							<div class="3u"><span class="image fit"><img src="../images/pic03.jpg" alt="" /></span></div>
-						</div>
-					</div>
+							<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDWSdCxe0Mlwiw7cvZielK6kvlt_naC9E&callback=myMap"></script>
+								</div>
+							</div>
 
 
 					<!-- <a href="#" class="image fit"><img src="images/pic01.jpg" alt="" /></a> -->
