@@ -5,29 +5,6 @@
 	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 -->
 
-<!-- PHP code - Andrew -->
-<?php
-   $vars = array("name", "ari", "dep","cell","space","description");
-   $con = mysqli_connect("localhost","root","root","test");
-   if (!$con) {
-   	// Database could not be opened
-   	echo "<b>Database could not be opened</b>";
-   }
-   else
-   {
-   		// The form variables, use only what is set and decode any < > symbols
-   		for ($i = 0; $i < sizeof($vars); $i++)
-   		{
-   			if (isset($_POST[$vars[$i]]))
-   			{
-   			    $text =  htmlspecialchars_decode($_POST[$vars[$i]]);
-    	 	    printf("%s: $vars[$i] - %s<br />",$i, $text);
-   			}	
-   		}			
-  
-   		mysqli_close($con);
-   	}
-?>
 
 <html>
 	<head>
@@ -37,6 +14,41 @@
 		<link rel="stylesheet" href="../assets/css/main.css" />
 	</head>
 	<body>
+
+<!-- PHP code - Andrew -->
+<?php
+	
+   $name = htmlspecialchars_decode($_POST['name']);	
+   $ari = htmlspecialchars_decode($_POST['ari']);
+   $dep = htmlspecialchars_decode($_POST['dep']);
+   $cell = htmlspecialchars_decode($_POST['cell']);
+   $space = htmlspecialchars_decode($_POST['space']);
+   $description = htmlspecialchars_decode($_POST['description']);
+             
+   $con = mysqli_connect("localhost","root","root","test");
+   
+   if (!$con) {
+   	// Database could not be opened
+   	echo "<b>Database could not be opened</b>";
+   }
+   else
+   {	
+   			if (empty($name) || empty($ari) || empty($dep))	
+   			{
+      			;; //No mandatory fields filled, bail
+      			echo "<b>Manadatory fields not filled</b>";
+      		}
+      		else
+      		{
+      			//Add table entry   				
+   				$query = "INSERT INTO `requests` (`name`,`arrivals`,`departures`,`cell`,`space`,`description`) VALUES ('$name','$ari','$dep','$cell','$space','$description');";
+					mysqli_query($con,$query);
+				   		mysqli_commit($con);
+			}
+			
+   		mysqli_close($con);
+   	}
+?>
 
 		<!-- Header -->
 			<header id="header">
