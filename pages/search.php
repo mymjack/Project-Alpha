@@ -14,21 +14,27 @@
 
 <?php
 
+	$sortfilter = htmlspecialchars_decode($_POST['sortcategory']);	
+	$limit = htmlspecialchars_decode($_POST['limit']);
+
+	if (!empty($sortfilter)) 
+	{
+			
 	$con = mysqli_connect("localhost","root","root","test");
-	$query = "";
-
-	$sortfilter = htmlspecialchars_decode($_POST['sortcategory']);
-	$pricefilter = htmlspecialchars_decode($_POST['pricecategory']);
-	$datefilter = htmlspecialchars_decode($_POST['datecategory']);
-
-	$query = "SELECT `$sortfilter` FROM `test`.`requests` LIMIT 10";				
-		echo $query;
+	
+	$query = "SELECT `$sortfilter` FROM `requests` ORDER BY `$sortfilter` desc LIMIT $limit";					
+	
+		//	printf("%s<br />",$query);
 		
-		mysqli_query($con, $query);
-		mysqli_commit($con);				
+		$res = mysqli_query($con, $query);
+		
+		do {
+			$array = mysqli_fetch_row($res);
+				printf("%s<br />", $array[0]);
+		} while ($array != NULL);
 				
-	mysqli_close($con);
-
+		mysqli_close($con);
+	}	
 ?>
 
 	<head>
@@ -93,22 +99,7 @@
 
 					</header>
 
-
-
-
-
-
-
 					<p></p>
-
-
-
-
-
-
-
-
-
 
 
 						<div class="row 150%">
@@ -148,13 +139,11 @@
 
 													<option value="">- Sort By -</option>
 
-													<option value="date">Date</option>
+													<option value="traveldate">Travel date</option>
 
-													<option value="price">Price</option>
+													<option value="publishdate">Publish date</option>
 
-													<option value="relevance">Relevance</option>
-
-													<option value="other">Cat #4</option>
+													<option value="distance">Distance</option>
 
 												</select>
 
@@ -162,31 +151,34 @@
 
 										</div>
 
-
-
+					
 										<div class="3u 12u$(xsmall)">
 
 											<div class="select-wrapper">
 
-												<select name="pricecategory" id="category">
+												<select name="limit" id="order">
 
-													<option value="">- Price Range -</option>
+													<option value="">- Limit -</option>
 
-													<option value="1">Opt #1</option>
+													<option value="5">5 entries</option>
 
-													<option value="2">Opt #2</option>
+													<option value="10">10 entries</option>
 
-													<option value="3">Opt #3</option>
+													<option value="20">20 entries</option>
 
-													<option value="4">Opt #4</option>
+													<option value="30">30 entries</option>
+
+													<option value="40">40 entries</option>
+
+													<option value="50">50 entries</option>
+
 												</select>
 
 											</div>
 
 										</div>
 
-
-
+										<!--
 										<div class="3u$ 12u$(xsmall)">
 
 											<div class="select-wrapper">
@@ -208,6 +200,7 @@
 											</div>
 
 										</div>
+										-->
 
 										<!--
 
@@ -235,7 +228,7 @@
 
 										</div> -->
 										
-							<div class="checkout-button">
+							<div class="checkout-button" style="margin-top: 10px;">
 								<div class="row uniform 50%">
 									<div class="12u$">
 										<ul class="actions">

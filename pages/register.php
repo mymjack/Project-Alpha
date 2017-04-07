@@ -5,25 +5,38 @@
 	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 -->
 
-
 <html>
 	<head>
 		<title>Register - George</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="../assets/css/main.css" />
+		<link rel="stylesheet" href="../assets/css/main.css" />	
+		
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">	
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<script>
+    var j = jQuery.noConflict();
+    j( function() {
+        j( "#datepicker" ).datepicker();
+    } );
+</script>
 	</head>
 	<body>
 
 <!-- PHP code - Andrew -->
 <?php
-	
+
    $name = htmlspecialchars_decode($_POST['name']);	
    $ari = htmlspecialchars_decode($_POST['ari']);
    $dep = htmlspecialchars_decode($_POST['dep']);
    $cell = htmlspecialchars_decode($_POST['cell']);
    $space = htmlspecialchars_decode($_POST['space']);
    $description = htmlspecialchars_decode($_POST['description']);
+   $month = htmlspecialchars_decode($_POST['month']);
+   $day = htmlspecialchars_decode($_POST['day']);
+   $year = htmlspecialchars_decode($_POST['year']);
              
    $con = mysqli_connect("localhost","root","root","test");
    
@@ -32,22 +45,30 @@
    	echo "<b>Database could not be opened</b>";
    }
    else
-   {	
-   			if (empty($name) || empty($ari) || empty($dep))	
+   {	 
+   
+   			if (empty($name) || empty($ari) || empty($dep) ||
+   				empty($year) || empty($day) || empty($month))
    			{
       			;; //No mandatory fields filled, bail
       			echo "<b>Manadatory fields not filled</b>";
       		}
       		else
       		{
+      			$traveldate = "$year-$month-$day";
+      			
+      			$date = getdate();
+      			$publishdate = sprintf("%s-%s-%s",$date["year"],$date["mon"],$date["mday"]);
+      			
       			//Add table entry   				
-   				$query = "INSERT INTO `requests` (`name`,`arrivals`,`departures`,`cell`,`space`,`description`) VALUES ('$name','$ari','$dep','$cell','$space','$description');";
+   				$query = "INSERT INTO `requests` (`name`,`arrivals`,`publishdate`,`traveldate`,`departures`,`cell`,`space`,`description`) VALUES ('$name','$ari','$publishdate','$traveldate','$dep','$cell','$space','$description');";
 					mysqli_query($con,$query);
 				   		mysqli_commit($con);
 			}
 			
    		mysqli_close($con);
    	}
+   		
 ?>
 
 		<!-- Header -->
@@ -109,8 +130,11 @@
 								<div class="1u 12$(xsmall)">
 									<p>Date*:</p>
 								</div>
-								<div class="2u 12$(xsmall)">
-									<p>Implement Datepicker</p>
+								
+								<div class="3u 12u$(xsmall)">
+								<div class="select-wrapper">
+									<input id="datepicker" type="text" />
+								</div>
 								</div>
 
 								<div class="3u 12$(xsmall)"></div>
