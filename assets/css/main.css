@@ -4072,8 +4072,7 @@ button.display-content-danger.active:focus {
 
 
 	.search-dep {
-		width: 50%;
-		float:left;
+		width: 40%;
 	}
 
 	.search-to {
@@ -4081,7 +4080,9 @@ button.display-content-danger.active:focus {
 	}
 
 	.search-ari {
-		width:50%;
+		width: 50%;
+		clear: none;
+		margin-left: 0;
 		float: right;
 	}
 
@@ -4109,6 +4110,13 @@ button.display-content-danger.active:focus {
 	}*/
 
 
+}
+
+.usr-text {
+	float: right;
+}
+.pw-text {
+	float:right;
 }
 
 
