@@ -86,7 +86,7 @@
 				</nav>
 			</header>
 
-			<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+			<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
 
 		<!-- Main -->
 			<div class="checkout-page">

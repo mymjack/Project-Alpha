@@ -21,7 +21,7 @@
 						<li><a href="pages/register.php">Register Your Flight</a></li>
 						<li><a href="pages/market.html">Market</a></li>
 						<li><a href="pages/faq.html">FAQ</a></li>
-						<li><a class="cd-signin" href="#0">Sign in</a></li>
+						<li><a href="pages/usr-login.html">Sign in</a></li>
 					</ul>
 				</nav>
 			</header>
