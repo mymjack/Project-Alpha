@@ -11,7 +11,6 @@
 		<link rel="stylesheet" href="../assets/css/main.css" />
 	</head>
 	<body>
-
 		<!-- Header -->
 			<header id="header">
 				<h1><strong><a href="../index.html">Login form</a></strong> Input</h1>
@@ -24,7 +23,6 @@
 					</ul>
 				</nav>
 			</header>
-
 			<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
 
 		<!-- Main -->
@@ -37,9 +35,7 @@
 							<p>User Input</p>
 						</header>
 
-
-
-						<!-- Test Username pw -->
+						<!-- Change -->
 						<form action = "" method = "post">
               			    <label>UserName  :</label><input type = "text" name = "username" class = "box"/><br /><br />
                   			<label>Password  :</label><input type = "password" name = "password" class = "box" /><br/><br />

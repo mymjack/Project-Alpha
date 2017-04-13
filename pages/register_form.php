@@ -10,6 +10,8 @@
    $month = htmlspecialchars_decode($_POST['month']);
    $day = htmlspecialchars_decode($_POST['day']);
    $year = htmlspecialchars_decode($_POST['year']);
+
+   $travel = htmlspecialchars_decode($_POST['datepicker']);
              
    $con = mysqli_connect("127.0.0.1","root","Shgl123.","otto_db1");
    
@@ -20,24 +22,33 @@
    else
    {	 
    
-   			if (empty($name) || empty($ari) || empty($dep) ||
-   				empty($year) || empty($day) || empty($month))
-   			{
-      			;; //No mandatory fields filled, bail
-      			echo "<b>Manadatory fields not filled</b>";
-      		}
-      		else
-      		{
-      			$traveldate = "$year-$month-$day";
+   			//if (empty($name) || empty($ari) || empty($dep) ||
+   			//	empty($year) || empty($day) || empty($month))
+   			//{
+      		//	;; //No mandatory fields filled, bail
+      		//	echo "<b>Manadatory fields not filled</b>";
+      		//}
+      		//else
+      		//{
+      			//$traveldate = "$year-$month-$day";
       			
+
+               date_default_timezone_set('America/Toronto');
       			$date = getdate();
-      			$publishdate = sprintf("%s-%s-%s",$date["year"],$date["mon"],$date["mday"]);
-      			
+      			//$publishdate = sprintf("%s-%s-%s",$date["year"],$date["mon"],$date["mday"]);
+      			// YEAR-month-day
+               $publishdate = date('Y-n-j H:i:s');
+
       			//Add table entry   				
-   				$query = "INSERT INTO `requests` (`name`,`arrivals`,`publishdate`,`traveldate`,`departures`,`cell`,`space`,`description`) VALUES ('$name','$ari','$publishdate','$traveldate','$dep','$cell','$space','$description');";
-					mysqli_query($con,$query);
+   				$query = "INSERT INTO `usr_regis` (`name`,`arrivals`,`publishdate`,`traveldate`,`departures`,`cell`,`space`,`description`) VALUES ('$name','$ari','$publishdate','$travel','$dep','$cell','$space','$description');";
+					$result = mysqli_query($con,$query);
 				   		mysqli_commit($con);
-			}
+               if ($result) {
+                  echo "ok";
+               } else {
+                  echo "no";
+               }
+			//}
 			
    		mysqli_close($con);
    	} 		

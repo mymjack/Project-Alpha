@@ -1124,6 +1124,19 @@
 			padding: 0 0 0 1.25em;
 		}
 
+		.single-header {
+			display: none;
+		}
+
+		.single-left-col {
+			width: 50%;
+		}
+
+		.single-right-col {
+			width: 50%;
+			float: right;
+		}
+
 		.row {
 			margin: 0 0 -1px -1.25em;
 		}
@@ -1337,6 +1350,15 @@
 
 		.row > * {
 			padding: 0 0 0 1.25em;
+		}
+
+		.single-left-col .row {
+			width: 50%;
+		}
+
+		.single-right-col {
+			width: 50%;
+			float: right;
 		}
 
 		.row {
@@ -4118,6 +4140,7 @@ button.display-content-danger.active:focus {
 .pw-text {
 	float:right;
 }
+
 
 
 

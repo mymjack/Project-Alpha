@@ -12,7 +12,7 @@
          $_SESSION['login_user'] = $myusername;
          header("location: welcome.php");
       } else {
-         echo "User exists";
+         echo "<h4>User exists</h4>";
       }
       //$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
       //$active = $row['active'];
