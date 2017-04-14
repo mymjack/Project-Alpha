@@ -5,7 +5,7 @@
 ?>
 <html>
 	<head>
-		<title>User Login - George</title>
+		<title>会员登录 - Otto带物</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="../assets/css/main.css" />
@@ -13,16 +13,18 @@
 	<body>
 		<!-- Header -->
 			<header id="header">
-				<h1><strong><a href="../index.html">Login form</a></strong> Input</h1>
+				<h1><strong><a href="../index.php">Otto首页</a></strong> 用户登录</h1>
 				<nav id="nav">
 					<ul>
-						<li><a href="../index.html">Home</a></li>
-						<li><a href="market.html">Market</a></li>
+						<li><a href="../index.php">首页</a></li>
+						<li><a href="register.php">登记航班</a></li>
+						<li><a href="search.php?filter=publishdate">航班表</a></li>
 						<li><a href="faq.html">FAQ</a></li>
-						<li><a href="usr-login.php">Sign in</li>
+						<li><a href="welcome.php">会员登录</a></li>
 					</ul>
 				</nav>
 			</header>
+
 			<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
 
 		<!-- Main -->
@@ -31,63 +33,43 @@
 					<div class="container">
 
 						<header class="major special">
-							<h2>Login Form</h2>
-							<p>User Input</p>
+							<h2>会员登录</h2>
 						</header>
 
 						<!-- Change -->
 						<form action = "" method = "post">
-              			    <label>UserName  :</label><input type = "text" name = "username" class = "box"/><br /><br />
-                  			<label>Password  :</label><input type = "password" name = "password" class = "box" /><br/><br />
-               		   		<input type = "submit" value = " Submit "/><br />
-               			</form>
-
-
-
-
-
-
-
-
-						<form method="post" action="#">
 							<div class="row uniform 50%">
-
-								<!-- Line 1 -->
 								<div class="3u 12$(xsmall)">
 									<div class="usr-text">
-									<p>Username:</p>
-									</div>
+              			   			<p>用户名  :</p>
+              			   			</div>
+              			    	</div>
+              			    
+	              			    <div class="8u$ 12$(xsmall)">
+	              			    	<input type = "text" name = "username" class = "box"/><br /><br />
+	              			    </div>
+
+              			    	<div class="3u 12$(xsmall)">
+              			    		<div class="pw-text">
+                  						<p>密码  :</p>
+                  					</div>
+                  				</div>
+
+                  				<div class="8u$ 12$(xsmall)">
+                  					<input type = "password" name = "password" class = "box" /><br/><br />
+                  				</div>
+               		   		
+               		   			<div class="12u$">
+									<ul class="actions">
+										<li><input class="button special small" type = "submit" value = " 登录 "/><br /><br/></li>
+									</ul>
 								</div>
-								<div class="4u$ 12$(xsmall)">
-									<input type="text" name="usr-name" id="usr-name" value="" placeholder="" />
-								</div>
 
-
-								<!-- Line 2 -->
-								<div class="3u 12$(xsmall)">
-									<div class="pw-text">
-									<p>Password:</p>
-									</div>
-								</div>
-
-								<div class="4u$ 12$(xsmall)">
-									<input type="text" name="usr-pw" id="usr-pw" value="" placeholder="" />
-								</div>
-
-								<a href="usr-regis.php">register</a>
-
-
-
-							</div>
-
-								<div class="row uniform 50%">
-									<div class="12u$">
-										<ul class="actions">
-											<li><input class="button special" type="submit" value="Submit"></li>
-										</ul>
-									</div>
-								</div>
-				</form>
+               		   		</div>
+               			</form>
+               			<ul class="actions">
+               				<li><a href="usr-regis.php">新用户注册</a></li>>
+               			</ul>
 					<!-- <a href="#" class="image fit"><img src="images/pic01.jpg" alt="" /></a> -->
 					</div>
 				</section>
@@ -95,14 +77,8 @@
 		<!-- Footer -->
 			<footer id="footer">
 				<div class="container">
-					<ul class="icons">
-						<li><a href="#" class="icon fa-facebook"></a></li>
-						<li><a href="#" class="icon fa-twitter"></a></li>
-						<li><a href="#" class="icon fa-instagram"></a></li>
-						<li><a href="#" class="icon fa-github"></a></li>
-					</ul>
 					<ul class="copyright">
-						<li>&copy; George</li>
+						<li>&copy; Otto Group</li>
 						<!-- <li>Design: <a href="http://templated.co">TEMPLATED</a></li>
 						<li>Images: <a href="http://unsplash.com">Unsplash</a></li> -->
 					</ul>

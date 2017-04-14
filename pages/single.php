@@ -18,14 +18,18 @@
 	}
 	while($row = mysql_fetch_array($result)) {
 		$name = $row['name'];
+		$dep = $row['departures'];
+		$ari = $row['arrivals'];
 		$traveldate = $row['traveldate'];
+		$cell = $row['cell'];
+		$des = $row['description'];
 		// repeat for all rows
 	}
 ?>
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Single - George</title>
+		<title>带物信息 - Otto带物</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="../assets/css/main.css" />
@@ -33,17 +37,18 @@
 	<body>
 
 		<!-- Header -->
-			<header id="header">
-				<h1><strong><a href="../index.html">Single</a></strong> Single Info Page</h1>
-				<nav id="nav">
-					<ul>
-						<li><a href="../index.html">Home</a></li>
-						<li><a href="market.html">Market</a></li>
-						<li><a href="faq.html">FAQ</a></li>
-						<li><a href="member.html">MEMBER</a></li>
-					</ul>
-				</nav>
-			</header>
+		<header id="header">
+			<h1><strong><a href="../index.php">Otto首页</a></strong> 航班表</h1>
+			<nav id="nav">
+				<ul>
+					<li><a href="../index.php">首页</a></li>
+					<li><a href="register.php">登记航班</a></li>
+					<li><a href="search.php?filter=publishdate">航班表</a></li>
+					<li><a href="faq.html">FAQ</a></li>
+					<li><a href="welcome.php">会员登录</a></li>
+				</ul>
+			</nav>
+		</header>
 
 			<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
 
@@ -51,47 +56,36 @@
 			<section id="main" class="wrapper">
 				<div class="container">
 
-					<div class="single-header">
-					<header class="major special">
-						<h2>Page</h2>
-						<p>O</p>
-					</header>
-					</div>
-
-
 					<div class="row">
 						<div class="single-left-col">
-						<div class="3u 12u$(medium)">
-							<h4>Name</h4><?php echo "<p>$name</p>" ?>
+						<div class="4u$ 12u$(medium)">
+							<h4>联系人</h4><?php echo "<p>$name</p>" ?>
 						</div>
 						</div>
 
 						<div class="single-right-col">
 						<div class="3u 12u$(medium)">
-								<h4>Date</h4><p><?php echo "$traveldate"?> </p>
+							<h4>日期</h4><p><?php echo "$traveldate"?> </p>
 						</div>
 						</div>
 
 						<div class="single-left-col">
 						<div class="3u$ 12u$(medium)">
-							<h4>Destination</h4><p>3</p>
+							<h4>目的地</h4><p><?php echo "$dep -> $ari"?></p>
 						</div>
 						</div>
 
 						<div class="single-right-col">
 						<div class="5u 12u$(medium)">
-							<h4>Contact</h4><p>4</p>
+							<h4>联系方式</h4><p><?php echo "$cell"?></p>
 						</div>
-						</div>
-						<div class="4u$ 12u$(medium)">
-							<h4>Price</h4><p>5</p>
 						</div>
 
 						<p></p>
 
 						<div class="12u$ 12u$(medium)">
-							<h4>Description</h4>
-							<p>Name, Contact, Weight, Price, Date, Dep->Ari + Stops (if any), Preferred place to Meet (also used to set markers on google map), Descriptions</p>
+							<h4>详细介绍</h4>
+							<p><?php echo "$des"?></p>
 						</div>
 
 					</div>
@@ -105,14 +99,8 @@
 		<!-- Footer -->
 			<footer id="footer">
 				<div class="container">
-					<ul class="icons">
-						<li><a href="#" class="icon fa-facebook"></a></li>
-						<li><a href="#" class="icon fa-twitter"></a></li>
-						<li><a href="#" class="icon fa-instagram"></a></li>
-						<li><a href="#" class="icon fa-github"></a></li>
-					</ul>
 					<ul class="copyright">
-						<li>&copy; George</li>
+						<li>&copy; Otto Group</li>
 						<!-- <li>Design: <a href="http://templated.co">TEMPLATED</a></li>
 						<li>Images: <a href="http://unsplash.com">Unsplash</a></li> -->
 					</ul>

@@ -1,12 +1,15 @@
+<?php
+	mysql_connect('127.0.0.1', 'root', 'Shgl123.') or die("cannot connect"); 
+	mysql_select_db('otto_db1') or die("cannot select DB");
+	session_start();
+
+	$sql = "SELECT id, name, departures, arrivals, description FROM usr_regis ORDER BY publishdate DESC LIMIT 5";
+	$result = mysql_query($sql);
+?>
 <!DOCTYPE HTML>
-<!--
-	Spatial by TEMPLATED
-	templated.co @templatedco
-	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
--->
 <html>
 	<head>
-		<title>Untitled #1 - George</title>
+		<title>Otto带物 - 首页</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -15,13 +18,13 @@
 
 		<!-- Header -->
 			<header id="header" class="alt">
-				<h1><strong><a href="index.html">Untitled</a></strong> #1</h1>
+				<h1><strong><a href="index.html">Otto</a></strong> 带物</h1>
 				<nav id="nav">
 					<ul>
-						<li><a href="pages/register.php">Register Your Flight</a></li>
-						<li><a href="pages/market.html">Market</a></li>
+						<li><a href="pages/register.php">登记航班</a></li>
+						<li><a href="pages/search.php?filter=publishdate">航班表</a></li>
 						<li><a href="pages/faq.html">FAQ</a></li>
-						<li><a href="pages/usr-login.html">Sign in</a></li>
+						<li><a href="pages/welcome.php">会员登录</a></li>
 					</ul>
 				</nav>
 			</header>
@@ -30,48 +33,78 @@
 
 		<!-- Banner -->
 			<section id="banner">
-				<!-- <h2>Spatial</h2> -->
-				<!-- <p>Lorem ipsum dolor sit amet nullam consequat <br /> interdum vivamus donce sed libero.</p> -->
-				<p>Start Your Search</p>
-				<form method="post" action="#">
+				<p>输入您想要带物回国到哪</p>
+				<form method="get" action="pages/search.php?page=1">
 					<div class="index-search">
-						<div class="row 200%">
+						<div class="row 100%">
 							<div class="3u 12u$(xsmall)">
-								<input type="text" name="search" id="search" value="" placeholder="Departure" />
+								<div class="select-wrapper">
+									<select name="dep" id="dep">
+										<option disababled selected value>- 出发地 -</option>
+										<option value="toronto">多伦多 Toronto</option>
+										<option value="markham">万锦 Markham</option>
+										<option value="mississauga">密市 Mississauga</option>
+										<option value="northyork">北约克 North York</option>
+									</select>
+								</div>
 							</div>
 							
-
 							<div class="3u 12u$(xsmall)">
-								<input type="text" name="search" id="search" value="" placeholder="Arrival" />
+							<div class="ari-drop">
+								<div class="select-wrapper">
+									<select name="arri" id="arri">
+										<option disabled selected value>- 目的地 -</option>
+										<option value="北京">北京</option>
+										<option value="上海">上海</option>
+										<option value="广东">广东</option>
+										<option value="香港">香港</option>
+										<option value="重庆">重庆</option>
+										<option value="天津">天津</option>
+										<option value="澳门">澳门</option>
+										<option disabled>- 拼音排序 -</option>
+										<option value="安徽">安徽</option>
+										<option value="福建">福建</option>
+										<option value="贵州">贵州</option>
+										<option value="河北">河北</option>
+										<option value="黑龙江">黑龙江</option>
+										<option value="河南">河南</option>
+										<option value="湖北">湖北</option>
+										<option value="湖南">湖南</option>
+										<option value="海南">海南</option>
+										<option value="广西">广西</option>
+										<option value="甘肃">甘肃</option>
+										<option value="吉林">吉林</option>
+										<option value="江苏">江苏</option>
+										<option value="江西">江西</option>
+										<option value="辽宁">辽宁</option>
+										<option value="内蒙古">内蒙古</option>
+										<option value="宁夏">宁夏</option>
+										<option value="青海">青海</option>
+										<option value="陕西">陕西</option>
+										<option value="山西">山西</option>
+										<option value="山东">山东</option>
+										<option value="四川">四川</option>
+										<option value="西藏">西藏</option>
+										<option value="新疆">新疆</option>
+										<option value="云南">云南</option>
+										<option value="浙江">浙江</option>
+									</select>
+								</div>
+							</div>
+
+							<input type="hidden" name="page" value="1">
 							</div>
 						</div>
 
 					</div>
+					<br>
+					<div class="index-search-button">
+
+					<ul class="actions">										
+						<li><input type="submit" class="button special small" value="搜索"></li>
+					</ul>
+					</div>
 				</form>
-
-				<ul class="actions">
-					<li>
-						
-						<a href="pages/search.html" class="button special big">Start Your Journey</a>
-					</li>
-					
-					<!-- 
-					<div class="row">
-					  <div class="col-lg-6">
-					    <div class="input-group">
-					      <input type="text" class="form-control" placeholder="Search for...">
-					      <span class="input-group-btn">
-					        <button class="btn btn-default" type="button">Go!</button>
-					      </span>
-					    </div>
-					  </div>
-					</div> -->
-
-
-
-
-					<div class="arrow bounce"></div>
-				</ul>
 			</section>
 
 			<!-- One -->
@@ -80,31 +113,28 @@
 						<div class="row 200%">
 							<div class="11u 12u$(medium)">
 								<header class="major">
-									<h2>Recently Added Flights</h2>
+									<h2>最新航班：</h2>
 								</header>
 							</div>
 
 							<div class="1u$ 12u$(medium)">
-								<a href="pages/market.html">More</a>
+								<a href="pages/search.php?filter=publishdate">More</a>
 							</div>
 
 							<div class="12u$ 12u$(medium)">
 								<div class="list-group-display-content">
-									<a href="#" class="display-content">Test
-										<h4>Toronto -> Beijing </h4>
-									</a>
-
-									<a href="#" class="display-content"><img src="images/pic10.png">
-										<h4>Vancouver -> Shanghai </h4>
-									</a>
-
-									<!--<a href="#" class="display-content">
-										<div class="display-image">
-											<img src="images/pic10.png">
-										</div>
-										<h4>Vancouver -> Shanghai</h4>
-								
-									</a>-->
+									<?php 
+									//if($result){
+									while($row = mysql_fetch_array($result)) {
+										$id = $row['id'];
+										$name = $row['name'];
+										$dep = $row['departures'];
+										$arri = $row['arrivals'];
+										$des = $row['description'];
+										echo "<a href='pages/single.php?id_key=$id' class='display-content' style='text-decoration:none;'><br><h4>$dep -> $arri</h4><br>$name<br>$des</a>";
+										}
+									//}
+								?>
 								</div>
 								
 							</div>
@@ -118,42 +148,22 @@
 				<section id="two" class="wrapper style2 special">
 					<div class="container">
 						<header class="major">
-							<h2>Some Generic Tips</h2>
+							<h2>Otto提醒</h2>
 							<p></p>
 						</header>
 
-						<p>Text</p>
-						<!--
-						<div class="row 150%">
-							<div class="6u 12u$(xsmall)">
-								<div class="image fit captioned">
-									<a href="#"><img src="images/pic02.jpg" alt="" /></a>
-									<h3>With Description</h3>
-								</div>
-							</div>
-							<div class="4u$ 12u$(xsmall)">
-								<div class="image fit captioned">
-									<a href="#"><img src="images/pic03.jpg" alt="" /></a>
-								</div>
-							</div>
-						</div>-->
-						<!--
-						<ul class="actions">
-							<li><a href="#" class="button special big">Nulla luctus</a></li>
-							<li><a href="#" class="button big">Sed vulputate</a></li>
-						</ul> -->
-					</div>
+						<p>留心每一笔交易</p>
 				</section>
 
 			<!-- Three -->
 				<section id="four" class="wrapper style3 special">
 					<div class="container">
 						<header class="major">
-							<h2>Stay Tuned!</h2>
+							<h2>敬请关注!</h2>
 							<!-- <p>Feugiat sed lorem ipsum magna</p> -->
 						</header>
 						<ul class="actions">
-							<li><a id="back-to-top" href="#" class="button special big">Back To Top</a></li>
+							<li><a id="back-to-top" href="#" class="button special big">返回顶部</a></li>
 						</ul>
 					</div>
 				</section>
@@ -161,14 +171,8 @@
 		<!-- Footer -->
 			<footer id="footer">
 				<div class="container">
-					<ul class="icons">
-						<li><a href="#" class="icon fa-facebook"></a></li>
-						<li><a href="#" class="icon fa-twitter"></a></li>
-						<li><a href="#" class="icon fa-instagram"></a></li>
-						<li><a href="#" class="icon fa-github"></a></li>
-					</ul>
 					<ul class="copyright">
-						<li>&copy; George</li>
+						<li>&copy; Otto Group</li>
 					</ul>
 				</div>
 			</footer>
@@ -178,6 +182,8 @@
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+
 
 	</body>
 </html>
