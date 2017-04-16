@@ -48,7 +48,7 @@
               			   		</div>
 
 	              				<div class="8u$ 12$(xsmall)">
-    		          			    <input type = "text" name = "username" class = "box" pattern=".{3,}" required title="最低3字符" required/><br /><br />
+    		          			    <input type = "text" name = "username" class = "box" pattern=".{3,}" required title="最低3字符" required/><br />
             	      			</div>
 
                 	  			<div class="3u 12$(xsmall)">
@@ -58,7 +58,7 @@
                   				</div>
 
                   				<div class="8u$ 12$(xsmall)">
-                  					<input type = "password" name = "password" class = "box" pattern=".{3,}" required title="最低3字符" required/><br/><br />
+                  					<input type = "password" name = "password" class = "box" pattern=".{3,}" required title="最低3字符" required/><br/>
                		   			</div>
 
 								<div class="12u$">

@@ -3,7 +3,7 @@
 	mysql_select_db('otto_db1') or die("cannot select DB");
 	session_start();
 
-	$sql = "SELECT id, name, departures, arrivals, description FROM usr_regis ORDER BY publishdate DESC LIMIT 5";
+	$sql = "SELECT id, name, departures, arrivals, traveldate, description FROM usr_regis ORDER BY publishdate DESC LIMIT 5";
 	$result = mysql_query($sql);
 ?>
 <!DOCTYPE HTML>
@@ -129,9 +129,10 @@
 										$id = $row['id'];
 										$name = $row['name'];
 										$dep = $row['departures'];
+										$date = $row['traveldate'];
 										$arri = $row['arrivals'];
 										$des = $row['description'];
-										echo "<a href='pages/single.php?id_key=$id' class='display-content' style='text-decoration:none;'><br><h4>$dep -> $arri</h4><br>$name<br>$des</a>";
+										echo "<a href='pages/single.php?id_key=$id' class='display-content' style='text-decoration:none;'><h4>$dep -> $arri</h4>$date<br>$name<br>$des</a>";
 										}
 									//}
 								?>
@@ -183,6 +184,16 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 			<script src="bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+			<script>
+			  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+			  ga('create', 'UA-97380931-1', 'auto');
+			  ga('send', 'pageview');
+
+			</script>
 
 
 	</body>

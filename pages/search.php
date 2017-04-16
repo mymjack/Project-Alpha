@@ -12,21 +12,21 @@
 	$start=($page-1)*$limit;
 	}
 
-	$sql = "SELECT id, name, departures, arrivals, description FROM usr_regis ORDER BY publishdate DESC LIMIT $start, $limit";
+	$sql = "SELECT id, name, departures, arrivals, traveldate, description FROM usr_regis ORDER BY publishdate DESC LIMIT $start, $limit";
 
 	$arri = $_GET['arri'];
 	if(isset($_GET['filter'])){
 		$filter = $_GET['filter'];
 		if($arri!=""){
-			$sql = "SELECT id, name, departures, arrivals, description FROM usr_regis WHERE arrivals='$arri' ORDER BY $filter DESC LIMIT $start, $limit";
+			$sql = "SELECT id, name, departures, arrivals, traveldate, description FROM usr_regis WHERE arrivals='$arri' ORDER BY $filter DESC LIMIT $start, $limit";
 		} else {
-			$sql = "SELECT id, name, departures, arrivals, description FROM usr_regis ORDER BY $filter DESC LIMIT $start, $limit";
+			$sql = "SELECT id, name, departures, arrivals, traveldate, description FROM usr_regis ORDER BY $filter DESC LIMIT $start, $limit";
 		}
 	} else if (!isset($_GET['filter'])) {
 		if($arri!=""){
-			$sql = "SELECT id, name, departures, arrivals, description FROM usr_regis WHERE arrivals='$arri' ORDER BY publishdate DESC LIMIT $start, $limit";
+			$sql = "SELECT id, name, departures, arrivals, traveldate, description FROM usr_regis WHERE arrivals='$arri' ORDER BY publishdate DESC LIMIT $start, $limit";
 		} else {
-			$sql = "SELECT id, name, departures, arrivals, description FROM usr_regis ORDER BY publishdate DESC LIMIT $start, $limit";
+			$sql = "SELECT id, name, departures, arrivals, traveldate, description FROM usr_regis ORDER BY publishdate DESC LIMIT $start, $limit";
 		}
 	}
 
@@ -171,10 +171,11 @@
 										$id = $row['id'];
 										$name = $row['name'];
 										$dep = $row['departures'];
+										$date = $row['traveldate'];
 										$arri = $row['arrivals'];
 										$des = $row['description'];
 										//echo "<a href='single.php?id_key=$id' class='display-content' style='text-decoration:none;'><br>$name<br>$dep -> $arri<br>$des</a>";
-										echo "<a href='single.php?id_key=$id' class='display-content' style='text-decoration:none;'><br><h4>$dep -> $arri</h4><br>$name<br>$des</a>";
+										echo "<a href='single.php?id_key=$id' class='display-content' style='text-decoration:none;'><h4>$dep -> $arri</h4>$date<br>$name<br>$des</a>";
 										}
 									//}
 								?>

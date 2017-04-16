@@ -46,7 +46,7 @@
               			    	</div>
               			    
 	              			    <div class="8u$ 12$(xsmall)">
-	              			    	<input type = "text" name = "username" class = "box"/><br /><br />
+	              			    	<input type = "text" name = "username" class = "box"/><br/>
 	              			    </div>
 
               			    	<div class="3u 12$(xsmall)">
@@ -56,12 +56,12 @@
                   				</div>
 
                   				<div class="8u$ 12$(xsmall)">
-                  					<input type = "password" name = "password" class = "box" /><br/><br />
+                  					<input type = "password" name = "password" class = "box" /><br/>
                   				</div>
                		   		
                		   			<div class="12u$">
 									<ul class="actions">
-										<li><input class="button special small" type = "submit" value = " 登录 "/><br /><br/></li>
+										<li><input class="button special small" type = "submit" value = " 登录 "/><br/></li>
 									</ul>
 								</div>
 
