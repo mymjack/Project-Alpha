@@ -1,10 +1,6 @@
 <?php
-  // check if logged in, if not redirect
-  session_start();
-  if(!isset($_SESSION['login_user'])){
-	header("Location:usr-login.php");
-  }
-  include 'register_form.php';
+	// check if logged in, if not redirect
+	include('session.php');
 ?>
 
 <!DOCTYPE HTML>
@@ -56,7 +52,7 @@
 						<h2>登记航班</h2>
 					</header>
 
-					<form method="post" action="register.php#">
+					<form method="post" action="register_form.php">
 						<div class="row uniform 50%">
 
 								<!-- Line 1 -->

@@ -1,7 +1,6 @@
 <?php
 	include("config.php");
 	session_start();
-	include 'login-form.php';
 ?>
 <html>
 	<head>
@@ -37,7 +36,7 @@
 						</header>
 
 						<!-- Change -->
-						<form action = "" method = "post">
+						<form action = "login-form.php" method = "post">
 							<div class="row uniform 50%">
 								<div class="3u 12$(xsmall)">
 									<div class="usr-text">
