@@ -1,20 +1,15 @@
 <?php
-	mysql_connect('127.0.0.1', 'root', 'Shgl123.') or die("cannot connect"); 
-	mysql_select_db('otto_db1') or die("cannot select DB");
-	session_start();
+	include('session.php');
 
 	$start=0;
 	$limit=5;
 
-	if(isset($_GET['page']))
-	{
-	$page=$_GET['page'];
+	$page=isset($_GET['page']) ? $_GET['page'] : 1;
 	$start=($page-1)*$limit;
-	}
+	$arri = isset($_GET['arri']) ? $_GET['arri'] : "";
 
 	$sql = "SELECT id, name, departures, arrivals, traveldate, description FROM usr_regis ORDER BY publishdate DESC LIMIT $start, $limit";
 
-	$arri = $_GET['arri'];
 	if(isset($_GET['filter'])){
 		$filter = $_GET['filter'];
 		if($arri!=""){
@@ -30,14 +25,13 @@
 		}
 	}
 
-	$result = mysql_query($sql);
+	$result = mysqli_query($db, $sql);
 	$id = array();
-	if (false === $result) {
-	    echo mysql_error();
+	if (! $result) {
+	    echo mysqli_error();
 	}
 
-
-	$rows=mysql_num_rows(mysql_query("SELECT * FROM usr_regis"));
+	$rows=mysqli_num_rows(mysqli_query($db, "SELECT * FROM usr_regis"));
 	$total=ceil($rows/$limit);
 
 ?>
@@ -167,7 +161,7 @@
 							<div class="main-group-display-content">
 								<?php 
 									//if($result){
-									while($row = mysql_fetch_array($result)) {
+									while($row = mysqli_fetch_array($result)) {
 										$id = $row['id'];
 										$name = $row['name'];
 										$dep = $row['departures'];

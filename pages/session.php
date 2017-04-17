@@ -1,16 +1,16 @@
 <?php
-   include("config.php");
-   session_start();
+	include("config.php");
+	if (session_status() == PHP_SESSION_NONE) {
+	    session_start();
+	}
    
-   $user_check = $_SESSION['login_user'];
-   
-   $ses_sql = mysqli_query($db,"select username from admin where username = '$user_check' ");
-   
-   $row = mysqli_fetch_array($ses_sql,MYSQLI_ASSOC);
-   
-   $login_session = $row['username'];
-   
-   if(!isset($_SESSION['login_user'])){
-      header("location:usr-login.php");
-   }
+	if(!isset($_SESSION['login_user'])){
+		header("location:usr-login.php");
+	} else if (!isset($login_session)) {
+		$un = $_SESSION['login_user'];
+		$ses_sql = mysqli_query($db,"select username from admin where username = '$un' ");
+		$row = mysqli_fetch_array($ses_sql,MYSQLI_ASSOC);
+
+		$login_session = $row['username'];
+	}
 ?>

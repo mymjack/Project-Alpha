@@ -1,10 +1,9 @@
 <?php
-	mysql_connect('127.0.0.1', 'root', 'Shgl123.') or die("cannot connect"); 
-	mysql_select_db('otto_db1') or die("cannot select DB");
+	include ("pages/config.php");
 	session_start();
 
 	$sql = "SELECT id, name, departures, arrivals, traveldate, description FROM usr_regis ORDER BY publishdate DESC LIMIT 5";
-	$result = mysql_query($sql);
+	$result = mysqli_query($db, $sql);
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -53,6 +52,7 @@
 							<div class="ari-drop">
 								<div class="select-wrapper">
 									<select name="arri" id="arri">
+									<!-- Consider using data base .... Jack -->
 										<option disabled selected value>- 目的地 -</option>
 										<option value="北京">北京</option>
 										<option value="上海">上海</option>
@@ -124,17 +124,19 @@
 							<div class="12u$ 12u$(medium)">
 								<div class="list-group-display-content">
 									<?php 
-									//if($result){
-									while($row = mysql_fetch_array($result)) {
-										$id = $row['id'];
-										$name = $row['name'];
-										$dep = $row['departures'];
-										$date = $row['traveldate'];
-										$arri = $row['arrivals'];
-										$des = $row['description'];
-										echo "<a href='pages/single.php?id_key=$id' class='display-content' style='text-decoration:none;'><h4>$dep -> $arri</h4>$date<br>$name<br>$des</a>";
+									if($result){
+										while($row = mysqli_fetch_array($result)) {
+											$id = $row['id'];
+											$name = $row['name'];
+											$dep = $row['departures'];
+											$date = $row['traveldate'];
+											$arri = $row['arrivals'];
+											$des = $row['description'];
+											echo "<a href='pages/single.php?id_key=$id' class='display-content' style='text-decoration:none;'><h4>$dep -> $arri</h4>$date<br>$name<br>$des</a>";
 										}
-									//}
+									} else {
+										echo "Oops, no data right now. Please come back later.";
+									}
 								?>
 								</div>
 								
