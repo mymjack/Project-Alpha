@@ -195,7 +195,7 @@
 								if($page!=$total) {
 									echo "<a href='$new_link&page=". ($page+1)."' class='button'>NEXT</a>";
 								}
-								echo "<ul class='page'>";
+								echo "<ul class='page  page-selector'>";
 								for($i=1;$i<=$total;$i++)
 								{
 								if($i==$page) { echo "<li class='current'>".$i."</li>"; }
