@@ -1,22 +1,16 @@
 <?php
-	mysql_connect('127.0.0.1', 'root', 'Shgl123.') or die("cannot connect"); 
-	mysql_select_db('otto_db1') or die("cannot select DB");
-
-	session_start();
-	if(!isset($_SESSION['login_user'])){
-		header("Location:usr-login.php");
-  	}
+	include('session.php');
   	// if key is set then retrieve that key's info
   	if(isset($_GET['id_key'])){
   		$page_id = $_GET['id_key']; //obtain key from search/market.php
 	}
 	$sql = "SELECT * FROM usr_regis WHERE id='$page_id'";
-	$result = mysql_query($sql);
+	$result = mysqli_query($db, $sql);
 
 	if (false === $result) {
-	    echo mysql_error();
+	    echo mysqli_error();
 	}
-	while($row = mysql_fetch_array($result)) {
+	while($row = mysqli_fetch_array($result)) {
 		$name = $row['name'];
 		$dep = $row['departures'];
 		$ari = $row['arrivals'];
@@ -58,32 +52,32 @@
 
 					<div class="row">
 						<div class="single-left-col">
-						<div class="4u$ 12u$(medium)">
+						<div>
 							<h4>联系人</h4><?php echo "<p>$name</p>" ?>
 						</div>
 						</div>
 
 						<div class="single-right-col">
-						<div class="3u 12u$(medium)">
+						<div>
 							<h4>日期</h4><p><?php echo "$traveldate"?> </p>
 						</div>
 						</div>
 
 						<div class="single-left-col">
-						<div class="3u$ 12u$(medium)">
-							<h4>目的地</h4><p><?php echo "$dep -> $ari"?></p>
+						<div>
+							<h4>出发/目的地</h4><p><?php echo "$dep -> $ari"?></p>
 						</div>
 						</div>
 
 						<div class="single-right-col">
-						<div class="5u 12u$(medium)">
+						<div>
 							<h4>联系方式</h4><p><?php echo "$cell"?></p>
 						</div>
 						</div>
 
 						<p></p>
 
-						<div class="12u$ 12u$(medium)">
+						<div>
 							<h4>详细介绍</h4>
 							<p><?php echo "$des"?></p>
 						</div>
