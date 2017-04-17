@@ -1,0 +1,16 @@
+.oneline-desc{
+	overflow: hidden;
+	margin-right: 1em;
+	padding-right: 2em;
+	max-height: 28px; 
+	position: relative;
+}
+	.oneline-desc::after {
+		content: 'Detail';
+		display: block;
+		position: absolute;
+		top: 0;
+		right: 0;
+		text-decoration: underline;
+	    color: #f32853;
+	}
