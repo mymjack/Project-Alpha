@@ -9,6 +9,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="../assets/css/main.css" />
+		<link rel="stylesheet" href="../assets/css/otto.css" />
 	</head>
 	<body>
 
@@ -48,7 +49,7 @@
               			   		</div>
 
 	              				<div class="8u$ 12$(xsmall)">
-    		          			    <input type = "text" name = "username" class = "box" pattern=".{3,}" required title="最低3字符" required/><br />
+    		          			    <input type = "text" name = "username" class = "box" pattern=".{3,}" required title="最低3字符" required/>
             	      			</div>
 
                 	  			<div class="3u 12$(xsmall)">
@@ -58,12 +59,25 @@
                   				</div>
 
                   				<div class="8u$ 12$(xsmall)">
-                  					<input type = "password" name = "password" class = "box" pattern=".{3,}" required title="最低3字符" required/><br/>
+                  					<input type = "password" name = "password" id="pw" class = "box" pattern=".{3,}" required title="最低3字符" required/>
                		   			</div>
+
+                	  			<!-- <div class="3u 12$(xsmall)">
+									<div class="pw-text">
+                  						<p>确认密码 :</p>
+                  					</div>
+                  				</div>
+
+                  				<div class="8u$ 12$(xsmall)">
+                  					<input type = "password" name = "cpassword" id = "cpw" class = "box" pattern=".{3,}" title="最低3字符且和密码相同" required/>
+               		   			</div> -->
 
 								<div class="12u$">
 									<ul class="actions">
-										<li><input class="button special" type = "submit" value = " 注册 "/><br/></li>
+									<input class="button special" type="submit" value = " 注册 "/><br/>
+										<!-- A very rough password check mechanism PLEASE separate out in future -->
+										<!-- <input style="display:none" type="submit">
+										<input class="button special" onclick="if ($('#pw').val()==$('#cpw').val()){$(this).prev().click()}" value = " 注册 "/><br/> -->
 									</ul>
 								</div>
                		   		</div>
@@ -92,6 +106,5 @@
 			<script src="../assets/js/util.js"></script>
 			<script src="../assets/js/main.js"></script>
 			<script src="../bootstrap-3.3.7-dist/js/bootstrap.js"></script>
-
 	</body>
 </html>
