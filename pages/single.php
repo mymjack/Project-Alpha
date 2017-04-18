@@ -26,7 +26,7 @@
 		<title>带物信息 - Otto带物</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="../assets/css/main.css" />
+		<link rel="stylesheet" href="../assets/css/main-cleaned.css" />
 	</head>
 	<body>
 
@@ -39,33 +39,23 @@
 				<div class="container">
 
 					<div class="row">
-						<div class="single-left-col">
-						<div>
+						<div class="col-xs-6 col-sm-3 col-md-2">
 							<h4>联系人</h4><?php echo "<p>$name</p>" ?>
 						</div>
-						</div>
 
-						<div class="single-right-col">
-						<div>
+						<div class="col-xs-6 col-sm-3 col-md-2">
 							<h4>日期</h4><p><?php echo "$traveldate"?> </p>
 						</div>
-						</div>
 
-						<div class="single-left-col">
-						<div>
+						<div class="col-xs-6 col-sm-3 col-md-2">
 							<h4>出发/目的地</h4><p><?php echo "$dep -> $ari"?></p>
 						</div>
-						</div>
 
-						<div class="single-right-col">
-						<div>
+						<div class="col-xs-6 col-sm-3 col-md-2">
 							<h4>联系方式</h4><p><?php echo "$cell"?></p>
 						</div>
-						</div>
 
-						<p></p>
-
-						<div>
+						<div class="col-xs-12">
 							<h4>详细介绍</h4>
 							<p><?php echo "$des"?></p>
 						</div>
@@ -94,7 +84,7 @@
 			<script src="../assets/js/skel.min.js"></script>
 			<script src="../assets/js/util.js"></script>
 			<script src="../assets/js/main.js"></script>
-			<script src="../assets/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+			<script src="../bootstrap-3.3.7-dist/js/bootstrap.js"></script>
 			<script>
 			  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 			  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
