@@ -64,7 +64,7 @@
 					<form class="flight-filter" method="get"> <!-- Implement keep input after submit -->
 
 						<div class="row-nopadding uniform row-vertpadding">
-							<div class="col-xs-5">
+							<div class="col-xs-12 col-sm-5">
 								<select name="dep" id="dep">
 									<option disababled selected value>- 出发地 -</option>
 									<option value="toronto">多伦多 Toronto</option>
@@ -76,7 +76,7 @@
 
 							<div class="col-xs-2 align-center">-></div>
 
-							<div class="col-xs-5">
+							<div class="col-xs-12 col-sm-5">
 								<select name="arri" id="arri">
 									<option disabled selected value>- 目的地 -</option>
 									<option value="北京">北京</option>
