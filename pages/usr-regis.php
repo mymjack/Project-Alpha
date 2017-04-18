@@ -14,20 +14,8 @@
 	<body>
 
 		<!-- Header -->
-		<header id="header">
-			<h1><strong><a href="../index.php">Otto首页</a></strong> 用户注册</h1>
-			<nav id="nav">
-				<ul>
-					<li><a href="../index.php">首页</a></li>
-					<li><a href="register.php">登记航班</a></li>
-					<li><a href="search.php?filter=publishdate">航班表</a></li>
-					<li><a href="faq.html">FAQ</a></li>
-					<li><a href="welcome.php">会员登录</a></li>
-				</ul>
-			</nav>
-		</header>
+		<?php include("header.php") ?>
 
-			<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
 
 		<!-- Main -->
 			<div class="checkout-page">
@@ -62,7 +50,7 @@
                   					<input type = "password" name = "password" id="pw" class = "box" pattern=".{3,}" required title="最低3字符" required/>
                		   			</div>
 
-                	  			<!-- <div class="3u 12$(xsmall)">
+                	  			<div class="3u 12$(xsmall)">
 									<div class="pw-text">
                   						<p>确认密码 :</p>
                   					</div>
@@ -70,14 +58,14 @@
 
                   				<div class="8u$ 12$(xsmall)">
                   					<input type = "password" name = "cpassword" id = "cpw" class = "box" pattern=".{3,}" title="最低3字符且和密码相同" required/>
-               		   			</div> -->
+               		   			</div>
 
 								<div class="12u$">
 									<ul class="actions">
-									<input class="button special" type="submit" value = " 注册 "/><br/>
+									<!-- <input class="button special" type="submit" value = " 注册 "/><br/> -->
 										<!-- A very rough password check mechanism PLEASE separate out in future -->
-										<!-- <input style="display:none" type="submit">
-										<input class="button special" onclick="if ($('#pw').val()==$('#cpw').val()){$(this).prev().click()}" value = " 注册 "/><br/> -->
+										<input style="display:none" type="submit">
+										<input class="button special" onclick="if ($('#pw').val()==$('#cpw').val()){$(this).prev().click()}" value = " 注册 "/><br/>
 									</ul>
 								</div>
                		   		</div>

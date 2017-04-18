@@ -6,6 +6,7 @@
    
 	if(!isset($_SESSION['login_user'])){
 		header("location:usr-login.php");
+		return;
 	} else if (!isset($login_session)) {
 		$un = $_SESSION['login_user'];
 		$ses_sql = mysqli_query($db,"select username from admin where username = '$un' ");

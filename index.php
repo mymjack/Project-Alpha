@@ -1,6 +1,8 @@
 <?php
 	include ("pages/config.php");
-	session_start();
+	if (session_status() == PHP_SESSION_NONE) {
+	    session_start();
+	}
 
 	$sql = "SELECT id, name, departures, arrivals, traveldate, description FROM usr_regis ORDER BY publishdate DESC LIMIT 5";
 	$result = mysqli_query($db, $sql);
@@ -23,8 +25,14 @@
 				<ul>
 					<li><a href="pages/register.php">登记航班</a></li>
 					<li><a href="pages/search.php?filter=publishdate">航班表</a></li>
-					<li><a href="pages/faq.html">FAQ</a></li>
-					<li><a href="pages/welcome.php">会员登录</a></li>
+					<li><a href="pages/faq.php">FAQ</a></li>
+					<li><a href="pages/welcome.php">
+					<?php 
+					if (isset($_SESSION['login_user']) && !empty($_SESSION['login_user']))
+						echo $_SESSION['login_user'];
+					else
+						echo "会员登录";
+					?></a></li>
 				</ul>
 			</nav>
 		</header>
