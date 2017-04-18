@@ -578,7 +578,9 @@ button,
 		}
 
 	button.wide,
-	input[type="submit"].wide {
+	input[type="submit"].wide,
+	button.wide-always,
+	input[type="submit"].wide-always {
 		padding-left: 5em;
 		padding-right: 5em;
 	}

@@ -7,7 +7,7 @@
 		<title>会员登录 - Otto带物</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="../assets/css/main.css" />
+		<link rel="stylesheet" href="../assets/css/main-cleaned.css" />
 	</head>
 	<body>
 
@@ -25,38 +25,27 @@
 
 						<!-- Change -->
 						<form action = "login-form.php" method = "post">
-							<div class="row uniform 50%">
-								<div class="3u 12$(xsmall)">
-									<div class="usr-text">
-              			   			<p>用户名  :</p>
-              			   			</div>
-              			    	</div>
-              			    
-	              			    <div class="8u$ 12$(xsmall)">
+							<div class="row uniform row-nopadding row-vertpadding">
+
+								<div class="usr-text col-xs-4 col-sm-2 col-md-1">用户名  :</div>
+	              			    <div class="col-xs-8 col-sm-5 col-md-4">
 	              			    	<input type = "text" name = "username" class = "box"/>
 	              			    </div>
 
-              			    	<div class="3u 12$(xsmall)">
-              			    		<div class="pw-text">
-                  						<p>密码  :</p>
-                  					</div>
-                  				</div>
-
-                  				<div class="8u$ 12$(xsmall)">
+              			    	<div class="pw-text col-xs-4 col-sm-2 col-md-1 clear-both"><p>密码  :</div>
+                  				<div class="col-xs-8 col-sm-5 col-md-4">
                   					<input type = "password" name = "password" class = "box" />
                   				</div>
                		   		
-               		   			<div class="12u$">
-									<ul class="actions">
-										<li><input class="button special small" type = "submit" value = " 登录 "/><br/></li>
-									</ul>
+               		   			<div class="col-xs-12 clear-both">
+									<input class="button special wide-always" type = "submit" value = " 登录 "/>
 								</div>
+								<button type="button" class="wide-always" onclick="window.location='usr-regis.php'">新用户注册</button>
+
 
                		   		</div>
                			</form>
-               			<ul class="actions">
-               				<li><a href="usr-regis.php">新用户注册</a></li>>
-               			</ul>
+               			
 					<!-- <a href="#" class="image fit"><img src="images/pic01.jpg" alt="" /></a> -->
 					</div>
 				</section>
