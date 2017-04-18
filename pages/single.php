@@ -1,4 +1,5 @@
 <?php
+	$title="带物信息";
 	include('session.php');
   	// if key is set then retrieve that key's info
   	if(isset($_GET['id_key'])){
@@ -32,7 +33,7 @@
 
 		
 		<!-- Header -->
-		<?php $title="带物信息";include("header.php") ?>
+		<?php include("header.php") ?>
 
 		<!-- Main -->
 			<section id="main" class="wrapper">

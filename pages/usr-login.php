@@ -80,17 +80,18 @@
 					colorClass = colorClass || 'notify-yellow';
 					waitForSec = waitForSec || 5;
 					var totalHeight = 0;
+					$($("#noti").children()[0]).html(text).removeClass('notify-red notify-yellow notify-green').addClass(colorClass);;
 					$("#noti").children().each(function(){
 					    totalHeight = totalHeight + $(this).outerHeight(true);
-					    $(this).removeClass('notify-red notify-yellow notify-green').addClass(colorClass);
 					});
 					$('#noti').css('height', totalHeight.toString()+'px');
 					notifying = setTimeout(function(){$('#noti').css('height', '0');}, waitForSec*1000);
 				}
 				<?php 
-					if (isset($_SESSION['redirectError'])){
+					if (isset($_SESSION['redirectError']) && !empty($_SESSION['redirectError'])){
 						echo "notifying = setTimeout(function(){notify('".$_SESSION['redirectError']."', 'notify-red');}, 300);";
-						$_SESSION['redirectError'] = null;
+						// $_SESSION['redirectError'] = '';
+						session_unset($_SESSION['redirectError']);
 					} 
 				?>
 			</script>

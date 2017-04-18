@@ -1,5 +1,6 @@
 <?php
 	// check if logged in, if not redirect
+	$title="登记航班";
 	include('session.php');
 ?>
 
@@ -28,10 +29,10 @@
 	<body>
 
 		<!-- Header -->
-		<?php $title="登记航班";include("header.php") ?>
+		<?php include("header.php") ?>
 
 		<!-- Main -->
-		<!-- <div class="checkout-page"> -->
+		<div class="checkout-page">
 			<section id="main" class="wrapper">
 				<div class="container">
 
@@ -153,7 +154,7 @@
 
 				</div>
 			</section>
-		<!-- </div> -->
+		</div>
 
 		<!-- Footer -->
 		<footer id="footer">

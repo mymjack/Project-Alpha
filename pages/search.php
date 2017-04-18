@@ -1,4 +1,5 @@
 <?php
+	$title="航班表";
 	include('session.php');
 
 	$start=0;
@@ -61,7 +62,7 @@
 <body>
 
 	<!-- Header -->
-	<?php $title="航班表";include("header.php") ?>
+	<?php include("header.php") ?>
 	<!-- Main -->
 	<section id="main" class="wrapper">
 		<div class="container">
