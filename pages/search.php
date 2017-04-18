@@ -8,6 +8,7 @@
 	$start=($page-1)*$limit;
 	$depName = isset($_GET['dep']) ? $_GET['dep'] : "";
 	$arri = isset($_GET['arri']) ? $_GET['arri'] : "";
+	$arriName = $arri;
 
 	$sql = "SELECT id, name, departures, arrivals, traveldate, description FROM usr_regis ORDER BY traveldate LIMIT $start, $limit";
 
@@ -45,6 +46,17 @@
 	<link rel="stylesheet" href="../assets/css/main-cleaned.css" />
 	<!-- Select2 datalist files -->
 	<link href="../select2/css/select2.css" rel="stylesheet" />
+		
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">	
+
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script type="text/javascript">
+	    var j = jQuery.noConflict();
+	    j( function() {
+	        j( "#datepicker" ).datepicker({dateFormat: "yy-m-d"});
+	    } );
+	</script>
 </head>
 <body>
 
@@ -115,8 +127,15 @@
 									<option value="浙江">浙江</option>
 								</select>
 							</div>
+							
+							<div class="col-xs-12 col-sm-4">
+								<div class="select-wrapper">
+									<input name="datepicker" id="datepicker" type="text" placeholder="- 日期 -" />
+								</div>
+							</div>
 									
-							<div class="col-xs-7">
+							<span class="col-xs-12 col-sm-1"></span>
+							<div class="col-xs-12 col-sm-3">
 								<div class="select-wrapper">
 									<select name="filter">
 										<option disabled selected value>- 分类 -</option>
@@ -128,8 +147,8 @@
 							</div>
 							<input type="hidden" name="page" value="1">
 
-							<div class="col-xs-5 align-right">
-								<button class="special small wide" >更新</button>
+							<div class="col-xs-2 col-sm-4 align-right">
+								<button class="special wide-always" >更新</button>
 							</div>
 								
 						</div>
@@ -253,7 +272,7 @@
 			placeholder: "- 出发地 -",
 		  	allowClear: true
 		});
-		$('#arri option[value="<?php echo $arri; ?>"]').attr('selected','selected');
+		$('#arri option[value="<?php echo $arriName; ?>"]').attr('selected','selected');
 		$('#arri').select2({
 			placeholder: "- 目的地 -",
 		  allowClear: true
