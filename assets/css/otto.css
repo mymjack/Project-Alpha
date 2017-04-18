@@ -1,4 +1,12 @@
 /* Genderal */
+.required-red-star::after {
+	content: '*';
+	color: red;
+	display: block;
+	position: absolute;
+	top: 0;
+	right: -10px;
+}
 
 /* Index Page */
 .index-search{
