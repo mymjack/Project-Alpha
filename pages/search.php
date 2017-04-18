@@ -6,7 +6,7 @@
 
 	$page=isset($_GET['page']) ? $_GET['page'] : 1;
 	$start=($page-1)*$limit;
-	$dep = isset($_GET['dep']) ? $_GET['dep'] : "";
+	$depName = isset($_GET['dep']) ? $_GET['dep'] : "";
 	$arri = isset($_GET['arri']) ? $_GET['arri'] : "";
 
 	$sql = "SELECT id, name, departures, arrivals, traveldate, description FROM usr_regis ORDER BY traveldate LIMIT $start, $limit";
@@ -43,7 +43,6 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="stylesheet" href="../assets/css/main-cleaned.css" />
-	<link rel="stylesheet" href="../assets/css/otto.css" />
 	<!-- Select2 datalist files -->
 	<link href="../select2/css/select2.css" rel="stylesheet" />
 </head>
@@ -149,7 +148,7 @@
 									$arri = $row['arrivals'];
 									$des = $row['description'];
 									//echo "<a href='single.php?id_key=$id' class='display-content' style='text-decoration:none;'><br>$name<br>$dep -> $arri<br>$des</a>";
-									echo "<a href='pages/single.php?id_key=$id' class='display-content' style='text-decoration:none;'>
+									echo "<a href='single.php?id_key=$id' class='display-content' style='text-decoration:none;'>
 											<div class='name-date'>
 												<div class='col-xs-12 col-sm-7'>
 													<strong>$name</strong> - $date
@@ -249,7 +248,7 @@
 			return decodeURIComponent((regExp.exec($(location).attr('href'))[0]).split('=')[1]);
 		}
 
-		$('#dep option[value="<?php echo $dep; ?>"]').attr('selected','selected');
+		$('#dep option[value="<?php echo $depName; ?>"]').attr('selected','selected');
 		$('#dep').select2({
 			placeholder: "- 出发地 -",
 		  	allowClear: true
