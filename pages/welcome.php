@@ -12,7 +12,7 @@
 
 
 		<!-- Header -->
-		<?php include("header.php") ?>
+		<?php $title="用户中心";include("header.php") ?>
 
 			<!-- Main -->
 				<section id="main" class="wrapper">

@@ -12,7 +12,7 @@
 	<body>
 
 		<!-- Header -->
-		<?php include("header.php") ?>
+		<?php $title="会员登录";include("header.php") ?>
 
 		<!-- Main -->
 			<div class="checkout-page">

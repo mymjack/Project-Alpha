@@ -14,7 +14,7 @@
 	<body>
 
 		<!-- Header -->
-		<?php include("header.php") ?>
+		<?php $title="会员注册";include("header.php") ?>
 
 
 		<!-- Main -->

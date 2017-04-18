@@ -1,5 +1,5 @@
 <header id="header">
-	<h1><strong><a href="../index.php">Otto首页</a></strong> 用户注册</h1>
+	<h1><strong><a href="../index.php">Otto首页</a></strong><?php echo ($title?:"") ?></h1>
 	<nav id="nav">
 		<ul>
 			<li><a href="../index.php">首页</a></li>

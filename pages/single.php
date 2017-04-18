@@ -32,7 +32,7 @@
 
 		
 		<!-- Header -->
-		<?php include("header.php") ?>
+		<?php $title="带物信息";include("header.php") ?>
 
 		<!-- Main -->
 			<section id="main" class="wrapper">

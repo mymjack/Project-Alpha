@@ -47,7 +47,7 @@
 <body>
 
 	<!-- Header -->
-	<?php include("header.php") ?>
+	<?php $title="航班表";include("header.php") ?>
 	<!-- Main -->
 	<section id="main" class="wrapper">
 		<div class="container">

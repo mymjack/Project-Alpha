@@ -25,7 +25,7 @@
 	<body>
 
 		<!-- Header -->
-		<?php include("header.php") ?>
+		<?php $title="登记航班";include("header.php") ?>
 
 		<!-- Main -->
 		<div class="checkout-page">
