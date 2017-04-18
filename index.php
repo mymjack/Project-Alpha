@@ -4,7 +4,7 @@
 	    session_start();
 	}
 
-	$sql = "SELECT id, name, departures, arrivals, traveldate, description FROM usr_regis ORDER BY publishdate DESC LIMIT 5";
+	$sql = "SELECT id, name, departures, arrivals, traveldate, description FROM usr_regis ORDER BY traveldate LIMIT 5";
 	$result = mysqli_query($db, $sql);
 ?>
 <!DOCTYPE HTML>

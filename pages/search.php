@@ -8,7 +8,7 @@
 	$start=($page-1)*$limit;
 	$arri = isset($_GET['arri']) ? $_GET['arri'] : "";
 
-	$sql = "SELECT id, name, departures, arrivals, traveldate, description FROM usr_regis ORDER BY publishdate DESC LIMIT $start, $limit";
+	$sql = "SELECT id, name, departures, arrivals, traveldate, description FROM usr_regis ORDER BY traveldate LIMIT $start, $limit";
 
 	if(isset($_GET['filter'])){
 		$filter = $_GET['filter'];
@@ -19,9 +19,9 @@
 		}
 	} else if (!isset($_GET['filter'])) {
 		if($arri!=""){
-			$sql = "SELECT id, name, departures, arrivals, traveldate, description FROM usr_regis WHERE arrivals='$arri' ORDER BY publishdate DESC LIMIT $start, $limit";
+			$sql = "SELECT id, name, departures, arrivals, traveldate, description FROM usr_regis WHERE arrivals='$arri' ORDER BY traveldate LIMIT $start, $limit";
 		} else {
-			$sql = "SELECT id, name, departures, arrivals, traveldate, description FROM usr_regis ORDER BY publishdate DESC LIMIT $start, $limit";
+			$sql = "SELECT id, name, departures, arrivals, traveldate, description FROM usr_regis ORDER BY traveldate LIMIT $start, $limit";
 		}
 	}
 
