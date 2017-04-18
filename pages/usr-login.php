@@ -32,7 +32,7 @@
 	              			    	<input type = "text" name = "username" class = "box"/>
 	              			    </div>
 
-              			    	<div class="pw-text col-xs-4 col-sm-2 col-md-1 clear-both"><p>密码  :</div>
+              			    	<div class="pw-text col-xs-4 col-sm-2 col-md-1 clear-both">密码  :</div>
                   				<div class="col-xs-8 col-sm-5 col-md-4">
                   					<input type = "password" name = "password" class = "box" />
                   				</div>

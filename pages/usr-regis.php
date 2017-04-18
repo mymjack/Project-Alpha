@@ -1,15 +1,13 @@
 <?php
 	include("config.php");
 	session_start();
-	include 'regis-form.php';
 ?>
 <html>
 	<head>
 		<title>会员注册 - Otto带物</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="../assets/css/main.css" />
-		<link rel="stylesheet" href="../assets/css/otto.css" />
+		<link rel="stylesheet" href="../assets/css/main-cleaned.css" />
 	</head>
 	<body>
 
@@ -27,52 +25,33 @@
 						</header>
 
 
-						<!-- Test Username pw -->
-						<form action = "#" method = "post">
-							<div class="row uniform 50%">
-								<div class="3u 12$(xsmall)">
-									<div class="usr-text">
-              						    <p>用户名 :</p>
-              					    </div>
-              			   		</div>
+						<form action = "regis-form.php" method = "post">
+							<div class="row uniform row-nopadding row-vertpadding">
 
-	              				<div class="8u$ 12$(xsmall)">
-    		          			    <input type = "text" name = "username" class = "box" pattern=".{3,}" required title="最低3字符" required/>
-            	      			</div>
+								<div class="usr-text col-xs-4 col-sm-2 col-md-1">用户名  :</div>
+	              			    <div class="col-xs-8 col-sm-5 col-md-4">
+	              			    	<input type = "text" name = "username" class = "box" required pattern=".{3,}"/>
+	              			    </div>
 
-                	  			<div class="3u 12$(xsmall)">
-									<div class="pw-text">
-                  						<p>密码 :</p>
-                  					</div>
+              			    	<div class="pw-text col-xs-4 col-sm-2 col-md-1 clear-both">密码  :</div>
+                  				<div class="col-xs-8 col-sm-5 col-md-4">
+                  					<input type = "password" name = "password" id="pw" class = "box" required pattern=".{3,}" />
                   				</div>
 
-                  				<div class="8u$ 12$(xsmall)">
-                  					<input type = "password" name = "password" id="pw" class = "box" pattern=".{3,}" required title="最低3字符" required/>
-               		   			</div>
-
-                	  			<div class="3u 12$(xsmall)">
-									<div class="pw-text">
-                  						<p>确认密码 :</p>
-                  					</div>
+              			    	<div class="pw-text col-xs-4 col-sm-2 col-md-1 clear-both">确认密码  :</div>
+                  				<div class="col-xs-8 col-sm-5 col-md-4">
+                  					<input type = "password" name = "cpassword" id="cpw" class = "box" required pattern=".{3,}" />
                   				</div>
-
-                  				<div class="8u$ 12$(xsmall)">
-                  					<input type = "password" name = "cpassword" id = "cpw" class = "box" pattern=".{3,}" title="最低3字符且和密码相同" required/>
-               		   			</div>
-
-								<div class="12u$">
-									<ul class="actions">
-									<!-- <input class="button special" type="submit" value = " 注册 "/><br/> -->
-										<!-- A very rough password check mechanism PLEASE separate out in future -->
-										<input style="display:none" type="submit">
-										<input class="button special" onclick="if ($('#pw').val()==$('#cpw').val()){$(this).prev().click()}" value = " 注册 "/><br/>
-									</ul>
+               		   		
+               		   			<div class="col-xs-12 clear-both">
+									<input style="display:none" type = "submit"/>
+									<input class="button special wide-always" type="button" onclick="if ($('#pw').val()==$('#cpw').val()){$(this).prev().click()}" value = " 注册 "/>
 								</div>
+								<button type="button" class="wide-always" onclick="window.location='usr-login.php'">登陆已有账号</button>
+
+
                		   		</div>
                			</form>
-               			<ul class="actions">
-               				<li><a href="../index.php">返回首页</a></li>>
-               			</ul>
 					<!-- <a href="#" class="image fit"><img src="images/pic01.jpg" alt="" /></a> -->
 					</div>
 				</section>
