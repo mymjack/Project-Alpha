@@ -41,7 +41,7 @@
 	<title>航班表 - Otto带物</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<link rel="stylesheet" href="../assets/css/main.css" />
+	<link rel="stylesheet" href="../assets/css/main-cleaned.css" />
 	<link rel="stylesheet" href="../assets/css/otto.css" />
 	<!-- Select2 datalist files -->
 	<link href="../select2/css/select2.css" rel="stylesheet" />
@@ -54,18 +54,17 @@
 	<section id="main" class="wrapper">
 		<div class="container">
 			
-			<header class="major special">
+			<header class="major special col-xs-12">
 				<h2>搜索结果：</h2>
 				<!--<p>Returns Search Results</p>-->
 			</header>
 			<p></p>
-			<div class="row 150%">
-				<div class="6u 12u$(xsmall)">
+			<div class="row">
+				<div class="col-xs-12 col-md-6">
 					<form class="flight-filter" method="get"> <!-- Implement keep input after submit -->
 
-						<div class="row uniform 50%">
-							<div class="5u 12u$(xsmall)">
-								<div class="select-wrapper">
+						<div class="row-nopadding uniform row-vertpadding">
+							<div class="col-xs-5">
 								<select name="dep" id="dep">
 									<option disababled selected value>- 出发地 -</option>
 									<option value="toronto">多伦多 Toronto</option>
@@ -73,15 +72,11 @@
 									<option value="mississauga">密市 Mississauga</option>
 									<option value="northyork">北约克 North York</option>
 								</select>
-								</div>
 							</div>
 
-							<div class="2u 12u$(xsmall">
-								<p>-></p>
-							</div>
+							<div class="col-xs-2 align-center">-></div>
 
-							<div class="5u$ 12u$(xsmall)">
-								<div class="select-wrapper">
+							<div class="col-xs-5">
 								<select name="arri" id="arri">
 									<option disabled selected value>- 目的地 -</option>
 									<option value="北京">北京</option>
@@ -120,9 +115,8 @@
 									<option value="浙江">浙江</option>
 								</select>
 							</div>
-							</div>
 									
-							<div class="6u 12u$(xsmall)">
+							<div class="col-xs-7">
 								<div class="select-wrapper">
 									<select name="filter">
 										<option disabled selected value>- 分类 -</option>
@@ -134,21 +128,15 @@
 							</div>
 							<input type="hidden" name="page" value="1">
 
-							<!--<input type="submit" class="button special" value="submit">-->
-									
-							
+							<div class="col-xs-5 align-right">
+								<input class="button special small wide" value="更新" type="submit">
+							</div>
 								
-									<div class="12u$">
-										<ul class="actions">
-											<li><input class="button special small" value="更新" type="submit"></li>
-										</ul>
-									</div>
-								
-							
 						</div>
 					</form>
 
-					<div class="12u$ 12u$(medium)">
+					<div class="clear-both">
+					<br>
 						<div class="main-group-display-content">
 							<?php 
 								//if($result){
@@ -160,8 +148,14 @@
 									$arri = $row['arrivals'];
 									$des = $row['description'];
 									//echo "<a href='single.php?id_key=$id' class='display-content' style='text-decoration:none;'><br>$name<br>$dep -> $arri<br>$des</a>";
-									echo "<a href='single.php?id_key=$id' class='display-content' style='text-decoration:none;'><h4>$dep -> $arri</h4>$date<br>$name<br>
-									<div class='oneline-desc'>$des</div></a>";
+									echo "<a href='pages/single.php?id_key=$id' class='display-content' style='text-decoration:none;'>
+											<div class='name-date'>
+												<div class='col-xs-12 col-sm-7'>
+													<strong>$name</strong> - $date
+												</div>
+												<h4 class='col-xs-12 col-sm-5'>$dep -> $arri</h4>
+											</div>
+											<div class='oneline-desc'>$des</div></a>";
 									}
 								//}
 							?>
@@ -199,7 +193,7 @@
 				</div>
 
 			<!-- Right Col -->	
-			<div class="6u$ 12u$(xsmall)">
+			<div class="col-xs-12 col-md-6">
 				<!-- Map -->
 				<div id="map" style="width:100%;height:800px;"></div>
 					<script>
@@ -246,7 +240,7 @@
 	<script src="../assets/js/util.js"></script>
 	<script src="../assets/js/main.js"></script>
 	<script src="../bootstrap-3.3.7-dist/js/bootstrap.js"></script>
-	<script src="../select2/js/select2.min.js"></script>
+	<script src="../select2/js/select2.js"></script>
 	<script type="text/javascript">
 		$('#dep').select2({
 			placeholder: "- 出发地 -",

@@ -1,10 +1,4 @@
 /* Genderal */
-button.wide,
-input[type="submit"].wide {
-	padding-left: 5em;
-	padding-right: 5em;
-}
-
 
 /* Index Page */
 .index-search{
