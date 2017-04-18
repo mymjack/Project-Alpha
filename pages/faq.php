@@ -10,7 +10,7 @@
 
 		
 		<!-- Header -->
-		<?php $title="常见问题";include("header.php") ?>
+		<?php include("session.php");$title="FAQ";include("header.php") ?>
 
 		<!-- Main -->
 			<section id="main" class="wrapper">
