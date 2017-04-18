@@ -6,6 +6,7 @@
 
 	$page=isset($_GET['page']) ? $_GET['page'] : 1;
 	$start=($page-1)*$limit;
+	$dep = isset($_GET['dep']) ? $_GET['dep'] : "";
 	$arri = isset($_GET['arri']) ? $_GET['arri'] : "";
 
 	$sql = "SELECT id, name, departures, arrivals, traveldate, description FROM usr_regis ORDER BY traveldate LIMIT $start, $limit";
@@ -129,7 +130,7 @@
 							<input type="hidden" name="page" value="1">
 
 							<div class="col-xs-5 align-right">
-								<input class="button special small wide" value="更新" type="submit">
+								<button class="special small wide" >更新</button>
 							</div>
 								
 						</div>
@@ -242,10 +243,18 @@
 	<script src="../bootstrap-3.3.7-dist/js/bootstrap.js"></script>
 	<script src="../select2/js/select2.js"></script>
 	<script type="text/javascript">
+		// Gets the parameter from url by key
+		function getParam(key) {
+			var regExp = new RegExp("[?&]"+key+"=[^&=]*[^&]");
+			return decodeURIComponent((regExp.exec($(location).attr('href'))[0]).split('=')[1]);
+		}
+
+		$('#dep option[value="'+getParam('dep')+'"]').attr('selected','selected');
 		$('#dep').select2({
 			placeholder: "- 出发地 -",
 		  	allowClear: true
 		});
+		$('#arri option[value="'+getParam('arri')+'"]').attr('selected','selected');
 		$('#arri').select2({
 			placeholder: "- 目的地 -",
 		  allowClear: true
