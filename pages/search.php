@@ -249,12 +249,12 @@
 			return decodeURIComponent((regExp.exec($(location).attr('href'))[0]).split('=')[1]);
 		}
 
-		$('#dep option[value="'+getParam('dep')+'"]').attr('selected','selected');
+		$('#dep option[value="<?php echo $dep; ?>"]').attr('selected','selected');
 		$('#dep').select2({
 			placeholder: "- 出发地 -",
 		  	allowClear: true
 		});
-		$('#arri option[value="'+getParam('arri')+'"]').attr('selected','selected');
+		$('#arri option[value="<?php echo $arri; ?>"]').attr('selected','selected');
 		$('#arri').select2({
 			placeholder: "- 目的地 -",
 		  allowClear: true
