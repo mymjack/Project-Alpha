@@ -43,6 +43,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="stylesheet" href="../assets/css/main.css" />
 	<link rel="stylesheet" href="../assets/css/otto.css" />
+	<!-- Select2 datalist files -->
+	<link href="../select2/css/select2.css" rel="stylesheet" />
 </head>
 <body>
 
@@ -244,5 +246,16 @@
 	<script src="../assets/js/util.js"></script>
 	<script src="../assets/js/main.js"></script>
 	<script src="../bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+	<script src="../select2/js/select2.min.js"></script>
+	<script type="text/javascript">
+		$('#dep').select2({
+			placeholder: "- 出发地 -",
+		  	allowClear: true
+		});
+		$('#arri').select2({
+			placeholder: "- 目的地 -",
+		  allowClear: true
+		});
+	</script>
 </body>
 </html>

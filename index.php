@@ -15,6 +15,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<link rel="stylesheet" href="assets/css/otto.css" />
+
+	<!-- Select2 datalist files -->
+	<link href="select2/css/select2.css" rel="stylesheet" />
 </head>
 <body class="landing">
 
@@ -48,7 +51,7 @@
 						<div class="3u 12u$(xsmall)">
 							<div class="select-wrapper">
 								<select name="dep" id="dep">
-									<option disababled selected value>- 出发地 -</option>
+									<option disababled selected value></option>
 									<option value="toronto">多伦多 Toronto</option>
 									<option value="markham">万锦 Markham</option>
 									<option value="mississauga">密市 Mississauga</option>
@@ -62,7 +65,7 @@
 							<div class="select-wrapper">
 								<select name="arri" id="arri">
 								<!-- Consider using data base .... Jack -->
-									<option disabled selected value>- 目的地 -</option>
+									<option disabled selected value></option>
 									<option value="北京">北京</option>
 									<option value="上海">上海</option>
 									<option value="广东">广东</option>
@@ -205,6 +208,17 @@
 		  ga('create', 'UA-97380931-1', 'auto');
 		  ga('send', 'pageview');
 
+		</script>
+		<script src="select2/js/select2.min.js"></script>
+		<script type="text/javascript">
+			$('#dep').select2({
+				placeholder: "- 出发地 -",
+			  	allowClear: true
+			});
+			$('#arri').select2({
+				placeholder: "- 目的地 -",
+			  allowClear: true
+			});
 		</script>
 
 
