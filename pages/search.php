@@ -66,7 +66,7 @@
 	<section id="main" class="wrapper">
 		<div class="container">
 			
-			<header class="major special col-xs-12">
+			<header class="major special">
 				<h2>搜索结果：</h2>
 				<!--<p>Returns Search Results</p>-->
 			</header>
