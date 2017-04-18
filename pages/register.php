@@ -9,9 +9,12 @@
 		<title>登记航班 - Otto带物</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="../assets/css/main.css" />	
+		<link rel="stylesheet" href="../assets/css/main-cleaned.css" />	
 		
 		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">	
+		<!-- Select2 datalist files -->
+		<link href="../select2/css/select2.css" rel="stylesheet" />
+
 		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 		<script>
@@ -23,28 +26,12 @@
 	</head>
 
 	<body>
+
 		<!-- Header -->
-			<header id="header">
-				<h1><strong><a href="../index.php">Otto首页</a></strong> 登记航班</h1>
-				<nav id="nav">
-					<ul>
-						<li><a href="../index.php">首页</a></li>
-						<li><a href="register.php">登记航班</a></li>
-						<li><a href="search.php?filter=publishdate">航班表</a></li>
-						<li><a href="faq.html">FAQ</a></li>
-						<li><a href="welcome.php">会员登录</a></li>
-						<!--<div class="header-profile">
-							<a href="member.html"><img src="../images/smiling-baby.jpg" class="img-circle" height="60" width="60"></a>
-						</div>-->
-					</ul>
-				</nav>
-			</header>
-
-
-		<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+		<?php $title="登记航班";include("header.php") ?>
 
 		<!-- Main -->
-		<div class="checkout-page">
+		<!-- <div class="checkout-page"> -->
 			<section id="main" class="wrapper">
 				<div class="container">
 
@@ -53,23 +40,17 @@
 					</header>
 
 					<form method="post" action="register_form.php">
-						<div class="row uniform 50%">
+						<div class="row uniform row-vertpadding">
 
 								<!-- Line 1 -->
-							<div class="1u 12$(xsmall)">
-								<p>联系人*:</p>
-							</div>
-							<div class="3u 12$(xsmall)">
+							<div class="col-xs-4 col-sm-2 align-right required-red-star">联系人:</div>
+							<div class="col-xs-8 col-sm-5">
 								<input type="text" name="name" id="name" placeholder="" required/>
 							</div>
 
-							<div class="1u 12$(xsmall)"></div>
-							<div class="2u 12$(xsmall)">
-								<p>出发地 -&gt; 目的地*:</p>
-							</div>
-
-							<div class="2u 12$(xsmall)">
-								<div class="select-wrapper">
+							<div class="col-xs-4 col-sm-2 clear-both align-right required-red-star">出发地 / 目的地:</div>
+							<div class="col-xs-8 col-sm-5 row-nopadding">
+								<div class="col-xs-12 col-sm-6">
 									<select name="dep" id="dep" required>
 										<option disababled selected value>- 出发地 -</option>
 										<option value="toronto">多伦多 Toronto</option>
@@ -77,13 +58,11 @@
 										<option value="mississauga">密市 Mississauga</option>
 										<option value="northyork">北约克 North York</option>
 									</select>
-									</div>
-							</div>
+								</div>
 
-							<div class="0.5u 12$(xsmall)"><p>-&gt;</p></div>
-							<div class="2u$ 12$(xsmall)">
-								<div class="select-wrapper">
-									<select name="ari" id="ari" required>
+								<!-- <div class="0.5u 12$(xsmall)"><p>-&gt;</p></div> -->
+								<div class="col-xs-12 col-sm-6">
+									<select name="ari" id="arri" required>
 										<option disabled selected value>- 目的地 -</option>
 										<option value="北京">北京</option>
 										<option value="上海">上海</option>
@@ -124,35 +103,40 @@
 							</div>
 
 							<!-- Line 2 -->
-							<div class="1u 12$(xsmall)">
-								<p>日期*:</p>
-							</div>
+							<div class="col-xs-4 col-sm-2 align-right required-red-star">日期:</div>
 							
-							<div class="3u 12u$(xsmall)">
+							<div class="col-xs-8 col-sm-3">
 								<div class="select-wrapper">
 									<input name="datepicker" id="datepicker" type="text" required/>
 								</div>
 							</div>
 
-							<div class="3u 12$(xsmall)"></div>
-							<div class="1u 12$(xsmall)">
-								<p>电话:</p>
-							</div>
+							<div class="col-xs-4 col-sm-2 align-right clear-both">电话:</div>
 
-							<div class="2u$ 12$(xsmall)">
+							<div class="col-xs-8 col-sm-4">
 								<input type="text" name="cell" id="cell" placeholder="" />
 							</div>
 
+							<div class="col-xs-4 col-sm-2 align-right">邮箱:</div>
 
-							<div class="2u$">
-								<p>介绍：</p>
+							<div class="col-xs-8 col-sm-4">
+								<input type="text" name="email" id="email" placeholder="" />
 							</div>
-							<div class="12u$">
+
+
+							<div class="col-xs-4 col-sm-2 align-right">介绍:</div>
+							<div class="col-xs-12 col-sm-10">
 								<textarea name="description" id="description" placeholder="请输入航班，联系方式，微信号，可用空间，价位等信息。" rows="6"></textarea>
 							</div>
-						</div>
 
-						<input class="button special" type="submit" value="提交">
+							<div class="col-xs-12 col-sm-2"></div>
+							<div class="col-xs-6 col-sm-3">
+							<input class="button special wide" type="submit" value="提交">
+							</div>
+						</div>
+						<!-- <div class="col-xs-6 col-sm-3">
+						<a href="../index.php"><button>回到首页</button></a>
+						</div> -->
 
 						<!--
 						<div class="checkout-button">
@@ -166,12 +150,10 @@
 						</div> -->
 					</form>
 
-					<form action="../index.php">
-						<input class="button special" type="submit" value="回到首页">
-					</form>
+
 				</div>
 			</section>
-		</div>
+		<!-- </div> -->
 
 		<!-- Footer -->
 		<footer id="footer">
@@ -197,6 +179,17 @@
 		  ga('create', 'UA-97380931-1', 'auto');
 		  ga('send', 'pageview');
 
+		</script>
+		<script src="../select2/js/select2.js"></script>
+		<script type="text/javascript">
+			$('#dep').select2({
+				placeholder: "- 出发地 -",
+			  	allowClear: true
+			});
+			$('#arri').select2({
+				placeholder: "- 目的地 -",
+			  allowClear: true
+			});
 		</script>
 
 	</body>

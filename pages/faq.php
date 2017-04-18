@@ -8,21 +8,9 @@
 	</head>
 	<body>
 
+		
 		<!-- Header -->
-			<header id="header">
-				<h1><strong><a href="../index.php">FAQ</a></strong> 常见问题</h1>
-				<nav id="nav">
-					<ul>
-						<li><a href="../index.php">首页</a></li>
-						<li><a href="register.php">登记航班</a></li>
-						<li><a href="search.php?filter=publishdate">航班表</a></li>
-						<li><a href="faq.html">FAQ</a></li>
-						<li><a href="welcome.php">会员登录</a></li>
-					</ul>
-				</nav>
-			</header>
-
-			<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+		<?php include("session.php");$title="FAQ";include("header.php") ?>
 
 		<!-- Main -->
 			<section id="main" class="wrapper">

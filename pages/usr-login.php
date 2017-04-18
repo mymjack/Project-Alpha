@@ -7,24 +7,12 @@
 		<title>会员登录 - Otto带物</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="../assets/css/main.css" />
+		<link rel="stylesheet" href="../assets/css/main-cleaned.css" />
 	</head>
 	<body>
-		<!-- Header -->
-			<header id="header">
-				<h1><strong><a href="../index.php">Otto首页</a></strong> 用户登录</h1>
-				<nav id="nav">
-					<ul>
-						<li><a href="../index.php">首页</a></li>
-						<li><a href="register.php">登记航班</a></li>
-						<li><a href="search.php?filter=publishdate">航班表</a></li>
-						<li><a href="faq.html">FAQ</a></li>
-						<li><a href="welcome.php">会员登录</a></li>
-					</ul>
-				</nav>
-			</header>
 
-			<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+		<!-- Header -->
+		<?php $title="会员登录";include("header.php") ?>
 
 		<!-- Main -->
 			<div class="checkout-page">
@@ -35,40 +23,33 @@
 							<h2>会员登录</h2>
 						</header>
 
+						<div id="noti" class="notify-container">
+						<div class="notify-red">请先登陆再访问</div>
+						</div>
+
 						<!-- Change -->
 						<form action = "login-form.php" method = "post">
-							<div class="row uniform 50%">
-								<div class="3u 12$(xsmall)">
-									<div class="usr-text">
-              			   			<p>用户名  :</p>
-              			   			</div>
-              			    	</div>
-              			    
-	              			    <div class="8u$ 12$(xsmall)">
-	              			    	<input type = "text" name = "username" class = "box"/><br/>
+							<div class="row uniform row-nopadding row-vertpadding">
+
+								<div class="usr-text col-xs-4 col-sm-2 col-md-1">用户名  :</div>
+	              			    <div class="col-xs-8 col-sm-5 col-md-4">
+	              			    	<input type = "text" name = "username" class = "box"/>
 	              			    </div>
 
-              			    	<div class="3u 12$(xsmall)">
-              			    		<div class="pw-text">
-                  						<p>密码  :</p>
-                  					</div>
-                  				</div>
-
-                  				<div class="8u$ 12$(xsmall)">
-                  					<input type = "password" name = "password" class = "box" /><br/>
+              			    	<div class="pw-text col-xs-4 col-sm-2 col-md-1 clear-both">密码  :</div>
+                  				<div class="col-xs-8 col-sm-5 col-md-4">
+                  					<input type = "password" name = "password" class = "box" />
                   				</div>
                		   		
-               		   			<div class="12u$">
-									<ul class="actions">
-										<li><input class="button special small" type = "submit" value = " 登录 "/><br/></li>
-									</ul>
+               		   			<div class="col-xs-12 clear-both">
+									<input class="button special wide-always" type = "submit" value = " 登录 "/>
 								</div>
+								<button type="button" class="wide-always" onclick="window.location='usr-regis.php'">新用户注册</button>
+
 
                		   		</div>
                			</form>
-               			<ul class="actions">
-               				<li><a href="usr-regis.php">新用户注册</a></li>>
-               			</ul>
+               			
 					<!-- <a href="#" class="image fit"><img src="images/pic01.jpg" alt="" /></a> -->
 					</div>
 				</section>
@@ -90,5 +71,28 @@
 			<script src="../assets/js/util.js"></script>
 			<script src="../assets/js/main.js"></script>
 			<script src="../bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+			<script type="text/javascript">
+				var notifying = null;
+				function notify(text, colorClass, waitForSec) {
+					if (notifying)
+						clearTimeout(notifying);
+
+					colorClass = colorClass || 'notify-yellow';
+					waitForSec = waitForSec || 5;
+					var totalHeight = 0;
+					$("#noti").children().each(function(){
+					    totalHeight = totalHeight + $(this).outerHeight(true);
+					    $(this).removeClass('notify-red notify-yellow notify-green').addClass(colorClass);
+					});
+					$('#noti').css('height', totalHeight.toString()+'px');
+					notifying = setTimeout(function(){$('#noti').css('height', '0');}, waitForSec*1000);
+				}
+				<?php 
+					if (isset($_SESSION['redirectError'])){
+						echo "notifying = setTimeout(function(){notify('".$_SESSION['redirectError']."', 'notify-red');}, 300);";
+						$_SESSION['redirectError'] = null;
+					} 
+				?>
+			</script>
 	</body>
 </html>

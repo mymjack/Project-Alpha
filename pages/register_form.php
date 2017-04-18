@@ -2,11 +2,11 @@
 <?php
    include ("session.php");
 
-   if (! hasEmpty([$_POST['name'], $_POST['ari'], $_POST['dep'], $_POST['cell'], $_POST['datepicker']])) {
+   if (! hasEmpty([$_POST['name'], $_POST['ari'], $_POST['dep'], $_POST['datepicker']])) {
       $name = htmlspecialchars_decode($_POST['name']);	
       $ari = htmlspecialchars_decode($_POST['ari']);
       $dep = htmlspecialchars_decode($_POST['dep']);
-      $cell = htmlspecialchars_decode($_POST['cell']);
+      $cell = htmlspecialchars_decode($_POST['cell']?: '');
       $travel = htmlspecialchars_decode($_POST['datepicker']);
       $description = htmlspecialchars_decode($_POST['description'] ?: '');
 
