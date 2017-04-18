@@ -1,7 +1,29 @@
+/* Genderal */
+button.wide,
+input[type="submit"].wide {
+	padding-left: 5em;
+	padding-right: 5em;
+}
+
+
+/* Index Page */
+.index-search{
+	text-align: center;
+	margin: auto;
+	max-width: 1500px;
+}
+	.index-search div {
+		float: none;
+		display: inline-block;
+		margin-bottom: 2em;
+	}
+
+/* Flight listings */
 .oneline-desc{
 	overflow: hidden;
 	margin-right: 1em;
 	padding-right: 3em;
+	padding-left: 15px;
 	max-height: 28px; 
 	position: relative;
 }
