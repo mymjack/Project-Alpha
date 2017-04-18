@@ -23,6 +23,10 @@
 							<h2>会员登录</h2>
 						</header>
 
+						<div id="noti" class="notify-container">
+						<div class="notify-red">请先登陆再访问</div>
+						</div>
+
 						<!-- Change -->
 						<form action = "login-form.php" method = "post">
 							<div class="row uniform row-nopadding row-vertpadding">
@@ -67,5 +71,28 @@
 			<script src="../assets/js/util.js"></script>
 			<script src="../assets/js/main.js"></script>
 			<script src="../bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+			<script type="text/javascript">
+				var notifying = null;
+				function notify(text, colorClass, waitForSec) {
+					if (notifying)
+						clearTimeout(notifying);
+
+					colorClass = colorClass || 'notify-yellow';
+					waitForSec = waitForSec || 5;
+					var totalHeight = 0;
+					$("#noti").children().each(function(){
+					    totalHeight = totalHeight + $(this).outerHeight(true);
+					    $(this).removeClass('notify-red notify-yellow notify-green').addClass(colorClass);
+					});
+					$('#noti').css('height', totalHeight.toString()+'px');
+					notifying = setTimeout(function(){$('#noti').css('height', '0');}, waitForSec*1000);
+				}
+				<?php 
+					if (isset($_SESSION['redirectError'])){
+						echo "notifying = setTimeout(function(){notify('".$_SESSION['redirectError']."', 'notify-red');}, 300);";
+						$_SESSION['redirectError'] = null;
+					} 
+				?>
+			</script>
 	</body>
 </html>
