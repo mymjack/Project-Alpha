@@ -29,12 +29,12 @@
 					<li><a href="pages/register.php">登记航班</a></li>
 					<li><a href="pages/search.php?filter=publishdate">航班表</a></li>
 					<li><a href="pages/faq.php">FAQ</a></li>
-					<li><a href="pages/welcome.php">
+					<li>
 					<?php 
 					if (isset($_SESSION['login_user']) && !empty($_SESSION['login_user']))
-						echo $_SESSION['login_user'];
+						echo "<a href=\"pages/welcome.php\">".$_SESSION['login_user'];
 					else
-						echo "会员登录";
+						echo "<a href=\"pages/usr-login.php\">"."会员登录";
 					?></a></li>
 				</ul>
 			</nav>

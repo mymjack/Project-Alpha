@@ -1,5 +1,6 @@
-<?php
-   include('session.php');
+<?php 
+	$title="用户中心";
+	include('session.php');
 ?>
 <html>
 	<head>
@@ -12,7 +13,7 @@
 
 
 		<!-- Header -->
-		<?php $title="用户中心";include("header.php") ?>
+		<?php include("header.php") ?>
 
 			<!-- Main -->
 				<section id="main" class="wrapper">
