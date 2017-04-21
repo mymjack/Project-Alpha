@@ -66,8 +66,8 @@
 										<option disabled selected value>- 目的地 -</option>
 										<option value="北京">北京 Beijing</option>
 										<option value="上海">上海 Shanghai</option>
-										<option value="广东">广州 Guangzhou</option>
-										<option value="广东">深圳 Shenzhen</option>
+										<option value="广州">广州 Guangzhou</option>
+										<option value="深圳">深圳 Shenzhen</option>
 										<option value="香港">香港 Hong Kong</option>
 										<option value="重庆">重庆 Chongqin</option>
 										<option value="天津">天津 Tianjin</option>
