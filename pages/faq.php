@@ -1,3 +1,7 @@
+<?php
+	include("config.php");
+	session_start();
+?>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -10,7 +14,7 @@
 
 		
 		<!-- Header -->
-		<?php include("session.php");$title="FAQ";include("header.php") ?>
+		<?php $title="FAQ";include("header.php") ?>
 
 		<!-- Main -->
 			<section id="main" class="wrapper">
