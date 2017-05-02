@@ -3,7 +3,6 @@
 	$title="登记航班";
 	include('session.php');
 ?>
-
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -65,40 +64,42 @@
 								<div class="col-xs-12 col-sm-6">
 									<select name="ari" id="arri" required>
 										<option disabled selected value>- 目的地 -</option>
-										<option value="北京">北京</option>
-										<option value="上海">上海</option>
-										<option value="广东">广东</option>
-										<option value="香港">香港</option>
-										<option value="重庆">重庆</option>
-										<option value="天津">天津</option>
-										<option value="澳门">澳门</option>
+										<option value="北京">北京 Beijing</option>
+										<option value="上海">上海 Shanghai</option>
+										<option value="广州">广州 Guangzhou</option>
+										<option value="深圳">深圳 Shenzhen</option>
+										<option value="香港">香港 Hong Kong</option>
+										<option value="重庆">重庆 Chongqin</option>
+										<option value="天津">天津 Tianjin</option>
+										<option value="澳门">澳门 Macau</option>
 										<option disabled>- 拼音排序 -</option>
-										<option value="安徽">安徽</option>
-										<option value="福建">福建</option>
-										<option value="贵州">贵州</option>
-										<option value="河北">河北</option>
-										<option value="黑龙江">黑龙江</option>
-										<option value="河南">河南</option>
-										<option value="湖北">湖北</option>
-										<option value="湖南">湖南</option>
-										<option value="海南">海南</option>
-										<option value="广西">广西</option>
-										<option value="甘肃">甘肃</option>
-										<option value="吉林">吉林</option>
-										<option value="江苏">江苏</option>
-										<option value="江西">江西</option>
-										<option value="辽宁">辽宁</option>
-										<option value="内蒙古">内蒙古</option>
-										<option value="宁夏">宁夏</option>
-										<option value="青海">青海</option>
-										<option value="陕西">陕西</option>
-										<option value="山西">山西</option>
-										<option value="山东">山东</option>
-										<option value="四川">四川</option>
-										<option value="西藏">西藏</option>
-										<option value="新疆">新疆</option>
-										<option value="云南">云南</option>
-										<option value="浙江">浙江</option>
+										<option value="安徽">安徽 Anhui</option>
+										<option value="福建">福建 Fujian</option>
+										<option value="贵州">贵州 Guizhou</option>
+										<option value="河北">河北 Hebei</option>
+										<option value="黑龙江">黑龙江 Heilongjiang</option>
+										<option value="河南">河南 Henan</option>
+										<option value="湖北">湖北 Hubei</option>
+										<option value="湖南">湖南 Hunan</option>
+										<option value="海南">海南 Hainan</option>
+										<option value="广东">广东 Guangdong</option>
+										<option value="广西">广西 Guangxi</option>
+										<option value="甘肃">甘肃 Gansu</option>
+										<option value="吉林">吉林 Jilin</option>
+										<option value="江苏">江苏 Jiangsu</option>
+										<option value="江西">江西 Jiangxi</option>
+										<option value="辽宁">辽宁 Liaoning</option>
+										<option value="内蒙古">内蒙古 Neimenggu</option>
+										<option value="宁夏">宁夏 Ningxia</option>
+										<option value="青海">青海 Qinghai</option>
+										<option value="陕西">陕西 Shanxi</option>
+										<option value="山西">山西 Shanxi</option>
+										<option value="山东">山东 Shandong</option>
+										<option value="四川">四川 Sichuan</option>
+										<option value="西藏">西藏 Xizang</option>
+										<option value="新疆">新疆 Xinjiang</option>
+										<option value="云南">云南 Yunnan</option>
+										<option value="浙江">浙江 Zhejiang</option>
 									</select>
 								</div>
 							</div>

@@ -1,5 +1,5 @@
-<!-- PHP code - Andrew -->
 <?php
+   // PHP code - Andrew
    include ("session.php");
 
    if (! hasEmpty([$_POST['name'], $_POST['ari'], $_POST['dep'], $_POST['datepicker']])) {
@@ -18,8 +18,9 @@
       if($name!=""){
       	$query = "INSERT INTO usr_regis (username, name,arrivals,publishdate,traveldate,departures,cell,description) VALUES ('$un', '$name','$ari','$publishdate','$travel','$dep','$cell','$description');";
          // $query = "INSERT INTO usr_regis (name,arrivals,publishdate,traveldate,departures,cell,description) VALUES ('$name','$ari','$publishdate','$travel','$dep','$cell','$description');";
-   		if (mysqli_query($db,$query)) 
+   		if (mysqli_query($db,$query)) {
             header("location: welcome.php");
-      } 		
+         }
+      }
    }
 ?>
