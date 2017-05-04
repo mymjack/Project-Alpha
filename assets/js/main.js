@@ -65,3 +65,98 @@
 	});
 
 })(jQuery);
+
+
+// Finds the div noti and display the notification text inside in some color for some seconds.
+var notifying = null;
+function notify(text, colorClass, waitForSec) {
+	if (notifying)
+		clearTimeout(notifying);
+
+	colorClass = colorClass || 'notify-yellow';
+	waitForSec = waitForSec || 5;
+	var totalHeight = 0;
+	$($("#noti").children()[0]).html(text).removeClass('notify-red notify-yellow notify-green').addClass(colorClass);
+	$("#noti").children().each(function(){
+	    totalHeight = totalHeight + $(this).outerHeight(true);
+	});
+	$('#noti').css('height', totalHeight.toString()+'px');
+	notifying = setTimeout(function(){$('#noti').css('height', '0');}, waitForSec*1000);
+}
+
+function backToTop(offset) {
+	offset = offset || "0";
+	$("html, body").animate({ scrollTop: offset+"px" });
+}
+
+// POSTs the login info to server via AJAX
+function login() {
+	$.ajax({
+		url: './login-form.php', 
+    	type: "POST",
+		data: $('form').serialize(),
+		success: function(result) {
+			data = JSON.parse(result);
+			if (data.status == 'success') {
+				window.location.href = data.redirect;
+			} else {
+				notify(data.errorMsg, 'notify-red');
+			}
+		}
+    });
+}
+
+// POSTs the register info to server via AJAX
+function register() {
+	$un = $('#un');
+	$pw = $('#pw');
+	$cpw = $('#cpw');
+
+	if ($un.val() == '' && $un.prop('required')) {
+		notify('Username is empty', 'notify-red');
+		return;
+	}
+	if (!new RegExp($un.attr('pattern')).test($un.val())) {
+		notify('Username must be at least 3 characters long', 'notify-red');
+		return;
+	}
+
+	if ($pw.val() == '' && $pw.prop('required')) {
+		notify('Password is empty', 'notify-red');
+		return;
+	}
+	if (!new RegExp($pw.attr('pattern')).test($pw.val())) {
+		notify('Password must be at least 3 characters long', 'notify-red');
+		return;
+	}
+
+	if ($cpw.val() != $pw.val()) {
+		notify('Confirm password does not match password', 'notify-red');
+		return;
+	}
+
+	$.ajax({
+		url: './regis-form.php', 
+    	type: "POST",
+		data: $('form').serialize(),
+		success: function(result) {
+			data = JSON.parse(result);
+			if (data.status == 'success') {
+				window.location.href = data.redirect;
+			} else {
+				notify(data.errorMsg, 'notify-red');
+			}
+		}
+    });
+}
+
+// Grabs all input fields in the given form and make a data string for GET/POST
+// function inputsToData($form) {
+// 	var data = '';
+// 	$($form).find('input').each(function(){
+// 		if ($.inArray($(this).attr('type'), ['button', 'submit']) < 0) {
+// 			data += '&' + $(this).attr('name') + '=' + $(this).val();
+// 		}
+// 	});
+// 	return data.substring(1, data.length);
+// }
