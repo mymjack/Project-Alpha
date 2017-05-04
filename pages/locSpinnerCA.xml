@@ -1,0 +1,7 @@
+<select name="dep" id="dep">
+	<option disababled selected value></option>
+	<option value="toronto">多伦多 Toronto</option>
+	<option value="markham">万锦 Markham</option>
+	<option value="mississauga">密市 Mississauga</option>
+	<option value="northyork">北约克 North York</option>
+</select>
