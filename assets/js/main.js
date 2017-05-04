@@ -84,6 +84,11 @@ function notify(text, colorClass, waitForSec) {
 	notifying = setTimeout(function(){$('#noti').css('height', '0');}, waitForSec*1000);
 }
 
+function backToTop(offset) {
+	offset = offset || "0";
+	$("html, body").animate({ scrollTop: offset+"px" });
+}
+
 // POSTs the login info to server via AJAX
 function login() {
 	$.ajax({

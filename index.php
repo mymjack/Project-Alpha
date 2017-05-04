@@ -12,7 +12,7 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="stylesheet" href="assets/css/main-cleaned.css" />
-	<link rel="stylesheet" href="assets/css/otto.css" />
+	<!-- <link rel="stylesheet" href="assets/css/otto.css" /> -->
 
 	<!-- Select2 datalist files -->
 	<link href="select2/css/select2.css" rel="stylesheet" />
@@ -165,9 +165,7 @@
 						<h2>敬请关注!</h2>
 						<!-- <p>Feugiat sed lorem ipsum magna</p> -->
 					</header>
-					<ul class="actions">
-						<li><a id="back-to-top" href="#" class="button special big">返回顶部</a></li>
-					</ul>
+					<button id="back-to-top" class="button special big" >返回顶部</button>
 				</div>
 			</section>
 
@@ -206,6 +204,8 @@
 				placeholder: "- 目的地 -",
 			  allowClear: true
 			});
+
+			$('#back-to-top').click(function(){backToTop()});
 		</script>
 
 
