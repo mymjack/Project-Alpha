@@ -1,19 +1,21 @@
 <?php
-   include ("session.php");
+   include("utils.php");
+   configSession();
    if($_SERVER["REQUEST_METHOD"] == "POST") {
       // username and password sent from form 
       
-      $myusername = mysqli_real_escape_string($db,$_POST['username']);
-      $mypassword = mysqli_real_escape_string($db,$_POST['password']); 
+      $un = mysqli_real_escape_string($db,$_POST['username']);
+      $pw = mysqli_real_escape_string($db,$_POST['password']); 
+      // $cpw = mysqli_real_escape_string($db,$_POST['cpassword']); 
       
-      $sql = "INSERT INTO admin (username, password) VALUES ('$myusername', '$mypassword')";
+      $sql = "INSERT INTO admin (username, password) VALUES ('$un', '$pw')";
       $result = mysqli_query($db,$sql);
 
       if($result){
-         $_SESSION['login_user'] = $myusername;
-         header("location: welcome.php");
+         $_SESSION['login_user'] = $un;
+         echo '{"status":"success", "redirect" : "welcome.php"}';
       } else {
-         echo "User exists";
+         echo '{"status":"error", "errorMsg" : "Username taken. Please try another one"}';
       }
    }
 ?>

@@ -1,6 +1,6 @@
 <?php
-	include("config.php");
-	session_start();
+	include("utils.php");
+	configSession();
 ?>
 <!DOCTYPE HTML>
 <html>

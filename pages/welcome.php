@@ -1,6 +1,8 @@
 <?php 
 	$title="用户中心";
-	include('session.php');
+	include('utils.php');
+	configSession();
+	loginRequired("请先登录再访问" . $title, "welcome.php");
 ?>
 <html>
 	<head>
@@ -20,7 +22,7 @@
 					<div class="container">
 						<header class="major special">
 							<h2>欢迎用户</h2>
-							<p><?php echo $login_session; ?></p>
+							<p><?php echo $_SESSION['login_user']; ?></p>
 						</header>
 
    	 			  		<form action="logout.php">

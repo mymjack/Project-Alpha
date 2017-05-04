@@ -1,6 +1,6 @@
 <?php
-	include("config.php");
-	session_start();
+	include("utils.php");
+	configSession();
 ?>
 <html>
 	<head>
@@ -24,13 +24,17 @@
 							<h2>会员注册</h2>
 						</header>
 
+						<div id="noti" class="notify-container">
+						<div class="notify-red"></div>
+						</div>
+
 
 						<form action = "regis-form.php" method = "post">
 							<div class="row uniform row-nopadding row-vertpadding">
 
 								<div class="usr-text col-xs-4 col-sm-2 col-md-1">用户名  :</div>
 	              			    <div class="col-xs-8 col-sm-5 col-md-4">
-	              			    	<input type = "text" name = "username" class = "box" required pattern=".{3,}"/>
+	              			    	<input type = "text" name = "username" id="un" class = "box" required pattern=".{3,}"/>
 	              			    </div>
 
               			    	<div class="pw-text col-xs-4 col-sm-2 col-md-1 clear-both">密码  :</div>
@@ -44,8 +48,7 @@
                   				</div>
                		   		
                		   			<div class="col-xs-12 clear-both">
-									<input style="display:none" type = "submit"/>
-									<input class="button special wide-always" type="button" onclick="if ($('#pw').val()==$('#cpw').val()){$(this).prev().click()}" value = " 注册 "/>
+									<input type = "button" class="special wide-always" onclick="register()" value = " 注册 "/>
 								</div>
 								<button type="button" class="wide-always" onclick="window.location='usr-login.php'">登陆已有账号</button>
 

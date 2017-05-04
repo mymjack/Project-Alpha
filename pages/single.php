@@ -1,6 +1,7 @@
 <?php
 	$title="带物信息";
-	include('session.php');
+	include('utils.php');
+	configSession();
   	// if key is set then retrieve that key's info
   	if(isset($_GET['id_key'])){
   		$page_id = $_GET['id_key']; //obtain key from search/market.php

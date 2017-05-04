@@ -1,8 +1,6 @@
 <?php
-	include ("pages/config.php");
-	if (session_status() == PHP_SESSION_NONE) {
-	    session_start();
-	}
+	include ("pages/utils.php");
+	configSession();
 
 	$sql = "SELECT id, name, departures, arrivals, traveldate, description FROM usr_regis ORDER BY traveldate LIMIT 5";
 	$result = mysqli_query($db, $sql);

@@ -1,6 +1,7 @@
 <?php
-	include("config.php");
-	session_start();
+	$title="会员登录";
+	include("utils.php");
+	configSession();
 ?>
 <html>
 	<head>
@@ -12,7 +13,7 @@
 	<body>
 
 		<!-- Header -->
-		<?php $title="会员登录";include("header.php") ?>
+		<?php include("header.php") ?>
 
 		<!-- Main -->
 			<div class="checkout-page">
@@ -33,20 +34,18 @@
 
 								<div class="usr-text col-xs-4 col-sm-2 col-md-1">用户名  :</div>
 	              			    <div class="col-xs-8 col-sm-5 col-md-4">
-	              			    	<input type = "text" name = "username" class = "box"/>
+	              			    	<input type = "text" name = "username" id="un" class = "box"/>
 	              			    </div>
 
               			    	<div class="pw-text col-xs-4 col-sm-2 col-md-1 clear-both">密码  :</div>
                   				<div class="col-xs-8 col-sm-5 col-md-4">
-                  					<input type = "password" name = "password" class = "box" />
+                  					<input type = "password" name = "password" id="pw" class = "box" />
                   				</div>
                		   		
                		   			<div class="col-xs-12 clear-both">
-									<input class="button special wide-always" type = "submit" value = " 登录 "/>
+									<input class="button special wide-always" type = "button" onclick="login()" value = " 登录 "/>
 								</div>
 								<button type="button" class="wide-always" onclick="window.location='usr-regis.php'">新用户注册</button>
-
-
                		   		</div>
                			</form>
                			
@@ -71,29 +70,11 @@
 			<script src="../assets/js/util.js"></script>
 			<script src="../assets/js/main.js"></script>
 			<script src="../bootstrap-3.3.7-dist/js/bootstrap.js"></script>
-			<script type="text/javascript">
-				var notifying = null;
-				function notify(text, colorClass, waitForSec) {
-					if (notifying)
-						clearTimeout(notifying);
-
-					colorClass = colorClass || 'notify-yellow';
-					waitForSec = waitForSec || 5;
-					var totalHeight = 0;
-					$($("#noti").children()[0]).html(text).removeClass('notify-red notify-yellow notify-green').addClass(colorClass);;
-					$("#noti").children().each(function(){
-					    totalHeight = totalHeight + $(this).outerHeight(true);
-					});
-					$('#noti').css('height', totalHeight.toString()+'px');
-					notifying = setTimeout(function(){$('#noti').css('height', '0');}, waitForSec*1000);
-				}
-				<?php 
-					if (isset($_SESSION['redirectError']) && !empty($_SESSION['redirectError'])){
-						echo "notifying = setTimeout(function(){notify('".$_SESSION['redirectError']."', 'notify-red');}, 300);";
-						// $_SESSION['redirectError'] = '';
-						session_unset($_SESSION['redirectError']);
-					} 
-				?>
-			</script>
+			<?php 
+				if (isset($_SESSION['redirectError']) && !empty($_SESSION['redirectError'])){
+					echo "<script type='text/javascript'>notifying = setTimeout(function(){notify('".$_SESSION['redirectError']."', 'notify-red');}, 300);</script>";
+					session_unset($_SESSION['redirectError']);
+				} 
+			?>
 	</body>
 </html>

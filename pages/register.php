@@ -1,7 +1,8 @@
 <?php
 	// check if logged in, if not redirect
 	$title="登记航班";
-	include('session.php');
+	include('utils.php');
+	configSession();
 ?>
 <!DOCTYPE HTML>
 <html>

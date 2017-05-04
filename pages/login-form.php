@@ -1,9 +1,7 @@
 <?php
-   include ("config.php");
-   if (session_status() == PHP_SESSION_NONE) {
-      session_start();
-   }
-
+   include("utils.php");
+   configSession();
+   
    if($_SERVER["REQUEST_METHOD"] == "POST") {
       // username and password sent from form 
       
@@ -13,19 +11,20 @@
       $sql = "SELECT * FROM admin WHERE username = '$myusername' and password = '$mypassword'";
       $result = mysqli_query($db,$sql);
       $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-      $active = $row['active'];
-      
-      $count = mysqli_num_rows($result);
-      
+      // $active = $row['active'];
+
       // If result matched $myusername and $mypassword, table row must be 1 row
-		
-      if($count == 1) {
-         //session_register("myusername");
+      if(mysqli_num_rows($result) == 1) {
          $_SESSION['login_user'] = $myusername;
-         header("location: welcome.php");
+         if (isset( $_SESSION['urlAfterLogin']) && !empty($_SESSION['urlAfterLogin'] )){
+            $forward = $_SESSION['urlAfterLogin'];
+            session_unset($_SESSION['urlAfterLogin']);
+         } else {
+            $forward = 'welcome.php';
+         }
+         echo '{"status":"success", "redirect" : "'.$forward.'"}';
       } else {
-         //$error = "Your Login Name or Password is invalid";
-         echo "Your Login Name or Password is invalid";
+         echo '{"status":"error", "errorMsg" : "Your Login Name or Password is invalid"}';
       }
    }
 ?>

@@ -1,6 +1,7 @@
 <?php
 	$title="航班表";
-	include('session.php');
+	include('utils.php');
+	configSession();
 
 	$start=0;
 	$limit=8;
