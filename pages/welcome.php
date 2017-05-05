@@ -40,9 +40,10 @@
 			</div>
 		</section>
 
+		<div class="divider"></div>
 
 		<!-- General Info -->
-		<section id="info" class="wrapper">
+		<section id="info">
 			<div class="container">
 
 				<div id="noti" class="notify-container">
@@ -53,8 +54,8 @@
 					<h2>基本信息</h2>
 
 					<span id="info-form-btn">
-						<button class="small wide-always badge" id="edit-info">编辑</button>
-						<button class="small wide-always badge special hidden" id="save-info">保存</button>
+						<button class="small badge" id="edit-info">编辑</button>
+						<button class="small badge special hidden" id="save-info">保存</button>
 					</span>
 
 				</header>
@@ -97,10 +98,15 @@
 			</div>
 		</section>
 
+		<div class="divider"></div>
+
 		<!-- Register Info -->
-		<section id="flights" class="wrapper">
+		<section id="flights">
 			<div class="container">
-				<header class="minor"> <h2>登记的航班</h2> </header>
+				<header class="minor"> 
+					<h2>登记的航班</h2> 
+					<a href="register.php" class="button small badge special">新建</a>
+				</header>
 
 				<div class="list-group-display-content col-xs-12">
 					<?php if($resultf && mysqli_num_rows($resultf) > 0) {
@@ -127,8 +133,10 @@
 			</div>
 		</section>
 
+		<div class="divider"></div>
+
 		<!-- Items Info -->
-		<section id="items" class="wrapper">
+		<section id="items">
 			<div class="container">
 				<header class="minor"> <h2>登记的代购物品</h2> </header>
 

@@ -38,13 +38,20 @@ body {
 	box-sizing: border-box;
 }
 
+.divider {
+	border-top: solid 2px rgba(144, 144, 144, 0.25);
+	width: 90%;
+	margin: 2em auto;
+}
+
 /* Containers */
 .container {
 	margin-left: auto;
 	margin-right: auto;
 	width: 80em;
 }
-	.container::after {
+	.container::after,
+	.divider::after {
 		clear: both;
 		content: '';
 		display: block;
@@ -902,7 +909,7 @@ header h6 + p {
 	line-height: 1.5em;
 }
 header.major {
-	margin: 0 0 4em 0;
+	margin: 0 0 1em 0;
 }
 	header.major h2 {
 		font-size: 3em;
@@ -919,9 +926,9 @@ header.minor h2, header.minor h3, header.minor h4, header.minor h5, header.minor
 	display: inline-block;
 }
 @media screen and (max-width: 1280px) {
-	header.major {
+	hea/*der.major {
 		margin-bottom: 4em;
-	}
+	}*/
 		header.major h2 {
 			font-size: 2.5em;
 		}
