@@ -70,24 +70,24 @@
 							<a class="badge" href="pages/search.php?filter=publishdate"><button>More</button></a>
 						</div>
 
-							<div class="list-group-display-content col-xs-12">
-								<?php 
-								if($result){
-									while($row = mysqli_fetch_array($result)) {
-										$id = $row['id'];
-										$name = $row['name'];
-										$dep = $row['departures'];
-										$date = $row['traveldate'];
-										$arri = $row['arrivals'];
-										$des = $row['description'];
-										echo "<a href='pages/single.php?id_key=$id' class='display-content' style='text-decoration:none;'>
-											<div class='name-date'>
-												<div class='col-xs-12 col-sm-7'>
-													<strong>$name</strong> - $date
-												</div>
-												<h4 class='col-xs-12 col-sm-5'>$dep -> $arri</h4>
+						<div class="list-group-display-content col-xs-12">
+							<?php 
+							if($result){
+								while($row = mysqli_fetch_array($result)) {
+									$id = $row['id'];
+									$name = $row['name'];
+									$dep = $row['departures'];
+									$date = $row['traveldate'];
+									$arri = $row['arrivals'];
+									$des = $row['description'];
+									echo "<a href='pages/single.php?id_key=$id' class='display-content' style='text-decoration:none;'>
+										<div class='name-date'>
+											<div class='col-xs-12 col-sm-7'>
+												<strong>$name</strong> - $date
 											</div>
-											<div class='oneline-desc'>$des</div></a>";
+											<h4 class='col-xs-12 col-sm-5'>$dep -> $arri</h4>
+										</div>
+										<div class='oneline-desc'>$des</div></a>";
 									}
 								} else {
 									echo "Oops, no data right now. Please come back later.";

@@ -150,13 +150,27 @@ function register() {
     });
 }
 
-// Grabs all input fields in the given form and make a data string for GET/POST
-// function inputsToData($form) {
-// 	var data = '';
-// 	$($form).find('input').each(function(){
-// 		if ($.inArray($(this).attr('type'), ['button', 'submit']) < 0) {
-// 			data += '&' + $(this).attr('name') + '=' + $(this).val();
-// 		}
-// 	});
-// 	return data.substring(1, data.length);
-// }
+function toggleInfo() {
+	$('#info-form-btn').find("> button").toggleClass('hidden');
+	$('#info-form').find("> div.row").toggleClass('hidden');
+}
+
+function saveInfo() {
+	$.ajax({
+		url: './save-info.php', 
+    	type: "POST",
+		data: $('#info-form-form').serialize(),
+		success: function(result) {
+			data = JSON.parse(result);
+			if (data.status == 'success') {
+				notify("您的信息已成功保存", 'notify-green');
+				setTimeout(function(){location.reload();}, 2500);
+			} else {
+				notify(data.errorMsg, 'notify-red');
+			}
+		},
+		error: function(result) {
+			notify("服务器繁忙，请稍后重试", 'notify-red');
+		}
+    });
+}
