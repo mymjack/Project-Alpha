@@ -926,7 +926,7 @@ header.minor h2, header.minor h3, header.minor h4, header.minor h5, header.minor
 	display: inline-block;
 }
 @media screen and (max-width: 1280px) {
-	hea/*der.major {
+	/*header.major {
 		margin-bottom: 4em;
 	}*/
 		header.major h2 {
