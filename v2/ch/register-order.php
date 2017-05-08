@@ -62,7 +62,7 @@
 								<input type="text" placeholder="物品名称" maxlength="100">
 							</div>
 							<div class="col-xs-3">
-								<input type="number" placeholder="数量" min="0" max="999999">
+								<input type="number" placeholder="数量" min="0" max="999999" name="quantity">
 							</div>
 							<div class="col-xs-6">
 								<input type="number" placeholder="单个重量(kg)" min="0" max="99">
@@ -73,9 +73,8 @@
 							<div class="col-xs-12">
 
 								<!-- http://tutorialzine.com/2013/05/mini-ajax-file-upload-form/ -->
-								<form class="upload" method="post" action="upload.php" enctype="multipart/form-data">
+								<form class="upload" method="post" action="../assets/fileUploader/upload.php" enctype="multipart/form-data">
 									<ul> 
-										<li><img src="../img/avatars/1.png"/></li>
 										<li class="drop-zone"> 添加图片 </li>
 										<!-- Files are shown here --> 
 									</ul>
@@ -134,6 +133,7 @@
 	<script src="../assets/fileUploader/js/jquery.ui.widget.js"></script>
 	<script src="../assets/fileUploader/js/jquery.iframe-transport.js"></script>
 	<script src="../assets/fileUploader/js/jquery.fileupload.js"></script>
+	<script src="../assets/fileUploader/js/script.js"></script>
 
 	<script type="text/javascript">
 		$("#add-item").click(function(){addItem()})

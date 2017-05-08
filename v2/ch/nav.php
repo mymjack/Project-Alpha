@@ -1,9 +1,10 @@
 <?php 
 	$nav = array(
-		"首页"     => "index.php",
+		"首页"     => "",
 		"登记航班" => "register-flight.php",
-		"航班表"   => "flights.php",
-		"FAQ"     => "faq.php"
+		"登记订单" => "register-order.php",
+		"航班表"   => "",
+		"FAQ"     => ""
 		// member anchor is mandatory and is added later
 	);
 	if (!isset($active) || empty($active)) {

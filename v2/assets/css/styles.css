@@ -787,13 +787,16 @@ form.upload > ul {
 	padding: 0.6em 0.6em 0;
 	margin-bottom: 2em;
 }
-	form.upload input { display: none; }
+	form.upload input {
+		display: none;
+	}
 	form.upload > ul > li  {
 		border-radius: 4px;
 		overflow: hidden;
 		height: 6em;
 		max-width: 9em;
 		text-align: center;
+		margin: 0 0.3em;
 		display: inline-block;
 	}
 		form.upload > ul > li.drop-zone  {
@@ -801,6 +804,10 @@ form.upload > ul {
 			border: 4px dashed #ddd; 
 			width: 8em;
 			line-height: 5.5em;
+		}
+		form.upload > ul > li.drop-zone:hover,
+		li.drop-zone.drag-highlight  {
+			background-color: #f5f5f5;
 		}
 		form.upload > ul > li > img {
 			height: 6em;

@@ -184,7 +184,41 @@ function addItem() {
 	$newItem = $("#item-template").clone()
 	$newItem.attr("id", "item-"+itemIdCounter).attr("class", "");
 	$newItem.find("input[type=file]").attr("id", "item-img-"+itemIdCounter);
+	fileUploader($newItem.find("ul"));
+	bindDragHighlight($newItem.find("li.drop-zone"));
 	$newItem.appendTo($("#items"));
+	$newItem.find("input[type!=file]").change(function(){reEstimateOrder()});
+
+	// Code below triggers delete when quantity drop below 1
+	$newItem.find("input[name=quantity]").change(function(){
+		if ($(this).val() <= 0) {
+			removeItem($(this), $(this).parent().parent());
+		}
+	});
+
+	// Alternate, X button, but no space for it
+	// $newItem.find("button[name=remove]").click(function(){
+	// 	removeItem($(this), $(this).parent().parent());
+	// });
+}
+
+function removeItem($source, $item) {
+	$item.animate({opacity:0},500, function(){
+		// Unregister uploaded images here
+		$item.animate({height:0},300, function(){
+			$item.remove();
+		});
+	});
+}
+
+function reEstimateOrder() {
+	console.log('Re-estimating weight and value. (Algorithm is empty) ');
+	var totalWeight = 10, totalValue = 100;
+
+	// Implement estimate algorithm here.
+
+	$('#total-weight').html(totalWeight);
+	$('#total-value').html(totalValue);
 }
 
 // Transform select spinners into fancier ones
