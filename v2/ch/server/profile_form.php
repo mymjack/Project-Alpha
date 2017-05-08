@@ -1,13 +1,14 @@
 <?php
-   include("utils.php");
+   include("../utils.php");
    configSession();
    if($_SERVER["REQUEST_METHOD"] == "POST") {
       
       $name = mysqli_real_escape_string($db,$_POST['name']);
       $cell = mysqli_real_escape_string($db,$_POST['cell']); 
       $email = mysqli_real_escape_string($db,$_POST['email']); 
-      
-      $sql = $db->prepare('REPLACE INTO usr_info (username, name, cell, email) VALUES ("'.$_SESSION['login_user'].'", ?, ?, ?);');
+
+      $sql =$db->prepare('INSERT INTO usr_info (username, name, cell, email) VALUES ("'.$_SESSION['login_user'].'", ?, ?, ?) 
+                        ON DUPLICATE KEY UPDATE name=VALUES(name), cell=VALUES(cell), email=VALUES(email);');
       $sql->bind_param("sss", $name, $cell, $email);
       $result = $sql->execute();
 

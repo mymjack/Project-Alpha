@@ -1,6 +1,6 @@
 function fileUploader($ul){
 
-    $ul.find(">li.drop-zone").click(function(){
+    $ul.find(".drop-zone").click(function(){
         // Simulate a click on the file input button
         // to show the file browser dialog
         $ul.parent().find('input').click();
@@ -9,7 +9,7 @@ function fileUploader($ul){
     // Initialize the jQuery File Upload plugin
     $ul.parent().fileupload({
         // This element will accept file drag/drop uploading
-        dropZone: $ul.find('li.drop-zone'),
+        dropZone: $ul.find('.drop-zone'),
         // Expect JSON returned from server
         datatype: 'json',
 

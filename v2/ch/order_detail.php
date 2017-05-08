@@ -25,6 +25,7 @@
 
 		<header class="major">
 			<h2>登记订单</h2>
+			<!-- <button class="wide badge hidden" id="edit">修改</button> -->
 		</header>
 		<div class="divider"></div>
 
@@ -36,44 +37,69 @@
 			<div class="col-xs-12 col-md-3 vert-divider-right">
 				<form id="contact-info">
 					<h3>卖家联系方式</h3>
-					<input type="text" name="dname" id="dname" placeholder="姓名/昵称" required class="required" maxlength="80"/>
-					<input type="tel" name="dcell" id="dcell" placeholder="电话" required class="required" maxlength="25"/>
-					<input type="email" name="demail" id="demail" placeholder="电子邮箱" maxlength="100"/>  
-					<!-- <input type="address" name="daddress" id="daddress" placeholder="地址" required class="required" maxlength="400"/>   -->
+					<div class="input-with-label">
+						<span>姓名/昵称</span>
+						<input type="text" name="dname" id="dname" required class="required" maxlength="80"/>
+					</div>
+					<div class="input-with-label">
+						<span>电话</span>
+						<input type="tel" name="dcell" id="dcell" required class="required" maxlength="25"/>
+					</div>
+					<div class="input-with-label">
+						<span>电子邮箱</span>
+						<input type="email" name="demail" id="demail" maxlength="100"/>  
+					</div>
+					<!-- 
+					<div class="input-with-label">
+						<span>地址</span>
+						<input type="address" name="daddress" id="daddress"required class="required" maxlength="400"/>
+						</div>   -->
 
 					<div class="divider"></div>
 
 					<h3>买家联系方式</h3>
-					<input type="text" name="cname" id="cname" placeholder="姓名/昵称" required class="required" maxlength="80"/>
-					<input type="tel" name="ccell" id="ccell" placeholder="电话" required class="required" maxlength="25"/>
-					<input type="address" name="caddress" id="caddress" placeholder="寄送地址" required class="required" maxlength="400"/>  
+					<div class="input-with-label">
+						<span>姓名/昵称</span>
+						<input type="text" name="cname" id="cname" required class="required" maxlength="80"/>
+					</div>
+					<div class="input-with-label">
+						<span>电话</span>
+						<input type="tel" name="ccell" id="ccell" required class="required" maxlength="25"/>
+					</div>
+					<div class="input-with-label">
+						<span>寄送地址</span>
+						<input type="address" name="caddress" id="caddress" required class="required" maxlength="400"/>  
+					</div>
 				</form>
 			</div>
 
 			<div class="col-xs-12 col-md-6 vert-divider-right">
 				<header class="minor">
-					<form>
 						<h3>订单详情</h3>
-						<button type="button" class="small badge" id="add-item">添加物品</button>
-					</form>
-					<ul class="" id="items">
+						<button  class="small badge" id="add-item">添加物品</button>
+					<ul id="items">
 						<li id="item-template" class="hidden">
-							<div class="col-xs-9">
-								<input type="text" placeholder="物品名称" maxlength="100">
+							<div class="col-xs-8 input-with-label">
+								<span>物品名称</span>
+								<input type="text" maxlength="100">
 							</div>
-							<div class="col-xs-3">
-								<input type="number" placeholder="数量" min="0" max="999999" name="quantity">
+							<div class="col-xs-4 input-with-label">
+								<span>数量</span>
+								<input type="number" min="0" max="999999" name="quantity">
 							</div>
-							<div class="col-xs-6">
-								<input type="number" placeholder="单个重量(kg)" min="0" max="99">
+							<div class="col-xs-6 input-with-label">
+								<span>单个重量(kg)</span>
+								<input type="number" min="0" max="99">
 							</div>
-							<div class="col-xs-6">
-								<input type="number" placeholder="单个价格(CAD)" min="0" max="999999999">
+							<div class="col-xs-6 input-with-label">
+								<span>单个价格(CAD)</span>
+								<input type="number" min="0" max="999999999">
 							</div>
 							<div class="col-xs-12">
 
 								<!-- http://tutorialzine.com/2013/05/mini-ajax-file-upload-form/ -->
-								<form class="upload" method="post" action="../assets/fileUploader/upload.php" enctype="multipart/form-data">
+								<form class="upload input-with-label" method="post" action="../assets/fileUploader/upload.php" enctype="multipart/form-data"> 
+								<span>物品图片</span>
 									<ul> 
 										<li class="drop-zone"> 添加图片 </li>
 										<!-- Files are shown here --> 
@@ -91,11 +117,11 @@
 			<div class="col-xs-12 col-md-3">
 				<form id="shipment">
 					<h3>运输</h3>
-					<div>
+					<div class="input-with-label">
 						<input type="radio" name="shipment" id="shipment1" value="you-deliver"/>
 						<label for="shipment1">卖家交付货物给Ot-to</label>
 					</div>
-					<div>
+					<div class="input-with-label">
 						<input type="radio" name="shipment" id="shipment2" value="we-pick-up"/>
 						<label for="shipment2">Ot-to上门取货</label>
 					</div>
@@ -107,7 +133,7 @@
 					<!-- <p>订单号： 349876</p>
 					<p>运输号： OT4839765045</p> -->
 				</form>
-				<button class="button special fit">提交</button>
+				<button class="button special fit" id="submit">提交</button>
 			</div>
 		</div>
 			
@@ -137,6 +163,9 @@
 
 	<script type="text/javascript">
 		$("#add-item").click(function(){addItem()})
+		$('#submit').click(function(){submitOrder()});
+		$('#edit').click(function(){toggleOrder()});
+		$('form, #items').each(function(){formDisplayAdjust($(this))});
 	</script>
 
 

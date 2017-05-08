@@ -69,6 +69,8 @@
 // Definitions
 regexpTel = new RegExp("^([ \.\-\/\\\(\)]{0,2}[a-zA-Z_]{0,5}[ \.\-\/\\\(\)]?\d){6,24}[ \.\-\/\\\(\)]?$");
 regexpEmail = new RegExp("^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"); // W3C
+regexpUsername = new RegExp("^.{3,30}$");
+regexpPassword = new RegExp("^.{3,40}$");
 
 // Finds the div noti and display the notification text inside in some color for some seconds.
 var notifying = null;
@@ -95,7 +97,7 @@ function backToTop(offset) {
 // POSTs the login info to server via AJAX
 function login() {
 	$.ajax({
-		url: './login-form.php', 
+		url: './server/login_form.php', 
     	type: "POST",
 		data: $('form').serialize(),
 		success: function(result) {
@@ -119,8 +121,8 @@ function register() {
 		notify('Username is empty', 'notify-red');
 		return;
 	}
-	if (!new RegExp($un.attr('pattern')).test($un.val())) {
-		notify('Username must be at least 3 characters long', 'notify-red');
+	if (!regexpUsername.test($un.val())) {
+		notify('Username must be 3-30 characters long', 'notify-red');
 		return;
 	}
 
@@ -128,8 +130,8 @@ function register() {
 		notify('Password is empty', 'notify-red');
 		return;
 	}
-	if (!new RegExp($pw.attr('pattern')).test($pw.val())) {
-		notify('Password must be at least 3 characters long', 'notify-red');
+	if (!regexpPassword.test($pw.val())) {
+		notify('Password must be 3-40 characters long', 'notify-red');
 		return;
 	}
 
@@ -139,7 +141,7 @@ function register() {
 	}
 
 	$.ajax({
-		url: './regis-form.php', 
+		url: './server/register_form.php', 
     	type: "POST",
 		data: $('form').serialize(),
 		success: function(result) {
@@ -154,20 +156,37 @@ function register() {
 }
 
 function toggleInfo() {
-	$('#info-form-btn').find("> button").toggleClass('hidden');
-	$('#info-form').find("> div.row").toggleClass('hidden');
+	$('#user-info-btn').find("> button").toggleClass('hidden');
+	$('#user-info').toggleClass('display');
+	formDisplayAdjust($('#user-info'));
+}
+
+function toggleOrder() {
+	$("#edit, #submit, #add-item").toggleClass('hidden');
+	$("#contact-info, #items, #shipment").toggleClass('display');
+	formDisplayAdjust($("#contact-info, #items, #shipment"));
+}
+
+function formDisplayAdjust($form) {
+	if ($form.hasClass('display')) {
+		$form.find('.input-with-label input').each(function(){
+			$(this).attr('size', $(this).val().length+1).prop('disabled', 'true');
+		});
+	} else {
+		$form.find('.input-with-label input').removeAttr('size').removeProp('disabled');
+	}
 }
 
 function saveInfo() {
 	$.ajax({
-		url: './save-info.php', 
+		url: './server/profile_form.php', 
     	type: "POST",
-		data: $('#info-form-form').serialize(),
+		data: $('#user-info').serialize(),
 		success: function(result) {
 			data = JSON.parse(result);
 			if (data.status == 'success') {
 				notify("您的信息已成功保存", 'notify-green');
-				setTimeout(function(){location.reload();}, 2500);
+				toggleInfo();
 			} else {
 				notify(data.errorMsg, 'notify-red');
 			}
@@ -222,14 +241,16 @@ function reEstimateOrder() {
 }
 
 // Transform select spinners into fancier ones
-$('select.dep').select2({
-	placeholder: "- 出发地 -",
-  	allowClear: true
-});
-$('select.arri').select2({
-	placeholder: "- 目的地 -",
-  	allowClear: true
-});
+if (typeof $('<select></select>').select2 === "function") { 
+	$('select.dep').select2({
+		placeholder: "- 出发地 -",
+	  	allowClear: true
+	});
+	$('select.arri').select2({
+		placeholder: "- 目的地 -",
+	  	allowClear: true
+	});
+}
 
 // Back to top button
 $('#back-to-top').click(function(){backToTop()});

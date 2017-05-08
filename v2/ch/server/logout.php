@@ -1,8 +1,8 @@
 <?php
-   include("utils.php");
+   include("../utils.php");
    configSession();
    
    if(session_destroy()) {
-      header("Location: usr-login.php");
+      header("Location: ../login.php");
    }
 ?>

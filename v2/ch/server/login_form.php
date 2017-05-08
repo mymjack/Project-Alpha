@@ -1,5 +1,5 @@
 <?php
-   include("utils.php");
+   include("../utils.php");
    configSession();
    
    if($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -20,7 +20,7 @@
             $forward = $_SESSION['urlAfterLogin'];
             session_unset($_SESSION['urlAfterLogin']);
          } else {
-            $forward = 'welcome.php';
+            $forward = 'member.php';
          }
          echo '{"status":"success", "redirect" : "'.$forward.'"}';
       } else {
