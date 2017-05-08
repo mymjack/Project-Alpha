@@ -47,6 +47,7 @@
 					<h3>基本信息</h3>
 					<div id="user-info-btn" class="badge">
 						<button id="save-info" class="small hidden special">保存</button>
+						<!-- <button id="cancel-edit" class="small">取消</button> -->
 						<button id="edit-info" class="small">编辑</button>
 					</div>
 				</header>

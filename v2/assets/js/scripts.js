@@ -89,6 +89,7 @@ function notify(text, colorClass, waitForSec) {
 	notifying = setTimeout(function(){$('#noti').css('height', '0');}, waitForSec*1000);
 }
 
+// Smoothly scrolls the page to top
 function backToTop(offset) {
 	offset = offset || "0";
 	$("html, body").animate({ scrollTop: offset+"px" });
@@ -155,24 +156,24 @@ function register() {
     });
 }
 
+// Allow or disallow modification to forms
 function toggleInfo() {
 	$('#user-info-btn').find("> button").toggleClass('hidden');
 	$('#user-info').toggleClass('display');
 	formDisplayAdjust($('#user-info'));
 }
-
 function toggleOrder() {
 	$("#edit, #submit, #add-item").toggleClass('hidden');
 	$("#contact-info, #items, #shipment").toggleClass('display');
 	formDisplayAdjust($("#contact-info, #items, #shipment"));
 }
-
 function toggleFlight() {
 	$("#edit, #submit").toggleClass('hidden');
 	$("#flyer-info, #flight-info").toggleClass('display');
 	formDisplayAdjust($("#flyer-info, #flight-info"));
 }
 
+// Re-measure and set input field lengths for better appearance.
 function formDisplayAdjust($form) {
 	if ($form.hasClass('display')) {
 		$form.find('.input-with-label input').each(function(){
@@ -188,6 +189,7 @@ function formDisplayAdjust($form) {
 	}
 }
 
+// POSTs the user information to server via AJAX. (Currently avatar is not handled.)
 function saveInfo() {
 	$.ajax({
 		url: './server/profile_form.php', 
@@ -208,6 +210,7 @@ function saveInfo() {
     });
 }
 
+// Adds an empty row to order register page
 var itemIdCounter = 0;
 function addItem() {
 	itemIdCounter ++;
@@ -232,6 +235,7 @@ function addItem() {
 	// });
 }
 
+// Remove a row from order register page
 function removeItem($source, $item) {
 	$item.animate({opacity:0},500, function(){
 		// Unregister uploaded images here
@@ -241,6 +245,7 @@ function removeItem($source, $item) {
 	});
 }
 
+// The algorithm to estimate the total weight and value
 function reEstimateOrder() {
 	console.log('Re-estimating weight and value. (Algorithm is empty) ');
 	var totalWeight = 10, totalValue = 100;
@@ -251,7 +256,7 @@ function reEstimateOrder() {
 	$('#total-value').html(totalValue);
 }
 
-// Transform select spinners into fancier ones
+// If exist, transform select spinners into fancier ones
 if (typeof $('<select></select>').select2 === "function") { 
 	$('select.dep').select2({
 		placeholder: "- 出发地 -",
