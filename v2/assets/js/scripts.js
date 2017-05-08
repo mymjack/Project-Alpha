@@ -167,13 +167,24 @@ function toggleOrder() {
 	formDisplayAdjust($("#contact-info, #items, #shipment"));
 }
 
+function toggleFlight() {
+	$("#edit, #submit").toggleClass('hidden');
+	$("#flyer-info, #flight-info").toggleClass('display');
+	formDisplayAdjust($("#flyer-info, #flight-info"));
+}
+
 function formDisplayAdjust($form) {
 	if ($form.hasClass('display')) {
 		$form.find('.input-with-label input').each(function(){
 			$(this).attr('size', $(this).val().length+1).prop('disabled', 'true');
 		});
+		$form.find('.input-with-label textarea, .input-with-label select').each(function(){
+			$(this).prop('disabled', 'true');
+		});
 	} else {
-		$form.find('.input-with-label input').removeAttr('size').removeProp('disabled');
+		$form.find('.input-with-label input, \
+			.input-with-label select, \
+			.input-with-label textarea').removeAttr('size').removeProp('disabled');
 	}
 }
 

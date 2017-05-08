@@ -832,7 +832,7 @@ form.upload > ul {
 		background-color: rgba(200,200,200,0.2);
 	}
 
-.input-with-label span {
+.input-with-label > span {
 	font-size: 0.9em;
 	display: block;
 	line-height: 1.2em;
@@ -840,23 +840,25 @@ form.upload > ul {
 	font-weight: bold;
 }
 
-.display .input-with-label span {
+.display .input-with-label > span {
 	display: inline-block;
 	padding-left: 1em;
 }
 	.display .drop-zone {
 		display: none;
 	}
-	.display .input-with-label span:after {
+	.display .input-with-label > span:after {
 		content: ': ';
 		display: inline-block;
 	}
-	.display .input-with-label input,
-	.display .input-with-label textarea {
+	.display .input-with-label input {
 		width: initial;
 		display: inline-block;
 		border:none;
 		min-height: 2em;
+	}
+	.display .input-with-label textarea {
+		border:none;
 	}
 
 /* Notification */
