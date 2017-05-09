@@ -13,7 +13,7 @@
 	}
 ?>
 <header id="header">
-	<h1><strong><a href="../index.php">Otto</a></strong><?php echo (isset($title)? $title:"") ?></h1>
+	<h1><strong><a href="../index.php">Otto</a></strong><?php echo (isset($title)? $title:"") ?><span class="small">ALPHA 2.0</span></h1>
 	<nav id="nav">
 		<ul>
 			<?php 

@@ -57,7 +57,7 @@
 
 				<form id="user-info" class="display">
 					<div id='large-avatar' style='background-image:url("../img/avatars/<?php echo $row['avatar']; ?>")'>
-						<div class="drop-zone" ></div>
+						<div class="drop-zone" >Feature coming soon</div>
 						<input type="file" name="upl" />
 					</div>
 					<div class="input-with-label">
