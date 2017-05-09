@@ -17,7 +17,7 @@
 <body class="landing">
 
 	<!-- Header -->
-	<?php $navAlt=true; include("nav.php"); ?>
+	<?php $navAlt=true;$title="首页"; include("nav.php"); ?>
 
 	<!-- Banner -->
 		<section id="banner">
@@ -103,7 +103,7 @@
 						<h2>敬请关注!</h2>
 						<!-- <p>Feugiat sed lorem ipsum magna</p> -->
 					</header>
-					<button id="back-to-top" class="button special big" >返回顶部</button>
+					<button id="back-to-top" class="button special " >返回顶部</button>
 				</div>
 			</section>
 

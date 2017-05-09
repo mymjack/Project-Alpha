@@ -7,7 +7,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-	<title>Otto带物 - 登记航班</title>
+	<title>登记航班 - Otto带物</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -19,7 +19,7 @@
 <body>
 
 	<!-- Navigation -->
-	<?php include("nav.php"); ?>
+	<?php $title="登记航班"; $active="登记航班"; include("nav.php"); ?>
 
 	<section class="wrapper container">
 
@@ -91,6 +91,8 @@
 	<!-- Scripts -->
 	<!-- <script src="../assets/js/jquery.min.js"></script> -->
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="../assets/js/skel.min.js"></script>
+		<script src="../assets/js/util.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script src="../assets/select2/js/select2.js"></script>
 	<script src="../assets/js/scripts.js"></script>

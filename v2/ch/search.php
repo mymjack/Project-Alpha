@@ -1,7 +1,7 @@
 <?php
 	require ("utils.php");
 	configSession();
-	loginRequired('请先登陆再访问航班表', 'search.php');
+	loginRequired('请先登陆再查询航班', 'search.php');
 
 	$start=0;
 	$limit=8;
@@ -28,7 +28,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-	<title>航班表 - Otto带物</title>
+	<title>查询航班 - Otto带物</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="stylesheet" href="../assets/css/styles.css" />
@@ -49,13 +49,13 @@
 <body>
 
 	<!-- Header -->
-	<?php include("nav.php"); ?>
+	<?php $title="查询航班"; $active="查询航班"; include("nav.php"); ?>
 	<!-- Main -->
 	<section id="main" class="wrapper">
 		<div class="container">
 			
 			<header class="major special">
-				<h2>搜索结果：</h2>
+				<h2>查询航班</h2>
 				<!--<p>Returns Search Results</p>-->
 			</header>
 			<p></p>
@@ -199,6 +199,8 @@
 		$('select.dep option[value="<?php echo $depName; ?>"]').attr('selected','selected');
 		$('select.arri option[value="<?php echo $arriName; ?>"]').attr('selected','selected');
 	</script>
+		<script src="../assets/js/skel.min.js"></script>
+		<script src="../assets/js/util.js"></script>
 	<script src="../assets/select2/js/select2.js"></script>
 	<script src="../assets/js/scripts.js"></script>
 </body>

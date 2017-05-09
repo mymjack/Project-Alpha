@@ -107,7 +107,7 @@
 	<body>
 
 		<!-- Header -->
-		<?php $title="运单追踪";include("header.php") ?>
+		<?php $title="运单追踪"; $active="运单追踪"; include("header.php") ?>
 
 		<!-- Main -->
 			<div class="checkout-page">
@@ -186,7 +186,7 @@
 
 							if ($res) {
 								echo "<header class=\"minor clear-both\">
-										<h2>包含的订单</h2>
+										<br><h2>包含的订单</h2>
 									</header>
 						<div class=\"list-group-display-content col-xs-12\">";
 
@@ -312,6 +312,8 @@
 
 		<!-- Scripts -->
 			<script src="../assets/js/jquery.min.js"></script>
+		<script src="../assets/js/skel.min.js"></script>
+		<script src="../assets/js/util.js"></script>
 			<script src="../assets/js/scripts.js"></script>
 	</body>
 </html>

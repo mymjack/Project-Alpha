@@ -13,7 +13,7 @@
 	<body>
 
 		<!-- Header -->
-		<?php include("nav.php") ?>
+		<?php $title="会员登录";$active="用户"; include("nav.php") ?>
 
 		<!-- Main -->
 		<div class="checkout-page">
@@ -57,6 +57,8 @@
 
 		<!-- Scripts -->
 		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="../assets/js/skel.min.js"></script>
+		<script src="../assets/js/util.js"></script>
 		<script src="../assets/js/scripts.js"></script>
 		<?php 
 			if (isset($_SESSION['redirectError']) && !empty($_SESSION['redirectError'])){
