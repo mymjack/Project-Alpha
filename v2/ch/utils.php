@@ -1,5 +1,7 @@
 <?php
 
+$adminName = 'OTADMINTO';
+
 // Takes a list of variables. Return true iff any is not set/empty
 function hasEmpty($lst) {
 	foreach ($lst as $elm) {

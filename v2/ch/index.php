@@ -68,7 +68,9 @@
 											<div class='col-xs-12 col-sm-7'>
 												<strong>$name</strong> - $date
 											</div>
-											<h4 class='col-xs-12 col-sm-5'>$dep -> $arri</h4>
+											<div class='col-xs-12 col-sm-5 align-right'>
+												<strong>$dep -> $arri</strong>
+											</div>
 										</div>
 										<div class='oneline-desc'>$des</div></a>";
 									}

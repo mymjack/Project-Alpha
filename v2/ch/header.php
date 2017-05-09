@@ -3,7 +3,7 @@
 		"首页"     => "index.php",
 		"登记航班" => "register_flight.php",
 		"登记订单" => "register_order.php",
-		"运单追踪" => "item-track.php",
+		"运单追踪" => "tracking.php",
 		"查询航班"   => "search.php",
 		// "FAQ"     => ""
 		// member anchor is mandatory and is added later
@@ -12,7 +12,7 @@
 		$active = "首页";
 	}
 ?>
-<header id="header">
+<header id="header" <?php if(isset($navAlt)){echo "class='alt'";} ?>>
 	<h1><strong><a href="../index.php">Otto</a></strong><?php echo (isset($title)? $title:"") ?><span class="small">ALPHA 2.0</span></h1>
 	<nav id="nav">
 		<ul>
