@@ -74,8 +74,32 @@
 			</div>
 
 			<div class="col-xs-12 col-sm-7 col-md-8">
-				<div id="flight-info">
+				<header id="flight-info" class="minor">
 					<h3>登记的航班</h3>
+					<a href="register.php" class="button small badge special">新建</a>
+				</header>
+
+				<div class="list-group-display-content col-xs-12">
+					<?php if($resultf && mysqli_num_rows($resultf) > 0) {
+						while($row = mysqli_fetch_array($resultf)) {
+							$id = $row['id'];
+							$name = $row['name'];
+							$dep = $row['departures'];
+							$date = $row['traveldate'];
+							$arri = $row['arrivals'];
+							$des = $row['description'];
+							echo "<a href='flight.php?id=$id' class='display-content' style='text-decoration:none;'>
+								<div class='name-date'>
+									<div class='col-xs-12 col-sm-7'>
+										<strong>$name</strong> - $date
+									</div>
+									<h4 class='col-xs-12 col-sm-5'>$dep -> $arri</h4>
+								</div>
+								<div class='oneline-desc'>$des</div></a>";
+							}
+						} else {
+							echo "暂时为空";
+						} ?>
 				</div>
 			</div>
 		</div>

@@ -1,8 +1,8 @@
 <?php 
 	$nav = array(
 		"首页"     => "index.php",
-		"登记航班" => "flight_detail.php",
-		"登记订单" => "order_detail.php",
+		"登记航班" => "register_flight.php",
+		"登记订单" => "register_order.php",
 		"航班表"   => "search.php",
 		// "FAQ"     => ""
 		// member anchor is mandatory and is added later

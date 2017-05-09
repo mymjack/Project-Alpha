@@ -165,7 +165,8 @@ function submitFlight() {
 			data = JSON.parse(result);
 			if (data.status == 'success') {
 				notify("您的信息已成功保存", 'notify-green');
-				toggleFlight();
+				setTimeout(function(){location.href="flight.php?id="+data['id']}, 3000);
+				// toggleFlight();
 			} else {
 				notify(data.errorMsg, 'notify-red');
 			}
@@ -199,7 +200,8 @@ function submitOrder() {
 			if (data.status == 'success') {
 				notify("您的订单已成功保存, 订单号为"+data['orderID'], 'notify-green');
 				$("#orderID").html(data['orderID']).parent().removeClass("hidden");
-				toggleOrder();
+				setTimeout(function(){location.href="order.php?id="+data['orderID']}, 3000);
+				// toggleOrder();
 			} else {
 				notify(data.errorMsg, 'notify-red');
 			}
@@ -233,16 +235,16 @@ function toggleInfo() {
 	$('#user-info').toggleClass('display');
 	formDisplayAdjust($('#user-info'));
 }
-function toggleOrder() {
-	$("#edit, #submit, #add-item").toggleClass('hidden');
-	$("#contact-info, #items, #shipment").toggleClass('display');
-	formDisplayAdjust($("#contact-info, #items, #shipment"));
-}
-function toggleFlight() {
-	$("#edit, #submit").toggleClass('hidden');
-	$("#flyer-info, #flight-info").toggleClass('display');
-	formDisplayAdjust($("#flyer-info, #flight-info"));
-}
+// function toggleOrder() {
+// 	$("#edit, #submit, #add-item").toggleClass('hidden');
+// 	$("#contact-info, #items, #shipment").toggleClass('display');
+// 	formDisplayAdjust($("#contact-info, #items, #shipment"));
+// }
+// function toggleFlight() {
+// 	$("#edit, #submit").toggleClass('hidden');
+// 	$("#flyer-info, #flight-info").toggleClass('display');
+// 	formDisplayAdjust($("#flyer-info, #flight-info"));
+// }
 
 // Re-measure and set input field lengths for better appearance.
 function formDisplayAdjust($form) {

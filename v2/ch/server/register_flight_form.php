@@ -26,6 +26,7 @@
       }
 
       $query->bind_param ( 'sssssss', $name, $ari, $publishdate, $travel, $dep, $cell, $description);
-      echo $query->execute()? '{"status":"success"}' : '{"status":"error", "errorMsg" : "服务器繁忙，请稍后再试"}';
+      $res = $query->execute();
+      echo $res? '{"status":"success", "id":"'.mysqli_insert_id($db).'"}' : '{"status":"error", "errorMsg" : "服务器繁忙，请稍后再试"}';
    }
 ?>

@@ -1,7 +1,7 @@
 <?php
 	require ("utils.php");
 	configSession();
-	loginRequired('请先登陆再访问订单信息', 'order_detail.php');
+	loginRequired('请先登陆再登记订单', 'order_detail.php');
 
 ?>
 <!DOCTYPE HTML>
