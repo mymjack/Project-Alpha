@@ -51,6 +51,10 @@
 	
 		$sql = "SELECT * FROM tracking_regis WHERE trackingID=\"$tracknum\" ORDER BY publishdate";
 		$result = mysqli_query($db, $sql);
+		$trackingIDValid = false;
+		if (mysqli_num_rows(mysqli_query($db, "SELECT trackingID FROM order_regis WHERE trackingID=\"$tracknum\";"))>0) {
+			$trackingIDValid = true;
+		}
 		
 		// if($result){
 		// 	$track_data = mysqli_fetch_assoc($result);
@@ -137,7 +141,7 @@
 					
 						<?php
 						/* If not logged in, show basic information */
-						if (isset($result) && $result)
+						if (isset($result) && $result && $trackingIDValid)
 						{
 							echo "<header class=\"minor clear-both\">
 									<h2>运单&nbsp;$tracknum</h2>
@@ -292,9 +296,7 @@
 							// 	$track_data["weight"], $track_data["unit"],
 							// 	$track_data["order_id"]
 							// 	);
-							} else {
-
-							}
+							} 
 							?>
 							
 								
@@ -315,5 +317,6 @@
 		<script src="../assets/js/skel.min.js"></script>
 		<script src="../assets/js/util.js"></script>
 			<script src="../assets/js/scripts.js"></script>
+			<?php if (!isset($result) || !$result || !$trackingIDValid) {echo "<script type=\"text/javascript\">notify(\"您所查找的运单号不存在\", \"notify-red\")</script>";} ?>
 	</body>
 </html>
