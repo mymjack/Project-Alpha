@@ -156,6 +156,77 @@ function register() {
     });
 }
 
+function submitFlight() {
+	$.ajax({
+		url: './server/register_flight_form.php', 
+    	type: "POST",
+		data: $('#flyer-info').serialize() + '&' + $('#flight-info').serialize(),
+		success: function(result) {
+			data = JSON.parse(result);
+			if (data.status == 'success') {
+				notify("您的信息已成功保存", 'notify-green');
+				toggleFlight();
+			} else {
+				notify(data.errorMsg, 'notify-red');
+			}
+		}
+    });
+}
+
+// Get a list containing information of all objects
+function itemSummary() {
+	$items = [];
+	$('#items > li[id!=item-template]').each(function(){
+		$item = {};
+		$(this).find('input[type!=file]').each(function(){
+			$item[$(this).attr('name')] = $(this).val();
+		});
+		$items.push($item);
+	});
+	return $items;
+}
+
+function submitOrder() {
+	$items = itemSummary();
+	$.ajax({
+		url: './server/register_order_form.php', 
+    	type: "POST",
+		data: $('#contact-info').serialize() + '&' //+ $('#shipment').serialize() 
+			+ '&tweight=' + $('#total-weight').html() + '&tvalue=' + $('#total-value').html() 
+			+ '&items=' + JSON.stringify($items) + '&pickup=' + $('#shipment input[type=radio]:checked').val(),
+		success: function(result) {
+			data = JSON.parse(result);
+			if (data.status == 'success') {
+				notify("您的订单已成功保存, 订单号为"+data['orderID'], 'notify-green');
+				$("#orderID").html(data['orderID']).parent().removeClass("hidden");
+				toggleOrder();
+			} else {
+				notify(data.errorMsg, 'notify-red');
+			}
+		}
+    });
+}
+// POSTs the user information to server via AJAX. (Currently avatar is not handled.)
+function saveInfo() {
+	$.ajax({
+		url: './server/profile_form.php', 
+    	type: "POST",
+		data: $('#user-info').serialize(),
+		success: function(result) {
+			data = JSON.parse(result);
+			if (data.status == 'success') {
+				notify("您的信息已成功保存", 'notify-green');
+				toggleInfo();
+			} else {
+				notify(data.errorMsg, 'notify-red');
+			}
+		},
+		error: function(result) {
+			notify("服务器繁忙，请稍后重试", 'notify-red');
+		}
+    });
+}
+
 // Allow or disallow modification to forms
 function toggleInfo() {
 	$('#user-info-btn').find("> button").toggleClass('hidden');
@@ -187,27 +258,6 @@ function formDisplayAdjust($form) {
 			.input-with-label select, \
 			.input-with-label textarea').removeAttr('size').removeProp('disabled');
 	}
-}
-
-// POSTs the user information to server via AJAX. (Currently avatar is not handled.)
-function saveInfo() {
-	$.ajax({
-		url: './server/profile_form.php', 
-    	type: "POST",
-		data: $('#user-info').serialize(),
-		success: function(result) {
-			data = JSON.parse(result);
-			if (data.status == 'success') {
-				notify("您的信息已成功保存", 'notify-green');
-				toggleInfo();
-			} else {
-				notify(data.errorMsg, 'notify-red');
-			}
-		},
-		error: function(result) {
-			notify("服务器繁忙，请稍后重试", 'notify-red');
-		}
-    });
 }
 
 // Adds an empty row to order register page

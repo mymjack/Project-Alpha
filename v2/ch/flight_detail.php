@@ -1,7 +1,7 @@
 <?php
 	require ("utils.php");
 	configSession();
-	// loginRequired();
+	loginRequired('请先登陆再访问航班信息', 'flight_detail.php');
 
 ?>
 <!DOCTYPE HTML>
@@ -74,6 +74,7 @@
 						<span>备注</span>
 						<textarea name="description" id="description" placeholder="请输入航班，联系方式，微信号，可用空间，价位等信息。" rows="6" maxlength="1000"></textarea>
 					</div>
+					<?php echo isset($_GET['id'])? '<input class="hidden" name="id" value="'.$_GET['id'].'"/>' :'' ?>
 				</form>
 			</div>
 		</div>

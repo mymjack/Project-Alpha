@@ -1,7 +1,7 @@
 <?php
 	require ("utils.php");
 	configSession();
-	// loginRequired();
+	loginRequired('请先登陆再访问订单信息', 'order_detail.php');
 
 ?>
 <!DOCTYPE HTML>
@@ -77,52 +77,52 @@
 				<header class="minor">
 						<h3>订单详情</h3>
 						<button  class="small badge" id="add-item">添加物品</button>
-					<ul id="items">
-						<li id="item-template" class="hidden">
-							<div class="col-xs-8 input-with-label">
-								<span>物品名称</span>
-								<input type="text" maxlength="100">
-							</div>
-							<div class="col-xs-4 input-with-label">
-								<span>数量</span>
-								<input type="number" min="0" max="999999" name="quantity">
-							</div>
-							<div class="col-xs-6 input-with-label">
-								<span>单个重量(kg)</span>
-								<input type="number" min="0" max="99">
-							</div>
-							<div class="col-xs-6 input-with-label">
-								<span>单个价格(CAD)</span>
-								<input type="number" min="0" max="999999999">
-							</div>
-							<div class="col-xs-12">
-
-								<!-- http://tutorialzine.com/2013/05/mini-ajax-file-upload-form/ -->
-								<form class="upload input-with-label" method="post" action="../assets/fileUploader/upload.php" enctype="multipart/form-data"> 
-								<span>物品图片</span>
-									<ul> 
-										<li class="drop-zone"> 添加图片 </li>
-										<!-- Files are shown here --> 
-									</ul>
-									<input type="file" name="upl" multiple />
-								</form>
-
-							</div>
-							<div class="clear-both divider"></div>
-						</li>
-					</ul>
 				</header>
+				<ul id="items">
+					<li id="item-template" class="hidden">
+						<div class="col-xs-8 input-with-label">
+							<span>物品名称</span>
+							<input type="text" maxlength="100" name="itemName">
+						</div>
+						<div class="col-xs-4 input-with-label">
+							<span>数量</span>
+							<input type="number" min="0" max="999999" name="quantity">
+						</div>
+						<div class="col-xs-6 input-with-label">
+							<span>单个重量(kg)</span>
+							<input type="number" min="0" max="99" name="weight">
+						</div>
+						<div class="col-xs-6 input-with-label">
+							<span>单个价格(CAD)</span>
+							<input type="number" min="0" max="999999999" name="value">
+						</div>
+						<div class="col-xs-12">
+
+							<!-- http://tutorialzine.com/2013/05/mini-ajax-file-upload-form/ -->
+							<form class="upload input-with-label" method="post" action="../assets/fileUploader/upload.php" enctype="multipart/form-data"> 
+							<span>物品图片</span>
+								<ul> 
+									<li class="drop-zone"> 添加图片 </li>
+									<!-- Files are shown here --> 
+								</ul>
+								<input type="file" name="upl" multiple />
+							</form>
+
+						</div>
+						<div class="clear-both divider"></div>
+					</li>
+				</ul>
 			</div>
 
 			<div class="col-xs-12 col-md-3">
 				<form id="shipment">
 					<h3>运输</h3>
 					<div class="input-with-label">
-						<input type="radio" name="shipment" id="shipment1" value="you-deliver"/>
+						<input type="radio" name="shipment" id="shipment1" value="0"/>
 						<label for="shipment1">卖家交付货物给Ot-to</label>
 					</div>
 					<div class="input-with-label">
-						<input type="radio" name="shipment" id="shipment2" value="we-pick-up"/>
+						<input type="radio" name="shipment" id="shipment2" value="1"/>
 						<label for="shipment2">Ot-to上门取货</label>
 					</div>
 					<div class="small">Ot-to 当前只在大多(GTA)地区取货</div>
@@ -130,8 +130,8 @@
 					<h3>总结</h3>
 					<p>估计总重量： <span id="total-weight">0</span> kg</p>
 					<p>估计总价格： <span id="total-value">0</span> CAD</p>
-					<!-- <p>订单号： 349876</p>
-					<p>运输号： OT4839765045</p> -->
+					<p class="hidden">订单号： <span id="orderID"></span></p>
+					<p class="hidden">运输号： <span id="trackingID"></span></p>
 				</form>
 				<button class="button special fit" id="submit">提交</button>
 			</div>

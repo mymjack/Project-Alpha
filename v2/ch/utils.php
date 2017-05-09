@@ -17,7 +17,7 @@ function configSession() {
 		define('DB_USERNAME', 'root');
 		// define('DB_PASSWORD', 'Shgl123.');
 		define('DB_PASSWORD', '');
-		define('DB_DATABASE', 'otto_db1');
+		define('DB_DATABASE', 'otto_db2');
 		global $db;
 		$db = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE) or die ("Cannot connect to database");
 	}
@@ -44,7 +44,7 @@ function loginRequired($errorMsg, $urlAfterLogin) {
 	if (!loginCheck()) {
 		$_SESSION['redirectError'] = isset($errorMsg) ? $errorMsg : "请先登录再访问此网页";
 		$_SESSION['urlAfterLogin'] = $urlAfterLogin;
-		header("location:usr-login.php");
+		header("location:login.php");
 	}
 }
 

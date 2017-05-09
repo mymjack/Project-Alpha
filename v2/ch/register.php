@@ -42,7 +42,7 @@
               			    
 							<div class="input-with-label col-xs-12 col-sm-8 col-md-5 clear-both">
 								<span>确认密码</span>
-              					<input type = "cpassword" name = "cpassword" id="cpw" />
+              					<input type = "password" name = "cpassword" id="cpw" />
               				</div>
                		   		
            		   			<div class="clear-both col-xs-12 col-sm-6 col-md-3">

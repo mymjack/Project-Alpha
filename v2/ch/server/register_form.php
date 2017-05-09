@@ -13,7 +13,7 @@
 
       if($result){
          $_SESSION['login_user'] = $un;
-         echo '{"status":"success", "redirect" : "welcome.php"}';
+         echo '{"status":"success", "redirect" : "member.php"}';
       } else {
          echo '{"status":"error", "errorMsg" : "Username taken. Please try another one"}';
       }
