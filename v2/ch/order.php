@@ -73,10 +73,10 @@
 					if (isset($row)) {
 						while($item = mysqli_fetch_array($result_items)) {
 							echo "<li>
-								<div>物品名称: ".$item['itemName']."</div>
-								<div>数量: ".$item['quantity']."</div>
-								<div>单个重量(kg): ".$item['weight']."</div>
-								<div>单个价格(CAD): ".$item['price']."</div>
+								<div class='col-xs-6'>物品名称: ".$item['itemName']."</div>
+								<div class='col-xs-6'>数量: ".$item['quantity']."</div>
+								<div class='col-xs-6'>单个重量(kg): ".$item['weight']."</div>
+								<div class='col-xs-6'>单个价格(CAD): ".$item['price']."</div>
 								<!--<span>物品图片</span> -->
 								<ul> 
 									<!-- Files are shown here --> 

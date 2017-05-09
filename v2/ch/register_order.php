@@ -102,10 +102,10 @@
 							<form class="upload input-with-label" method="post" action="../assets/fileUploader/upload.php" enctype="multipart/form-data"> 
 							<span>物品图片</span>
 								<ul> 
-									<li class="drop-zone"> 添加图片 </li>
+									<li class="drop-zone"> <!-- 添加图片 -->(Coming soon) </li>
 									<!-- Files are shown here --> 
 								</ul>
-								<input type="file" name="upl" multiple />
+								<!-- <input type="file" name="upl" multiple /> -->
 							</form>
 
 						</div>
