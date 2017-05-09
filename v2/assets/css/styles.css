@@ -363,7 +363,8 @@ section.special, article.special {
 	box-shadow: 0px 0.0375em 0.125em 0px rgba(0, 0, 0, 0.05);
 	color: #484848;
 	font-size: 1.25em;
-	/*line-height: 4.4em;*/
+	line-height: 4.4em;
+	height: 4.5em;
 	position: fixed;
 	text-transform: uppercase;
 	left: 0;
@@ -372,7 +373,7 @@ section.special, article.special {
 	z-index: 10000;
 	padding: 0.8em;
 }
-	/*#header h1 {
+	#header h1 {
 		color: #484848;
 		font-weight: 400;
 		height: inherit;
@@ -382,24 +383,26 @@ section.special, article.special {
 		padding: 0;
 		position: absolute;
 		top: 0;
-	}*/
+	}
 	#header-logo {
 		display: block;
 		margin: auto;
 		width: 5em;
 	}
-	/*#header nav {
+	/* Navigation style is reverted until design is ready */
+/*		#header nav {
+			text-align: center;
+			margin-top: 1em;
+		}*/
+
+	#header nav {
 		height: inherit;
 		line-height: inherit;
 		position: absolute;
 		right: 1.25em;
 		top: 0;
 		vertical-align: middle;
-	}*/
-		#header nav {
-			text-align: center;
-			margin-top: 1em;
-		}
+	}
 		#header nav ul {
 			list-style: none;
 			margin: 0;
@@ -494,7 +497,7 @@ header.minor h2, header.minor h3, header.minor h4, header.minor h5, header.minor
 .display-content {
 	position: relative;
 	display: block;
-	padding: 1em 0;
+	padding: 0.8em 0;
 	background-color: #fff;
 	border: 1px solid #ddd;
 	border-bottom: none;
@@ -505,8 +508,10 @@ header.minor h2, header.minor h3, header.minor h4, header.minor h5, header.minor
 	margin-bottom: 0.5em;
 	margin-right: 0.5em;
 }
-.display-content h4 {
+.display-content h4,
+.display-content h5 {
 	margin-bottom: 0;
+	margin-top: 0;
 	text-align: right;
 }
 .display-content .name-date::after {
@@ -858,9 +863,11 @@ button, .button {
 }
 
 .divider {
-	border-top: solid 2px #ddd;
+	border-bottom: solid 2px #ddd;
 	/*width: 90%;*/
-	margin: 2em auto;
+	padding: 2em 0 0;
+	margin: 0 auto 2em;
+	clear: both;
 }
 
 .small { font-size: 12px; }
@@ -1059,7 +1066,7 @@ form.upload > ul {
 	position: relative;
 }
 	.oneline-desc::after {
-		content: 'Detail';
+		content: '详细';
 		display: block;
 		position: absolute;
 		top: 0;
