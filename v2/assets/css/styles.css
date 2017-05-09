@@ -526,14 +526,14 @@ header.minor h2, header.minor h3, header.minor h4, header.minor h5, header.minor
 	border-bottom: none;
 	color: #555;
 }
-	a.display-content { 
+	.display-content { 
 		text-decoration: none;
 		-moz-transition: background-color 0.2s ease-in-out;
 		-webkit-transition: background-color 0.2s ease-in-out;
 		-ms-transition: background-color 0.2s ease-in-out;
 		transition: background-color 0.2s ease-in-out;
 	}
-		a.display-content:hover  { background-color: #f5f5f5; }
+		.display-content:hover  { background-color: #f5f5f5; }
 	.display-content img {
 		margin-top: 1em;
 		margin-bottom: 0.5em;

@@ -63,7 +63,7 @@
 									$date = $row['traveldate'];
 									$arri = $row['arrivals'];
 									$des = $row['description'];
-									echo "<a href='flight.php?id=$id' class='display-content' style='text-decoration:none;'>
+									echo "<a href='flight.php?id=$id' class='display-content'>
 										<div class='name-date'>
 											<div class='col-xs-12 col-sm-7'>
 												<strong>$name</strong> - $date
