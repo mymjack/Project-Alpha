@@ -486,7 +486,7 @@ section.special, article.special {
 	}
 
 header.major {
-	margin: 0 0 1em 0;
+	margin: 2em 0 1em 0;
 }
 	header.major h2 {
 		font-size: 3em;
@@ -1090,7 +1090,7 @@ span.select2-selection{ min-height: 3.5em; }
 .hidden { display: none !important; }
 
 #items {
-	max-height: 60vh;
+	max-height: 80vh;
 	overflow: auto;
 }
 

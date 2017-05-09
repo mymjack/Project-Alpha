@@ -299,10 +299,17 @@ function removeItem($source, $item) {
 
 // The algorithm to estimate the total weight and value
 function reEstimateOrder() {
-	console.log('Re-estimating weight and value. (Algorithm is empty) ');
-	var totalWeight = 10, totalValue = 100;
+	// console.log('Re-estimating weight and value. (Algorithm is empty) ');
+	var totalWeight = 0, totalValue = 0;
 
-	// Implement estimate algorithm here.
+	var items = itemSummary();
+	for(i in items) {
+		var weight = parseInt(items[i]['weight']);
+		var value = parseInt(items[i]['value']);
+		var quantity = parseInt(items[i]['quantity']);
+		totalWeight += weight * quantity;
+		totalValue += (value + weight * 7.5) * quantity;
+	}
 
 	$('#total-weight').html(totalWeight);
 	$('#total-value').html(totalValue);

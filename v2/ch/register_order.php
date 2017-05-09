@@ -89,7 +89,7 @@
 							<input type="number" min="0" max="999999" name="quantity">
 						</div>
 						<div class="col-xs-6 input-with-label">
-							<span>单个重量(kg)</span>
+							<span>单个重量(lb)</span>
 							<input type="number" min="0" max="99" name="weight">
 						</div>
 						<div class="col-xs-6 input-with-label">
@@ -128,8 +128,8 @@
 					<div class="small">Ot-to 当前只在大多(GTA)地区取货</div>
 					<div class="divider"></div>
 					<h3>总结</h3>
-					<p>估计总重量： <span id="total-weight">0</span> kg</p>
-					<p>估计总价格： <span id="total-value">0</span> CAD</p>
+					<p>估计总重量： <span id="total-weight">0</span> lb(s)</p>
+					<p>估计总价格： <span id="total-value">0</span> CAD <div class="small">估计总价格： (单价 + 重量 x 7.5/lb) x 数量</div></p>
 					<p class="hidden">订单号： <span id="orderID"></span></p>
 					<p class="hidden">运输号： <span id="trackingID"></span></p>
 				</form>
