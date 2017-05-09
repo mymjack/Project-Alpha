@@ -35,14 +35,14 @@
 		Format string:
 		    OT nn  n n nnnn xxxxxx
 	*/
-	printf("%s%02d%d%d%04d%s",
-		$company_code,
-		$product_id,
-		$province,
-		$city,
-		$flyer_id,
-		generate_trackid()
-	);	
+	// printf("%s%02d%d%d%04d%s",
+	// 	$company_code,
+	// 	$product_id,
+	// 	$province,
+	// 	$city,
+	// 	$flyer_id,
+	// 	generate_trackid()
+	// );	
 	
 	// if (isset($_POST['track_id']) && !empty($_POST['track_id']))
 	if (isset($_GET['id']) && !empty($_GET['id']))
