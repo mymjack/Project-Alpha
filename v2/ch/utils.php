@@ -19,7 +19,7 @@ function configSession() {
 		define('DB_USERNAME', 'root');
 		// define('DB_PASSWORD', 'Shgl123.');
 		define('DB_PASSWORD', '');
-		define('DB_DATABASE', 'otto_db2');
+		define('DB_DATABASE', 'otto_db1');
 		global $db;
 		$db = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE) or die ("Cannot connect to database");
 	}
