@@ -1,0 +1,9 @@
+<div class="select-wrapper">
+	<select name="dep" id="dep" class="dep">
+		<option disababled selected value>出发地</option>
+		<option value="toronto">多伦多 Toronto</option>
+		<option value="markham">万锦 Markham</option>
+		<option value="mississauga">密市 Mississauga</option>
+		<option value="northyork">北约克 North York</option>
+	</select>
+</div>
