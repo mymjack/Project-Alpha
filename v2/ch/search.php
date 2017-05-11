@@ -135,14 +135,14 @@
 								    return preg_replace($from, $to, $subject, 1);
 								}
 								$actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-								$new_link = str_replace_first('&page=' . $page,'', $actual_link);
+								$new_link = str_replace_first('?page=' . $page,'', $actual_link);
 								if($page>1)
 								{
-									echo "<a href='$new_link&page=". ($page-1)."' class='button'>PREVIOUS</a>";
+									echo "<a href='$new_link?page=". ($page-1)."' class='button'>PREVIOUS</a>";
 								}
 								// If page is 1, change page to 2
 								if($page!=$total) {
-									echo "<a href='$new_link&page=". ($page+1)."' class='button'>NEXT</a>";
+									echo "<a href='$new_link?page=". ($page+1)."' class='button'>NEXT</a>";
 								}
 								echo "<ul class='page  page-selector'>";
 								for($i=1;$i<=$total;$i++)
@@ -150,7 +150,7 @@
 								if($i==$page) { echo "<li class='current'>".$i."</li>"; }
 
 								//else { echo "<li><a href='?page=".$i."'>".$i."</a></li>"; }
-								else { echo "<li><a href='$new_link&page=".$i."'>".$i."</a></li>"; }
+								else { echo "<li><a href='$new_link?page=".$i."'>".$i."</a></li>"; }
 								}
 								echo "</ul>";
 							?>

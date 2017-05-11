@@ -5,7 +5,7 @@
 
 
 	if (isset($_GET['id'])) {
-		$sql = "SELECT name,arrivals,publishdate,traveldate,departures,cell,description FROM usr_regis WHERE username='".$_SESSION['login_user']."' AND id='".$_GET['id']."';";
+		$sql = "SELECT name,arrivals,publishdate,traveldate,departures,cell,description FROM usr_regis WHERE id='".$_GET['id']."';";
 		$result = mysqli_query($db, $sql);
 		if ($result) {
 			$row = mysqli_fetch_array($result);
