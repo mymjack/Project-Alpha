@@ -10,6 +10,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 <!-- 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
 	<link rel="stylesheet" href="../assets/css/styles.css" />
+	<link rel="icon" type="image/x-icon" href="../../images/favicon-32x32.png" />
 
 	<!-- Select2 datalist files -->
 	<link href="../assets/select2/css/select2.css" rel="stylesheet" />
