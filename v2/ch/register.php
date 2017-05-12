@@ -12,7 +12,7 @@
 	<body>
 
 		<!-- Header -->
-		<?php $title="会员注册";include("nav.php") ?>
+		<?php $title="会员注册";$active="用户"; include("nav.php") ?>
 
 
 		<!-- Main -->
@@ -60,6 +60,8 @@
 
 		<!-- Scripts -->
 		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="../assets/js/skel.min.js"></script>
+		<script src="../assets/js/util.js"></script>
 		<script src="../assets/js/scripts.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function() {

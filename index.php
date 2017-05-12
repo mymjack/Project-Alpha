@@ -134,7 +134,7 @@
 	<!-- Scripts -->
 		<script src="assets/js/jquery.min.js"></script>
 		<script src="assets/js/skel.min.js"></script>
-		<script src="assets/js/util.js"></script>
+		<!-- <script src="assets/js/util.js"></script> -->
 		<script src="assets/js/main.js"></script>
 		<script src="bootstrap-3.3.7-dist/js/bootstrap.js"></script>
 		<script>

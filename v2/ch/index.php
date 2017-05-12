@@ -17,7 +17,7 @@
 <body class="landing">
 
 	<!-- Header -->
-	<?php $navAlt=true; include("nav.php"); ?>
+	<?php $navAlt=true;$title="首页"; include("nav.php"); ?>
 
 	<!-- Banner -->
 		<section id="banner">
@@ -63,12 +63,14 @@
 									$date = $row['traveldate'];
 									$arri = $row['arrivals'];
 									$des = $row['description'];
-									echo "<a href='flight.php?id=$id' class='display-content' style='text-decoration:none;'>
+									echo "<a href='flight.php?id=$id' class='display-content'>
 										<div class='name-date'>
 											<div class='col-xs-12 col-sm-7'>
 												<strong>$name</strong> - $date
 											</div>
-											<h4 class='col-xs-12 col-sm-5'>$dep -> $arri</h4>
+											<div class='col-xs-12 col-sm-5 align-right'>
+												<strong>$dep -> $arri</strong>
+											</div>
 										</div>
 										<div class='oneline-desc'>$des</div></a>";
 									}
@@ -101,7 +103,7 @@
 						<h2>敬请关注!</h2>
 						<!-- <p>Feugiat sed lorem ipsum magna</p> -->
 					</header>
-					<button id="back-to-top" class="button special big" >返回顶部</button>
+					<button id="back-to-top" class="button special " >返回顶部</button>
 				</div>
 			</section>
 
@@ -110,6 +112,8 @@
 
 	<!-- Scripts -->
 		<script src="../assets/js/jquery.min.js"></script>
+		<script src="../assets/js/skel.min.js"></script>
+		<script src="../assets/js/util.js"></script>
 		<script src="../assets/select2/js/select2.js"></script>
 		<script src="../assets/js/scripts.js"></script>
 		<script>

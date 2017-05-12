@@ -5,7 +5,7 @@
 
 
 	if (isset($_GET['id'])) {
-		$sql = "SELECT name,arrivals,publishdate,traveldate,departures,cell,description FROM usr_regis WHERE username='".$_SESSION['login_user']."' AND id='".$_GET['id']."';";
+		$sql = "SELECT name,arrivals,publishdate,traveldate,departures,cell,description FROM usr_regis WHERE id='".$_GET['id']."';";
 		$result = mysqli_query($db, $sql);
 		if ($result) {
 			$row = mysqli_fetch_array($result);
@@ -15,7 +15,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-	<title>Otto带物 - 查阅航班</title>
+	<title>查阅航班 - Otto带物</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="stylesheet" href="../assets/css/styles.css" />
@@ -23,7 +23,7 @@
 <body>
 
 	<!-- Navigation -->
-	<?php include("nav.php"); ?>
+	<?php $title="查阅航班"; $active="查询航班"; include("nav.php"); ?>
 
 	<section class="wrapper container">
 
@@ -65,6 +65,8 @@
 
 	<!-- Scripts -->
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="../assets/js/skel.min.js"></script>
+		<script src="../assets/js/util.js"></script>
 	<script src="../assets/js/scripts.js"></script>
 	<script type="text/javascript">
 		<?php 

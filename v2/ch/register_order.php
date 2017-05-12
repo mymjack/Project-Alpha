@@ -7,7 +7,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-	<title>Otto带物 - 登记订单</title>
+	<title>登记订单 - Otto带物</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 <!-- 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
@@ -19,7 +19,7 @@
 <body>
 
 	<!-- Navigation -->
-	<?php include("nav.php"); ?>
+	<?php $title="登记订单"; $active="登记订单"; include("nav.php"); ?>
 
 	<section class="wrapper container">
 
@@ -89,7 +89,7 @@
 							<input type="number" min="0" max="999999" name="quantity">
 						</div>
 						<div class="col-xs-6 input-with-label">
-							<span>单个重量(kg)</span>
+							<span>单个重量(lb)</span>
 							<input type="number" min="0" max="99" name="weight">
 						</div>
 						<div class="col-xs-6 input-with-label">
@@ -102,10 +102,10 @@
 							<form class="upload input-with-label" method="post" action="../assets/fileUploader/upload.php" enctype="multipart/form-data"> 
 							<span>物品图片</span>
 								<ul> 
-									<li class="drop-zone"> 添加图片 </li>
+									<li class="drop-zone"> <!-- 添加图片 -->(Coming soon) </li>
 									<!-- Files are shown here --> 
 								</ul>
-								<input type="file" name="upl" multiple />
+								<!-- <input type="file" name="upl" multiple /> -->
 							</form>
 
 						</div>
@@ -128,8 +128,8 @@
 					<div class="small">Ot-to 当前只在大多(GTA)地区取货</div>
 					<div class="divider"></div>
 					<h3>总结</h3>
-					<p>估计总重量： <span id="total-weight">0</span> kg</p>
-					<p>估计总价格： <span id="total-value">0</span> CAD</p>
+					<p>估计总重量： <span id="total-weight">0</span> lb(s)</p>
+					<p>估计总价格： <span id="total-value">0</span> CAD <div class="small">估计总价格： (单价 + 重量 x 7.5/lb) x 数量</div></p>
 					<p class="hidden">订单号： <span id="orderID"></span></p>
 					<p class="hidden">运输号： <span id="trackingID"></span></p>
 				</form>
@@ -145,6 +145,8 @@
 	<!-- Scripts -->
 	<!-- <script src="../assets/js/jquery.min.js"></script> -->
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="../assets/js/skel.min.js"></script>
+		<script src="../assets/js/util.js"></script>
 <!-- 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
 	<script src="../assets/select2/js/select2.js"></script>
 	<script src="../assets/js/scripts.js"></script>

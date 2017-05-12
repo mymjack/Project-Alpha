@@ -1,7 +1,7 @@
 <?php
 	require ("utils.php");
 	configSession();
-	loginRequired('请先登陆再访问航班表', 'search.php');
+	loginRequired('请先登陆再查询航班', 'search.php');
 
 	$start=0;
 	$limit=8;
@@ -28,7 +28,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-	<title>航班表 - Otto带物</title>
+	<title>查询航班 - Otto带物</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="stylesheet" href="../assets/css/styles.css" />
@@ -49,13 +49,13 @@
 <body>
 
 	<!-- Header -->
-	<?php include("nav.php"); ?>
+	<?php $title="查询航班"; $active="查询航班"; include("nav.php"); ?>
 	<!-- Main -->
 	<section id="main" class="wrapper">
 		<div class="container">
 			
 			<header class="major special">
-				<h2>搜索结果：</h2>
+				<h2>查询航班</h2>
 				<!--<p>Returns Search Results</p>-->
 			</header>
 			<p></p>
@@ -117,7 +117,9 @@
 												<div class='col-xs-12 col-sm-7'>
 													<strong>$name</strong> - $date
 												</div>
-												<h4 class='col-xs-12 col-sm-5'>$dep -> $arri</h4>
+												<div class='col-xs-12 col-sm-5 align-right'>
+													<strong>$dep -> $arri</strong>
+												</div>
 											</div>
 											<div class='oneline-desc'>$des</div></a>";
 								}
@@ -133,14 +135,14 @@
 								    return preg_replace($from, $to, $subject, 1);
 								}
 								$actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-								$new_link = str_replace_first('&page=' . $page,'', $actual_link);
+								$new_link = str_replace_first('?page=' . $page,'', $actual_link);
 								if($page>1)
 								{
-									echo "<a href='$new_link&page=". ($page-1)."' class='button'>PREVIOUS</a>";
+									echo "<a href='$new_link?page=". ($page-1)."' class='button'>PREVIOUS</a>";
 								}
 								// If page is 1, change page to 2
 								if($page!=$total) {
-									echo "<a href='$new_link&page=". ($page+1)."' class='button'>NEXT</a>";
+									echo "<a href='$new_link?page=". ($page+1)."' class='button'>NEXT</a>";
 								}
 								echo "<ul class='page  page-selector'>";
 								for($i=1;$i<=$total;$i++)
@@ -148,7 +150,7 @@
 								if($i==$page) { echo "<li class='current'>".$i."</li>"; }
 
 								//else { echo "<li><a href='?page=".$i."'>".$i."</a></li>"; }
-								else { echo "<li><a href='$new_link&page=".$i."'>".$i."</a></li>"; }
+								else { echo "<li><a href='$new_link?page=".$i."'>".$i."</a></li>"; }
 								}
 								echo "</ul>";
 							?>
@@ -197,6 +199,8 @@
 		$('select.dep option[value="<?php echo $depName; ?>"]').attr('selected','selected');
 		$('select.arri option[value="<?php echo $arriName; ?>"]').attr('selected','selected');
 	</script>
+		<script src="../assets/js/skel.min.js"></script>
+		<script src="../assets/js/util.js"></script>
 	<script src="../assets/select2/js/select2.js"></script>
 	<script src="../assets/js/scripts.js"></script>
 </body>

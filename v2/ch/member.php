@@ -1,8 +1,7 @@
 <?php
 	require ("utils.php");
 	configSession();
-	// loginRequired();
-	$_SESSION['login_user'] = 'mymjack';
+	loginRequired("请先登录再访问用户中心","member.php");
 
 	// User information
 	$sql = "SELECT name, cell, email, avatar FROM usr_info WHERE username='".$_SESSION['login_user']."';";
@@ -12,11 +11,15 @@
 	// Registered flights
 	$sqlf = "SELECT id, name, departures, arrivals, traveldate, description FROM usr_regis WHERE username='".$_SESSION['login_user']."' ORDER BY traveldate;";
 	$resultf = mysqli_query($db, $sqlf);
+
+	// Registered orders
+	$sqlo = "SELECT orderID, sellerName, buyerName, buyerAddress FROM order_regis WHERE username='".$_SESSION['login_user']."' ORDER BY publishdate;";
+	$resulto = mysqli_query($db, $sqlo);
 ?>
 <!DOCTYPE HTML>
 <html>
 <head>
-	<title>Otto带物 - 用户中心</title>
+	<title>用户中心 - Otto带物</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 <!-- 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
@@ -28,7 +31,7 @@
 <body>
 
 	<!-- Navigation -->
-	<?php include("nav.php"); ?>
+	<?php $title="用户中心";$active="用户"; include("nav.php"); ?>
 
 	<section class="wrapper container">
 
@@ -53,8 +56,9 @@
 				</header>
 
 				<form id="user-info" class="display">
-					<div id='large-avatar' style='background-image:url("../img/avatars/<?php echo $row['avatar']; ?>")'>
-						<div class="drop-zone" ></div>
+					<!-- <div id='large-avatar' style='background-image:url("../img/avatars/<?php //echo $row['avatar'];  ?>")'> -->
+					<div id='large-avatar' style='background-image:url("../img/avatars/default.png")'>
+						<div class="drop-zone" >Feature coming soon</div>
 						<input type="file" name="upl" />
 					</div>
 					<div class="input-with-label">
@@ -76,7 +80,7 @@
 			<div class="col-xs-12 col-sm-7 col-md-8">
 				<header id="flight-info" class="minor">
 					<h3>登记的航班</h3>
-					<a href="register.php" class="button small badge special">新建</a>
+					<a href="register_flight.php" class="button small badge special">新建</a>
 				</header>
 
 				<div class="list-group-display-content col-xs-12">
@@ -88,17 +92,44 @@
 							$date = $row['traveldate'];
 							$arri = $row['arrivals'];
 							$des = $row['description'];
-							echo "<a href='flight.php?id=$id' class='display-content' style='text-decoration:none;'>
+							echo "<a href='flight.php?id=$id' class='display-content'>
 								<div class='name-date'>
 									<div class='col-xs-12 col-sm-7'>
 										<strong>$name</strong> - $date
 									</div>
-									<h4 class='col-xs-12 col-sm-5'>$dep -> $arri</h4>
+									<div class='col-xs-12 col-sm-5 align-right'>
+										<strong>$dep -> $arri</strong>
+									</div>
 								</div>
 								<div class='oneline-desc'>$des</div></a>";
 							}
-						} else {
-							echo "暂时为空";
+						} ?>
+				</div>
+
+				<div class="divider"></div>
+
+				<header id="flight-info" class="minor">
+					<h3>登记的订单</h3>
+					<a href="register_order.php" class="button small badge special">新建</a>
+				</header>
+				<div class="list-group-display-content col-xs-12">
+					<?php if($resulto && mysqli_num_rows($resulto) > 0) {
+						while($row = mysqli_fetch_array($resulto)) {
+							$id = $row['orderID'];
+							$bName = $row['buyerName'];
+							$sName = $row['sellerName'];
+							$addr = $row['buyerAddress'];
+							echo "<a href='order.php?id=$id' class='display-content'>
+								<div class='name-date'>
+									<div class='col-xs-12 col-sm-7'>
+										<strong>$sName -> $bName</strong>
+									</div>
+									<div class='col-xs-12 col-sm-5 align-right'>
+										<strong>#$id</strong>
+									</div>
+								</div>
+								<div class='oneline-desc'>$addr</div></a>";
+							}
 						} ?>
 				</div>
 			</div>
@@ -110,17 +141,10 @@
 	<?php include("footer.php"); ?>
 
 	<!-- Scripts -->
-	<!-- <script src="../assets/js/jquery.min.js"></script> -->
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-	<!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
-	<!-- <script src="../assets/select2/js/select2.js"></script> -->
+		<script src="../assets/js/skel.min.js"></script>
+		<script src="../assets/js/util.js"></script>
 	<script src="../assets/js/scripts.js"></script>
-<!-- 	<script>
-	    var j = jQuery.noConflict();
-	    j( function() {
-	        j( "#datepicker" ).datepicker({dateFormat: "yy-m-d"});
-	    } );
-	</script> -->
 
 	<!-- jQuery File Upload Dependencies -->
 	<script src="../assets/fileUploader/js/jquery.ui.widget.js"></script>
