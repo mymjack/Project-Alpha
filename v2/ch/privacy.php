@@ -23,10 +23,10 @@
 		<div class="privacy_info">
 		<br><h2>Privacy Policy</h2>
 		<h4>Last updated: May 12, 2017</h4>>
-		<p>Otto Logistics ("us", "we", or "our") operates the <a href="ot-to.co">http://ot-to.co</a> website (the "Service").<br>
+		<p>Otto Logistics ("us", "we", or "our") operates the <a href="http://ot-to.co">http://ot-to.co</a> website (the "Service").<br>
 		This page informs you of our policies regarding the collection, use and disclosure of Personal Information when you use our Service.<br>
 		We will not use or share your information with anyone except as described in this Privacy Policy. This Privacy Policy is licensed by TermsFeed Generator to Otto Logistics.<br>
-		We use your Personal Information for providing and improving the Service. By using the Service, you agree to the collection and use of information in accordance with this policy. Unless otherwise defined in this Privacy Policy, terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, accessible at <a href="ot-to.co">http://ot-to.co</a><br>
+		We use your Personal Information for providing and improving the Service. By using the Service, you agree to the collection and use of information in accordance with this policy. Unless otherwise defined in this Privacy Policy, terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, accessible at <a href="http://ot-to.co">http://ot-to.co</a><br>
 		<br><h2>Information Collection And Use</h2>
 		While using our Service, we may ask you to provide us with certain personally identifiable information that can be used to contact or identify you. Personally identifiable information may include, but is not limited to, your name, phone number, postal address ("Personal Information").
 		<br><h2>Log Data</h2>

@@ -24,7 +24,7 @@
 		<br><h2>Terms and Conditions ("Terms")</h2>
 		<h4>Last updated: May 12, 2017</h4>>
 
-		<p>Please read these Terms and Conditions ("Terms", "Terms and Conditions") carefully before using the <a href="ot-to.co">http://ot-to.co</a> website (the "Service") operated by Otto Logistics ("us", "we", or "our").<br>
+		<p>Please read these Terms and Conditions ("Terms", "Terms and Conditions") carefully before using the <a href="http://ot-to.co">http://ot-to.co</a> website (the "Service") operated by Otto Logistics ("us", "we", or "our").<br>
 		Your access to and use of the Service is conditioned on your acceptance of and compliance with these Terms. These Terms apply to all visitors, users and others who access or use the Service.<br>
 		By accessing or using the Service you agree to be bound by these Terms. If you disagree with any part of the terms then you may not access the Service. This Terms & Conditions agreement is licensed by TermsFeed to Otto Logistics.<br>
 		<br><h2>Accounts</h2>
