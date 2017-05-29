@@ -4,7 +4,7 @@
 	loginRequired('请先登陆再访问订单信息', 'order_detail.php');
 
 	if (isset($_GET['id'])) {
-		$sql = "SELECT username, sellerName, sellerCell, sellerEmail, buyerName, buyerCell, buyerAddress, totalWeight, totalValue, ottoPickUp, publishdate, orderID, trackingID FROM order_regis WHERE orderID='".$_GET['id']."';";
+		$sql = "SELECT username, sellerName, sellerCell, sellerEmail, sellerWeChat, buyerName, buyerCell, buyerAddress, buyerWeChat, totalWeight, totalValue, ottoPickUp, publishdate, orderID, trackingID FROM order_regis WHERE orderID='".$_GET['id']."';";
 		$sql_items = "SELECT itemName, quantity, weight, price FROM item_regis WHERE orderID='".$_GET['id']."';";
 		$result = mysqli_query($db, $sql);
 		$result_items = mysqli_query($db, $sql_items);
@@ -62,6 +62,7 @@
 					<div>姓名/昵称: <?php echo (isset($row)? $row['sellerName'] : "") ?></div>
 					<div>电话: <?php echo (isset($row)? $row['sellerCell'] : "") ?></div>
 					<div>电子邮箱: <?php echo (isset($row)? $row['sellerEmail'] : "") ?></div>
+					<div>微信号: <?php echo (isset($row)? $row['sellerWeChat'] : "") ?></div>
 					<!-- 
 					<div class="input-with-label">
 						<span>地址</span>
@@ -73,6 +74,7 @@
 					<h3>收件人联系方式</h3>
 					<div>姓名/昵称: <?php echo (isset($row)? $row['buyerName'] : "") ?></div>
 					<div>电话: <?php echo (isset($row)? $row['buyerCell'] : "") ?></div>
+					<div>微信号: <?php echo (isset($row)? $row['buyerWeChat'] : "") ?></div>
 					<div>寄送地址: <?php echo (isset($row)? $row['buyerAddress'] : "") ?></div>
 				</form>
 			</div>

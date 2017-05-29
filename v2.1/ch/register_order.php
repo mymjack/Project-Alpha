@@ -50,6 +50,10 @@
 						<span>电子邮箱</span>
 						<input type="email" name="demail" id="demail" maxlength="100"/>  
 					</div>
+					<div class="input-with-label">
+						<span>微信号</span>
+						<input type="text" name="dwechat" id="dwechat" maxlength="25"/>
+					</div>
 					<!-- 
 					<div class="input-with-label">
 						<span>地址</span>
@@ -66,6 +70,10 @@
 					<div class="input-with-label">
 						<span>电话</span>
 						<input type="tel" name="ccell" id="ccell" required class="required" maxlength="25"/>
+					</div>
+					<div class="input-with-label">
+						<span>微信号</span>
+						<input type="text" name="cwechat" id="cwechat" maxlength="25"/>
 					</div>
 					<div class="input-with-label">
 						<span>寄送地址</span>
@@ -92,6 +100,7 @@
 						<div class="col-xs-6 input-with-label">
 							<span>单个重量(lb)</span>
 							<input type="number" min="0" max="99" name="weight">
+							<p class="small">若重量未知可以留空</p>
 						</div>
 						<div class="col-xs-6 input-with-label">
 							<span>单个价格(CAD)</span>

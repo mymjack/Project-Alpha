@@ -6,9 +6,11 @@
       $dname = htmlspecialchars_decode($_POST['dname']);	
       $dcell = htmlspecialchars_decode($_POST['dcell']?: '');
       $demail = htmlspecialchars_decode($_POST['demail']?: '');
+      $dwechat = htmlspecialchars_decode($_POST['dwechat']?: '');
       $cname = htmlspecialchars_decode($_POST['cname']); 
       $ccell = htmlspecialchars_decode($_POST['ccell']);
       $caddress = htmlspecialchars_decode($_POST['caddress']);
+      $cwechat = htmlspecialchars_decode($_POST['cwechat']?: '');
       $tweight = htmlspecialchars_decode($_POST['tweight']);
       $tvalue = htmlspecialchars_decode($_POST['tvalue']);
       $pickup = htmlspecialchars_decode($_POST['pickup']);
@@ -20,9 +22,10 @@
       $date = getdate();
       $publishdate = date('Y-n-j H:i:s');
 
-      $query = $db->prepare("INSERT INTO order_regis (username, sellerName, sellerCell, sellerEMail, buyerName, buyerCell, buyerAddress, totalWeight, totalValue, ottoPickUp, publishdate) VALUES('".$_SESSION['login_user']."', ?,?,?,?,?,?,?,?,?,?);");
-      $query->bind_param ('ssssssssds', $dname, $dcell, $demail, $cname, $ccell, $caddress, $tweight, $tvalue, $pickup, $publishdate);
+      $query = $db->prepare("INSERT INTO order_regis (username, sellerName, sellerCell, sellerEMail, sellerWeChat, buyerName, buyerCell, buyerAddress, buyerWeChat, totalWeight, totalValue, ottoPickUp, publishdate) VALUES('".$_SESSION['login_user']."', ?,?,?,?,?,?,?,?,?,?,?,?);");
+      $query->bind_param ('ssssssssssds', $dname, $dcell, $demail, $dwechat, $cname, $ccell, $caddress, $cwechat, $tweight, $tvalue, $pickup, $publishdate);
       if (!$query->execute()) {
+         echo mysqli_error($db);
          echo '{"status":"error", "errorMsg" : "服务器暂时无法创建订单，请稍后再试"}';
          exit;
       }
