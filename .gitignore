@@ -1,3 +1,8 @@
-phpMyAdmin/
+assets/
+bootstrap-3.3.7-dist/
+images/
+pages/
+select2/
+v2/phpMyAdmin/
 phpinfo.php
 .DS_Store
