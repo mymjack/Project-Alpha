@@ -15,15 +15,14 @@ function hasEmpty($lst) {
 function configSession() {
 	// include("config.php");
 	if (!isset($db)) {
-		// define('DB_SERVER', '198.178.116.238');
-		// define('DB_USERNAME', 'ottoco_admin');
-		// define('DB_PASSWORD', 'Shgl123.');
-		define('DB_SERVER', '127.0.0.1');
-		define('DB_USERNAME', 'root');
-		define('DB_PASSWORD', '');
-		define('DB_DATABASE', 'otto_db2');
+		define('DB_SERVER', '198.178.116.238');
+		define('DB_USERNAME', 'ottoco_admin');
+		define('DB_PASSWORD', 'Shgl123.');
+		// define('DB_PASSWORD', '');
+		define('DB_DATABASE', 'ottoco_db1');
 		global $db;
 		$db = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE) or die ("Cannot connect to database");
+		mysqli_query($db, "SET names utf8;");
 	}
 	if (session_status() == PHP_SESSION_NONE) {
 	    session_start();

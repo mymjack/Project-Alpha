@@ -21,7 +21,6 @@
 	// Get total number of valid rows
 	$total = 0;
 	$result1 = false;
-	// mysqli_query($db, "SET names utf8;");
 	$sql_total = "SELECT COUNT(id) AS total 
 		FROM flights_regis 
 		WHERE DATEDIFF(traveldate, CURDATE()) BETWEEN 0 
@@ -33,7 +32,6 @@
 		$total = ceil($total/$limit);
 
 		// Get the data
-		mysqli_query($db, "SET names utf8;");
 		$sql1 = "SELECT flights_regis.id, name, description, traveldate, a.chnName AS departures, b.chnName AS arrivals 
 			FROM flights_regis, loc_regis AS a, loc_regis AS b 
 			WHERE flights_regis.departures=a.id 

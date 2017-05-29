@@ -9,6 +9,7 @@
       $ari = htmlspecialchars_decode($_POST['arri']);
       $dep = htmlspecialchars_decode($_POST['dep']);
       $cell = htmlspecialchars_decode($_POST['cell']?: '');
+      $email = htmlspecialchars_decode($_POST['email']?: '');
       $travel = htmlspecialchars_decode($_POST['datepicker']);
       $description = htmlspecialchars_decode($_POST['description'] ?: '');
 
@@ -20,12 +21,12 @@
 
       //Add table entry
       if (empty($id)) {
-      	$query = $db->prepare("INSERT INTO usr_regis (username, name,arrivals,publishdate,traveldate,departures,cell,description) VALUES('".$_SESSION['login_user']."', ?,?,?,?,?,?,?);");
+      	$query = $db->prepare("INSERT INTO flights_regis (username, name,arrivals,publishdate,traveldate,departures,cell,email, description) VALUES('".$_SESSION['login_user']."', ?,?,?,?,?,?,?,?);");
       } else {
-         $query = $db->prepare("UPDATE usr_regis SET name=?,arrivals=?,publishdate=?,traveldate=?,departures=?,cell=?,description=? WHERE id='$id';");
+         $query = $db->prepare("UPDATE flights_regis SET name=?,arrivals=?,publishdate=?,traveldate=?,departures=?,cell=?,email=?,description=? WHERE id='$id';");
       }
 
-      $query->bind_param ( 'sssssss', $name, $ari, $publishdate, $travel, $dep, $cell, $description);
+      $query->bind_param ( 'ssssssss', $name, $ari, $publishdate, $travel, $dep, $cell, $email, $description);
       $res = $query->execute();
       echo $res? '{"status":"success", "id":"'.mysqli_insert_id($db).'"}' : '{"status":"error", "errorMsg" : "服务器繁忙，请稍后再试"}';
    }

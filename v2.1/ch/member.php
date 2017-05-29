@@ -9,7 +9,12 @@
 	$name = $row['name'] ?: $_SESSION['login_user'];
 
 	// Registered flights
-	$sqlf = "SELECT id, name, departures, arrivals, traveldate, description FROM usr_regis WHERE username='".$_SESSION['login_user']."' ORDER BY traveldate;";
+	$sqlf = "SELECT flights_regis.id, name, description, traveldate, a.chnName AS departures, b.chnName AS arrivals 
+						FROM flights_regis, loc_regis AS a, loc_regis AS b 
+						WHERE flights_regis.departures=a.id 
+							AND flights_regis.arrivals=b.id 
+							AND username='".$_SESSION['login_user']."' 
+							ORDER BY traveldate;";
 	$resultf = mysqli_query($db, $sqlf);
 
 	// Registered orders

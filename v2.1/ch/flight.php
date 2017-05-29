@@ -5,7 +5,11 @@
 
 
 	if (isset($_GET['id'])) {
-		$sql = "SELECT name,arrivals,publishdate,traveldate,departures,cell,description FROM usr_regis WHERE id='".$_GET['id']."';";
+		$sql = "SELECT flights_regis.id, cell, email, name, description, traveldate, a.chnName AS departures, b.chnName AS arrivals 
+						FROM flights_regis, loc_regis AS a, loc_regis AS b 
+						WHERE flights_regis.departures=a.id 
+							AND flights_regis.arrivals=b.id
+							AND flights_regis.id='".$_GET['id']."';";
 		$result = mysqli_query($db, $sql);
 		if ($result) {
 			$row = mysqli_fetch_array($result);
@@ -44,7 +48,7 @@
 					<h3>联系方式</h3>
 					<div>姓名/昵称: <?php echo (isset($row)? $row['name'] : "") ?></div>
 					<div>电话: <?php echo (isset($row)? $row['cell'] : "") ?></div>
-					<div>电子邮箱: <?php //echo (isset($row)? $row['email'] : "") ?></div>
+					<div>电子邮箱: <?php echo (isset($row)? $row['email'] : "") ?></div>
 				</form>
 			</div>
 

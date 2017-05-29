@@ -40,10 +40,16 @@
 		<form method="get" action="search.php?page=1">
 			<div class="index-search">
 				<div class="col-xs-12 col-sm-7 col-md-3">
-					<?php include("locSpinnerCA.xml"); ?>
+					<select name="dep" id="dep" class="dep">
+						<option disabled selected value>出发地</option>
+						<?php $country="Canada";include("locSpinner.php"); ?>
+					</select>
 				</div>
 				<div class="col-xs-12 col-sm-7 col-md-3">
-					<?php include("locSpinnerCH.xml"); ?>
+					<select name="arri" id="arri" class="arri">
+						<option disabled selected value>目的地</option>
+						<?php $country="China";include("locSpinner.php"); ?>
+					</select>
 				</div>
 			</div>
 			<input type="submit" class="button special" value="搜索">
@@ -62,7 +68,13 @@
 				<div class="list-group-display-content col-xs-12">
 					<?php 
 
-					$sql = "SELECT id, name, departures, arrivals, traveldate, description FROM usr_regis ORDER BY publishdate DESC LIMIT 5;";
+					$sql = "SELECT flights_regis.id, name, description, traveldate, a.chnName AS departures, b.chnName AS arrivals 
+						FROM flights_regis, loc_regis AS a, loc_regis AS b 
+						WHERE flights_regis.departures=a.id 
+							AND flights_regis.arrivals=b.id 
+							AND DATEDIFF(traveldate, CURDATE()) BETWEEN 0 
+							AND traveldate 
+							ORDER BY publishdate LIMIT 10";
 					$result = mysqli_query($db, $sql);
 					if($result){
 						while($row = mysqli_fetch_array($result)) {

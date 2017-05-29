@@ -58,11 +58,17 @@
 					<h3>航班信息</h3>
 					<div class="input-with-label">
 						<span>出发地</span>
-						<?php include("locSpinnerCA.xml"); ?>
+						<select name="dep" id="dep" class="dep">
+							<option disabled selected value>出发地</option>
+							<?php $country="Canada";include("locSpinner.php"); ?>
+						</select>
 					</div>
 					<div class="input-with-label">
 						<span>目的地</span>
-						<?php include("locSpinnerCH.xml"); ?>
+						<select name="arri" id="arri" class="arri">
+							<option disabled selected value>目的地</option>
+							<?php $country="China";include("locSpinner.php"); ?>
+						</select>
 					</div>
 
 					<div class="input-with-label">
