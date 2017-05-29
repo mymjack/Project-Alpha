@@ -36,8 +36,8 @@
 			FROM flights_regis, loc_regis AS a, loc_regis AS b 
 			WHERE flights_regis.departures=a.id 
 				AND flights_regis.arrivals=b.id 
-				AND DATEDIFF(traveldate, CURDATE()) BETWEEN 0 
-				AND traveldate ".($depName!=""? "AND departures='$depName'":"").($arri!=""? "AND arrivals='$arri'":"")." ORDER BY $filter LIMIT $start, $end";
+				AND traveldate >= '". date('Y-m-d', time()) ."'
+				 ".($depName!=""? "AND departures='$depName'":"").($arri!=""? "AND arrivals='$arri'":"")." ORDER BY $filter LIMIT $start, $end";
 
 		$result1 = mysqli_query($db, $sql1);
 	}

@@ -72,8 +72,7 @@
 						FROM flights_regis, loc_regis AS a, loc_regis AS b 
 						WHERE flights_regis.departures=a.id 
 							AND flights_regis.arrivals=b.id 
-							AND DATEDIFF(traveldate, CURDATE()) BETWEEN 0 
-							AND traveldate 
+							AND traveldate >= '". date('Y-m-d', time()) ."' 
 							ORDER BY publishdate LIMIT 10";
 					$result = mysqli_query($db, $sql);
 					if($result){

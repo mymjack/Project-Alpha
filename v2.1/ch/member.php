@@ -13,6 +13,7 @@
 						FROM flights_regis, loc_regis AS a, loc_regis AS b 
 						WHERE flights_regis.departures=a.id 
 							AND flights_regis.arrivals=b.id 
+							AND traveldate >= '". date('Y-m-d', time()) ."'
 							AND username='".$_SESSION['login_user']."' 
 							ORDER BY traveldate;";
 	$resultf = mysqli_query($db, $sqlf);
