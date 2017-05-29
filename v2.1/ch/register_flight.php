@@ -11,11 +11,11 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<!-- Select2 datalist files -->
+	<link href="../assets/select2/css/select2.css" rel="stylesheet" />
 	<link rel="stylesheet" href="../assets/css/styles.css" />
 	<link rel="icon" type="image/x-icon" href="../../images/favicon-32x32.png" />
 
-	<!-- Select2 datalist files -->
-	<link href="../assets/select2/css/select2.css" rel="stylesheet" />
 </head>
 <body>
 
@@ -35,7 +35,7 @@
 		</div>
 
 		<div class="row">
-			<div class="col-xs-12 col-md-5 vert-divider-right">
+			<div class="col-xs-12 col-md-5 vert-divider-right-sm">
 				<form id="flyer-info">
 					<h3>联系方式</h3>
 					<div class="input-with-label">

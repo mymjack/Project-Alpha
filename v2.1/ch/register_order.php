@@ -35,7 +35,7 @@
 		</div>
 
 		<div class="row">
-			<div class="col-xs-12 col-md-3 vert-divider-right">
+			<div class="col-xs-12 col-md-3 vert-divider-right-md">
 				<form id="contact-info">
 					<h3>寄件人联系方式</h3>
 					<div class="input-with-label">
@@ -74,7 +74,7 @@
 				</form>
 			</div>
 
-			<div class="col-xs-12 col-md-6 vert-divider-right">
+			<div class="col-xs-12 col-md-6 vert-divider-right-md">
 				<header class="minor">
 						<h3>订单详情</h3>
 						<button  class="small badge" id="add-item">添加物品</button>

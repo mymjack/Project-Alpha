@@ -43,7 +43,7 @@
 		</div>
 
 		<div class="row">
-			<div class="col-xs-12 col-md-5 vert-divider-right">
+			<div class="col-xs-12 col-md-5 vert-divider-right-sm">
 				<form id="flyer-info">
 					<h3>联系方式</h3>
 					<div>姓名/昵称: <?php echo (isset($row)? $row['name'] : "") ?></div>
