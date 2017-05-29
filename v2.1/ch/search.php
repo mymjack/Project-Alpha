@@ -10,6 +10,7 @@
 	$filter = isset($_GET['filter'])? $_GET['filter'] : 'traveldate';
 	$depName = isset($_GET['dep']) ? $_GET['dep'] : "";
 	$arri = isset($_GET['arri']) ? $_GET['arri'] : "";
+	$date = isset($_GET['datepicker']) && !empty($_GET['datepicker']) ? $_GET['datepicker'] : date('Y-m-d', time());
 	$arriName = $arri;
 
 	// Calculate start and end.
@@ -23,7 +24,7 @@
 	$result1 = false;
 	$sql_total = "SELECT COUNT(id) AS total 
 		FROM flights_regis 
-		WHERE DATEDIFF(traveldate, CURDATE()) BETWEEN 0 
+		WHERE traveldate >= '". date('Y-m-d', time()) ."'
 			AND traveldate ".($depName!=""? "AND departures='$depName'":"").($arri!=""? "AND arrivals='$arri'":"")."";
 
 	$totalRows = mysqli_query($db, $sql_total);
@@ -32,12 +33,13 @@
 		$total = ceil($total/$limit);
 
 		// Get the data
+		$filterStr = "ABS(DATEDIFF($filter, '$date'))";
 		$sql1 = "SELECT flights_regis.id, name, description, traveldate, a.chnName AS departures, b.chnName AS arrivals 
 			FROM flights_regis, loc_regis AS a, loc_regis AS b 
 			WHERE flights_regis.departures=a.id 
 				AND flights_regis.arrivals=b.id 
 				AND traveldate >= '". date('Y-m-d', time()) ."'
-				 ".($depName!=""? "AND departures='$depName'":"").($arri!=""? "AND arrivals='$arri'":"")." ORDER BY $filter LIMIT $start, $end";
+				 ".($depName!=""? "AND departures='$depName'":"").($arri!=""? "AND arrivals='$arri'":"")." ORDER BY $filterStr LIMIT $start, $end";
 
 		$result1 = mysqli_query($db, $sql1);
 	}
@@ -74,6 +76,7 @@
 		<div class="container">
 			<header class="major special" id="before-map">
 				<h2>查询航班</h2>
+				<p><?php echo $sql1; ?></p>
 			</header>
 		</div>
 
