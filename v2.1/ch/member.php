@@ -4,7 +4,7 @@
 	loginRequired("请先登录再访问用户中心","member.php");
 
 	// User information
-	$sql = "SELECT name, cell, email, avatar FROM usr_info WHERE username='".$_SESSION['login_user']."';";
+	$sql = "SELECT name, cell, email, wechat, avatar FROM usr_info WHERE username='".$_SESSION['login_user']."';";
 	$row = mysqli_fetch_array(mysqli_query($db, $sql));
 	$name = $row['name'] ?: $_SESSION['login_user'];
 
@@ -70,15 +70,19 @@
 					</div>
 					<div class="input-with-label">
 						<span>姓名/昵称</span>
-						<input type="text" name="name" id="name" required class="required" maxlength="80" value="<?php echo $row['name']; ?>" />
+						<input type="text" name="name" id="name" maxlength="80" value="<?php echo $row['name']; ?>" />
 					</div>
 					<div class="input-with-label">
 						<span>电话</span>
-						<input type="tel" name="cell" id="cell" required class="required" maxlength="25" value="<?php echo $row['cell']; ?>"/>
+						<input type="tel" name="cell" id="cell" maxlength="25" value="<?php echo $row['cell']; ?>"/>
 					</div>
 					<div class="input-with-label">
 						<span>电子邮箱</span>
 						<input type="email" name="email" id="email" maxlength="100" value="<?php echo $row['email']; ?>"/>  
+					</div>
+					<div class="input-with-label">
+						<span>微信号</span>
+						<input type="text" name="wechat" id="wechat" maxlength="50" value="<?php echo $row['wechat']; ?>"/>
 					</div>
 				</form>
 				<a href="server/logout.php" class="button alt fit">注销</a>
